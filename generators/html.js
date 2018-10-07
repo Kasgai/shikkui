@@ -1,15 +1,13 @@
 "use strict";
 
-var HtmlGenerator = new Blockly.Generator("HTML");
+const HtmlGenerator = new Blockly.Generator("HTML");
 
-HtmlGenerator.init = function(workspace) {};
-HtmlGenerator.finish = function(code) {
-  return code;
-};
+HtmlGenerator.init = workspace => {};
+HtmlGenerator.finish = code => code;
 
-HtmlGenerator.scrub_ = function(block, code) {
-  var nextBlock = block.nextConnection && block.nextConnection.targetBlock();
-  var nextCode = HtmlGenerator.blockToCode(nextBlock);
+HtmlGenerator.scrub_ = (block, code) => {
+  const nextBlock = block.nextConnection && block.nextConnection.targetBlock();
+  const nextCode = HtmlGenerator.blockToCode(nextBlock);
   return code + nextCode;
 };
 
@@ -17,11 +15,11 @@ HtmlGenerator.ORDER_NONE = 99;
 
 function removeIndentAndTrailingNewline() {}
 
-HtmlGenerator["baseframe"] = function(block) {
-  var statements_head = HtmlGenerator.statementToCode(block, "head");
-  var statements_body = HtmlGenerator.statementToCode(block, "body");
+HtmlGenerator["baseframe"] = block => {
+  const statements_head = HtmlGenerator.statementToCode(block, "head");
+  const statements_body = HtmlGenerator.statementToCode(block, "body");
 
-  var code =
+  const code =
     '<!DOCTYPE HTML>\n<html>\n<head>\n  <meta charset="utf-8">\n' +
     statements_head +
     "</head>\n\n<body>\n" +
@@ -31,93 +29,93 @@ HtmlGenerator["baseframe"] = function(block) {
   return code;
 };
 
-HtmlGenerator["html"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
+HtmlGenerator["html"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
   return code;
 };
 
-HtmlGenerator["body"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<body>\n" + statements_content + "</body>\n";
+HtmlGenerator["body"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<body>\n" + statements_content + "</body>\n";
   return code;
 };
 
-HtmlGenerator["head"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code =
+HtmlGenerator["head"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code =
     '<head>\n  <meta charset="utf-8">\n' + statements_content + "</head>\n";
   return code;
 };
 
-HtmlGenerator["title"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
+HtmlGenerator["title"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
 
   if (statements_content != "")
     document.getElementById("title").innerText = statements_content;
   else document.getElementById("title").innerText = "untitled web page";
 
-  var code = "<title>" + statements_content.trim() + "</title>\n";
+  const code = "<title>" + statements_content.trim() + "</title>\n";
   return code;
 };
 
-HtmlGenerator["paragraph"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<p>\n" + statements_content + "</p>\n";
+HtmlGenerator["paragraph"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<p>\n" + statements_content + "</p>\n";
   return code;
 };
 
-HtmlGenerator["plaintext"] = function(block) {
-  var text_content = block.getFieldValue("content");
-  var code = text_content + "\n";
+HtmlGenerator["plaintext"] = block => {
+  const text_content = block.getFieldValue("content");
+  const code = text_content + "\n";
   return code;
 };
 
-HtmlGenerator["division"] = function(block) {
-  var value_name = HtmlGenerator.valueToCode(
+HtmlGenerator["division"] = block => {
+  const value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
     HtmlGenerator.ORDER_NONE
   );
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<div" + value_name + ">\n" + statements_content + "</div>\n";
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<div" + value_name + ">\n" + statements_content + "</div>\n";
   return code;
 };
 
-HtmlGenerator["style"] = function(block) {
-  var statements_name = HtmlGenerator.statementToCode(block, "NAME");
-  var code = ' style="' + statements_name.trim() + '"';
+HtmlGenerator["style"] = block => {
+  const statements_name = HtmlGenerator.statementToCode(block, "NAME");
+  const code = ' style="' + statements_name.trim() + '"';
   return [code, HtmlGenerator.ORDER_NONE];
 };
 
-HtmlGenerator["color"] = function(block) {
-  var colour_name = block.getFieldValue("NAME");
-  var code = "color: " + colour_name + ";";
+HtmlGenerator["color"] = block => {
+  const colour_name = block.getFieldValue("NAME");
+  const code = "color: " + colour_name + ";";
   return code;
 };
 
-HtmlGenerator["bgcolour"] = function(block) {
-  var colour_name = block.getFieldValue("NAME");
-  var code = "background-color: " + colour_name + ";";
+HtmlGenerator["bgcolour"] = block => {
+  const colour_name = block.getFieldValue("NAME");
+  const code = "background-color: " + colour_name + ";";
   return code;
 };
 
-HtmlGenerator["genericstyle"] = function(block) {
-  var text_property = block.getFieldValue("property");
-  var text_value = block.getFieldValue("value");
-  var code = text_property + ": " + text_value + ";";
+HtmlGenerator["genericstyle"] = block => {
+  const text_property = block.getFieldValue("property");
+  const text_value = block.getFieldValue("value");
+  const code = text_property + ": " + text_value + ";";
   return code;
 };
 
-HtmlGenerator["generictag"] = function(block) {
-  var text_name = block.getFieldValue("NAME");
-  var value_name = HtmlGenerator.valueToCode(
+HtmlGenerator["generictag"] = block => {
+  const text_name = block.getFieldValue("NAME");
+  const value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
     HtmlGenerator.ORDER_NONE
   );
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code =
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code =
     "<" +
     text_name +
     value_name +
@@ -129,76 +127,76 @@ HtmlGenerator["generictag"] = function(block) {
   return code;
 };
 
-HtmlGenerator["more_attributes"] = function(block) {
-  var value_name1 = HtmlGenerator.valueToCode(
+HtmlGenerator["more_attributes"] = block => {
+  const value_name1 = HtmlGenerator.valueToCode(
     block,
     "NAME1",
     HtmlGenerator.ORDER_NONE
   );
-  var value_name2 = HtmlGenerator.valueToCode(
+  const value_name2 = HtmlGenerator.valueToCode(
     block,
     "NAME2",
     HtmlGenerator.ORDER_NONE
   );
-  var value_name3 = HtmlGenerator.valueToCode(
+  const value_name3 = HtmlGenerator.valueToCode(
     block,
     "NAME3",
     HtmlGenerator.ORDER_NONE
   );
-  var code = value_name1 + value_name2 + value_name3;
+  const code = value_name1 + value_name2 + value_name3;
   return [code, HtmlGenerator.ORDER_NONE];
 };
 
-HtmlGenerator["genericattribute"] = function(block) {
-  var text_attribute = block.getFieldValue("attribute");
-  var text_value = block.getFieldValue("value");
-  var code = " " + text_attribute + '="' + text_value + '"';
+HtmlGenerator["genericattribute"] = block => {
+  const text_attribute = block.getFieldValue("attribute");
+  const text_value = block.getFieldValue("value");
+  const code = " " + text_attribute + '="' + text_value + '"';
   return [code, HtmlGenerator.ORDER_NONE];
 };
 
-HtmlGenerator["link"] = function(block) {
-  var text_name = block.getFieldValue("NAME");
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code =
+HtmlGenerator["link"] = block => {
+  const text_name = block.getFieldValue("NAME");
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code =
     '<a href="' + text_name + '">' + statements_content.trim() + "</a>\n";
   return code;
 };
 
-HtmlGenerator["span"] = function(block) {
-  var value_name = HtmlGenerator.valueToCode(
+HtmlGenerator["span"] = block => {
+  const value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
     HtmlGenerator.ORDER_NONE
   );
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code =
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code =
     "<span" + value_name + ">" + statements_content.trim() + "</span>\n";
   return code;
 };
 
-HtmlGenerator["image"] = function(block) {
-  var text_image = block.getFieldValue("IMAGE");
-  var text_alt = block.getFieldValue("ALT");
-  var code = '<img src="' + text_image + '" alt="' + text_alt + '">\n';
+HtmlGenerator["image"] = block => {
+  const text_image = block.getFieldValue("IMAGE");
+  const text_alt = block.getFieldValue("ALT");
+  const code = '<img src="' + text_image + '" alt="' + text_alt + '">\n';
   return code;
 };
 
-HtmlGenerator["emphasise"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<em>" + statements_content.trim() + "</em>\n";
+HtmlGenerator["emphasise"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<em>" + statements_content.trim() + "</em>\n";
   return code;
 };
 
-HtmlGenerator["strong"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<strong>" + statements_content.trim() + "</strong>\n";
+HtmlGenerator["strong"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<strong>" + statements_content.trim() + "</strong>\n";
   return code;
 };
 
-HtmlGenerator["headline"] = function(block) {
-  var dropdown_name = block.getFieldValue("NAME");
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code =
+HtmlGenerator["headline"] = block => {
+  const dropdown_name = block.getFieldValue("NAME");
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code =
     "<" +
     dropdown_name +
     ">" +
@@ -209,139 +207,139 @@ HtmlGenerator["headline"] = function(block) {
   return code;
 };
 
-HtmlGenerator["linebreak"] = function(block) {
-  var code = "<br>\n";
+HtmlGenerator["linebreak"] = block => {
+  const code = "<br>\n";
   return code;
 };
 
-HtmlGenerator["horizontalbreak"] = function(block) {
-  var code = "<hr>\n";
+HtmlGenerator["horizontalbreak"] = block => {
+  const code = "<hr>\n";
   return code;
 };
 
-HtmlGenerator["unorderedlist"] = function(block) {
-  var statements_name = HtmlGenerator.statementToCode(block, "NAME");
-  var code = "<ul>\n" + statements_name + "</ul>\n";
+HtmlGenerator["unorderedlist"] = block => {
+  const statements_name = HtmlGenerator.statementToCode(block, "NAME");
+  const code = "<ul>\n" + statements_name + "</ul>\n";
   return code;
 };
 
-HtmlGenerator["orderedlist"] = function(block) {
-  var statements_name = HtmlGenerator.statementToCode(block, "NAME");
-  var code = "<ol>\n" + statements_name + "</ol>\n";
+HtmlGenerator["orderedlist"] = block => {
+  const statements_name = HtmlGenerator.statementToCode(block, "NAME");
+  const code = "<ol>\n" + statements_name + "</ol>\n";
   return code;
 };
 
-HtmlGenerator["listelement"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<li>" + statements_content + "</li>\n";
+HtmlGenerator["listelement"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<li>" + statements_content + "</li>\n";
   return code;
 };
 
-HtmlGenerator["inserted"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<ins>" + statements_content.trim() + "</ins>\n";
+HtmlGenerator["inserted"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<ins>" + statements_content.trim() + "</ins>\n";
   return code;
 };
 
-HtmlGenerator["deleted"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<del>" + statements_content.trim() + "</del>\n";
+HtmlGenerator["deleted"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<del>" + statements_content.trim() + "</del>\n";
   return code;
 };
 
-HtmlGenerator["super"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<sup>" + statements_content.trim() + "</sup>\n";
+HtmlGenerator["super"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<sup>" + statements_content.trim() + "</sup>\n";
   return code;
 };
 
-HtmlGenerator["sub"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<sub>" + statements_content.trim() + "</sub>\n";
+HtmlGenerator["sub"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<sub>" + statements_content.trim() + "</sub>\n";
   return code;
 };
 
-HtmlGenerator["code"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<code>\n" + statements_content + "</code>\n";
+HtmlGenerator["code"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<code>\n" + statements_content + "</code>\n";
   return code;
 };
 
-HtmlGenerator["quote"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<q>" + statements_content.trim() + "</q>\n";
+HtmlGenerator["quote"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<q>" + statements_content.trim() + "</q>\n";
   return code;
 };
 
-HtmlGenerator["blockquote"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<blockquote>\n" + statements_content + "</blockquote>\n";
+HtmlGenerator["blockquote"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<blockquote>\n" + statements_content + "</blockquote>\n";
   return code;
 };
 
-HtmlGenerator["sample"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<samp>\n" + statements_content + "</samp>\n";
+HtmlGenerator["sample"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<samp>\n" + statements_content + "</samp>\n";
   return code;
 };
 
-HtmlGenerator["keyboard"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<kbd>\n" + statements_content + "</kbd>\n";
+HtmlGenerator["keyboard"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<kbd>\n" + statements_content + "</kbd>\n";
   return code;
 };
 
-HtmlGenerator["variable"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<var>" + statements_content.trim() + "</var>\n";
+HtmlGenerator["variable"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<var>" + statements_content.trim() + "</var>\n";
   return code;
 };
 
-HtmlGenerator["form"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<form>\n" + statements_content + "</form>\n";
+HtmlGenerator["form"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<form>\n" + statements_content + "</form>\n";
   return code;
 };
 
-HtmlGenerator["table"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<table>\n" + statements_content + "</table>\n";
+HtmlGenerator["table"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<table>\n" + statements_content + "</table>\n";
   return code;
 };
 
-HtmlGenerator["tablerow"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<tr>\n" + statements_content + "</tr>\n";
+HtmlGenerator["tablerow"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<tr>\n" + statements_content + "</tr>\n";
   return code;
 };
 
-HtmlGenerator["tablecell"] = function(block) {
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<td>" + statements_content.trim() + "</td>\n";
+HtmlGenerator["tablecell"] = block => {
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<td>" + statements_content.trim() + "</td>\n";
   return code;
 };
 
-HtmlGenerator["input_text"] = function(block) {
-  var text_default = block.getFieldValue("default");
-  var code = '<input value="' + text_default + '">\n';
+HtmlGenerator["input_text"] = block => {
+  const text_default = block.getFieldValue("default");
+  const code = '<input value="' + text_default + '">\n';
   return code;
 };
 
-HtmlGenerator["button"] = function(block) {
-  var statements_name = HtmlGenerator.statementToCode(block, "NAME");
-  var code = "<button>" + statements_name.trim() + "</button>\n";
+HtmlGenerator["button"] = block => {
+  const statements_name = HtmlGenerator.statementToCode(block, "NAME");
+  const code = "<button>" + statements_name.trim() + "</button>\n";
   return code;
 };
 
-HtmlGenerator["input"] = function(block) {
-  var dropdown_type = block.getFieldValue("type");
-  var text_value = block.getFieldValue("value");
-  var value_text = HtmlGenerator.valueToCode(
+HtmlGenerator["input"] = block => {
+  const dropdown_type = block.getFieldValue("type");
+  const text_value = block.getFieldValue("value");
+  const value_text = HtmlGenerator.valueToCode(
     block,
     "text",
     HtmlGenerator.ORDER_NONE
   );
-  var code =
+  const code =
     '<input type="' +
     dropdown_type +
     '" value="' +
@@ -352,25 +350,28 @@ HtmlGenerator["input"] = function(block) {
   return code;
 };
 
-HtmlGenerator["script"] = function(block) {
-  var statements_content = Blockly.JavaScript.statementToCode(block, "content");
-  var code = "<script>\n" + statements_content + "</script>\n";
+HtmlGenerator["script"] = block => {
+  const statements_content = Blockly.JavaScript.statementToCode(
+    block,
+    "content"
+  );
+  const code = "<script>\n" + statements_content + "</script>\n";
   return code;
 };
 
-HtmlGenerator["onclick"] = function(block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
-  var code = ' onclick="' + statements_name.trim() + '"';
+HtmlGenerator["onclick"] = block => {
+  const statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
+  const code = ' onclick="' + statements_name.trim() + '"';
   return [code, HtmlGenerator.ORDER_NONE];
 };
 
-HtmlGenerator["body_attributes"] = function(block) {
-  var value_name = HtmlGenerator.valueToCode(
+HtmlGenerator["body_attributes"] = block => {
+  const value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
     HtmlGenerator.ORDER_NONE
   );
-  var statements_content = HtmlGenerator.statementToCode(block, "content");
-  var code = "<body" + value_name + ">\n" + statements_content + "</body>\n";
+  const statements_content = HtmlGenerator.statementToCode(block, "content");
+  const code = "<body" + value_name + ">\n" + statements_content + "</body>\n";
   return code;
 };
