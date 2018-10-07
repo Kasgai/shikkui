@@ -13,7 +13,6 @@ HtmlGenerator.scrub_ = function(block, code) {
   return code + nextCode;
 };
 
-HtmlGenerator.ORDER_ATOMIC = 0;
 HtmlGenerator.ORDER_NONE = 99;
 
 function removeIndentAndTrailingNewline() {}
@@ -78,7 +77,7 @@ HtmlGenerator["division"] = function(block) {
   var value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var statements_content = HtmlGenerator.statementToCode(block, "content");
   var code = "<div" + value_name + ">\n" + statements_content + "</div>\n";
@@ -115,7 +114,7 @@ HtmlGenerator["generictag"] = function(block) {
   var value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var statements_content = HtmlGenerator.statementToCode(block, "content");
   var code =
@@ -134,17 +133,17 @@ HtmlGenerator["more_attributes"] = function(block) {
   var value_name1 = HtmlGenerator.valueToCode(
     block,
     "NAME1",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var value_name2 = HtmlGenerator.valueToCode(
     block,
     "NAME2",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var value_name3 = HtmlGenerator.valueToCode(
     block,
     "NAME3",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var code = value_name1 + value_name2 + value_name3;
   return [code, HtmlGenerator.ORDER_NONE];
@@ -169,7 +168,7 @@ HtmlGenerator["span"] = function(block) {
   var value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var statements_content = HtmlGenerator.statementToCode(block, "content");
   var code =
@@ -340,7 +339,7 @@ HtmlGenerator["input"] = function(block) {
   var value_text = HtmlGenerator.valueToCode(
     block,
     "text",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var code =
     '<input type="' +
@@ -369,7 +368,7 @@ HtmlGenerator["body_attributes"] = function(block) {
   var value_name = HtmlGenerator.valueToCode(
     block,
     "NAME",
-    HtmlGenerator.ORDER_ATOMIC
+    HtmlGenerator.ORDER_NONE
   );
   var statements_content = HtmlGenerator.statementToCode(block, "content");
   var code = "<body" + value_name + ">\n" + statements_content + "</body>\n";
