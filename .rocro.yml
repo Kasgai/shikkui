@@ -1,0 +1,10 @@
+inspecode:
+  thresholds:
+    num-issues:
+      critical: 0
+      error: 0
+  tidy: auto-fix
+  csslint: default
+  eslint: auto-fix
+  prettier: auto-fix
+  misspell: auto-fix
