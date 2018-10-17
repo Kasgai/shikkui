@@ -21,11 +21,14 @@ const loadXml = url => {
 
   const location = window.location;
 
-  const requestUrl = [`${location}/toolbox.xml`, `${location}/workspace.xml`];
+  const requestUrl = [
+    `${location}/html_toolbox.xml`,
+    `${location}/js_toolbox.xml`
+  ];
   const result = await Promise.all(requestUrl.map(loadXml));
 
   const toolbox = result[0];
-  // const workspaceBlocks = result[1];
+  const jstoolbox = result[1];
 
   const options = {
     toolbox: toolbox,
@@ -41,7 +44,22 @@ const loadXml = url => {
     oneBasedIndex: true
   };
 
+  const jsoptions = {
+    toolbox: jstoolbox,
+    collapse: true,
+    maxBlocks: Infinity,
+    trashcan: true,
+    tooltips: true,
+    css: true,
+    media: "https://blockly-demo.appspot.com/static/media/",
+    rtl: false,
+    scrollbars: true,
+    sounds: true,
+    oneBasedIndex: true
+  };
+
   const workspace = Blockly.inject(blocklyArea, options);
+  const jsworkspace = Blockly.inject(blocklyJsArea, jsoptions);
 
   var xml_text = localStorage.getItem("blockly-html-code");
   if (xml_text) {
