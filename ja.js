@@ -1,4 +1,4 @@
-Msg = {
+var Msg = {
   categories: {
     html: "HTML",
     baseframe: "基本",

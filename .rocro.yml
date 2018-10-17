@@ -3,7 +3,5 @@ inspecode:
     num-issues:
       critical: 0
       error: 0
-  tidy: auto-fix
-  eslint: auto-fix
   prettier: auto-fix
   misspell: auto-fix
