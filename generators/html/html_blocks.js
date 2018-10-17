@@ -1,6 +1,6 @@
 "use strict";
 
-var htmlBlocks = [
+const htmlBlocks = [
   {
     type: "baseframe",
     message0: "document %1 header %2 %3 content %4 %5",
@@ -901,18 +901,18 @@ var htmlBlocks = [
 
 if (Msg && Msg.blocks) {
   // Update jsons with translations
-  for (var iBlock in htmlBlocks) {
-    var json = htmlBlocks[iBlock];
-    var trs = Msg.blocks[json.type];
-    for (var iTr in trs) {
-      if (typeof trs[iTr] == "string") {
+  for (let iBlock in htmlBlocks) {
+    const json = htmlBlocks[iBlock];
+    const trs = Msg.blocks[json.type];
+    for (let iTr in trs) {
+      if (typeof trs[iTr] === "string") {
         json[iTr] = trs[iTr];
-      } else if (typeof trs[iTr] == "object") {
+      } else if (typeof trs[iTr] === "object") {
         // Mainly for args0 property
         // Follow two levels, then just replace
-        for (var iTrObj in trs[iTr]) {
-          if (typeof trs[iTr][iTrObj] == "object") {
-            for (var index in trs[iTr][iTrObj]) {
+        for (let iTrObj in trs[iTr]) {
+          if (typeof trs[iTr][iTrObj] === "object") {
+            for (let index in trs[iTr][iTrObj]) {
               json[iTr][iTrObj][index] = trs[iTr][iTrObj][index];
             }
           } else {
@@ -931,7 +931,7 @@ if (Msg && Msg.blocks) {
   }
 }
 
-for (var iBlock in htmlBlocks) {
+for (let iBlock in htmlBlocks) {
   function makeBlock(json) {
     Blockly.Blocks[json.type] = {
       init: function() {
