@@ -19,9 +19,9 @@ const loadXml = url => {
   // var toolbox = document.getElementById("toolbox");
   const blocklyArea = document.getElementById("blocklyArea");
 
-  const host = location.host;
+  const location = window.location;
 
-  const requestUrl = [`//${host}/toolbox.xml`, `//${host}/workspace.xml`];
+  const requestUrl = [`${location}/toolbox.xml`, `${location}/workspace.xml`];
   const result = await Promise.all(requestUrl.map(loadXml));
 
   const toolbox = result[0];
