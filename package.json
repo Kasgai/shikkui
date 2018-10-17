@@ -1,0 +1,25 @@
+{
+  "name": "kasgai",
+  "version": "1.0.0",
+  "description": "This Project is based on [blockly-html](https://github.com/bwinf/blockly-html).",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint *.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/iPolyomino/kasgai.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iPolyomino/kasgai/issues"
+  },
+  "homepage": "https://github.com/iPolyomino/kasgai#readme",
+  "dependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "prettier": "^1.14.3"
+  }
+}

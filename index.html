@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <title></title>
-        <meta content="">
-        <meta charset="utf-8">
-        <style>
-         html, body {
+
+<head>
+    <title></title>
+    <meta content="">
+    <meta charset="utf-8">
+    <style>
+        html, body {
              padding: 0;
              margin: 0;
          }
@@ -41,132 +43,132 @@
          }
         </style>
 
-        <script src="blockly/blockly_compressed.js"></script>
-        <script src="blockly/blocks_compressed.js"></script>
-        <script src="blockly/msg/js/ja.js"></script>
-        <script src="blockly/javascript_compressed.js"></script>
+    <script src="blockly/blockly_compressed.js"></script>
+    <script src="blockly/blocks_compressed.js"></script>
+    <script src="blockly/msg/js/ja.js"></script>
+    <script src="blockly/javascript_compressed.js"></script>
 
-        <script src="ja.js"></script>
-        <script src="generators/html.js"></script>
-        <script src="generators/html/html_blocks.js"></script>
-    </head>
+    <script src="ja.js"></script>
+    <script src="generators/html.js"></script>
+    <script src="generators/html/html_blocks.js"></script>
+</head>
 
-    <body>
-        <div id="container">
-            <div id="blocklyArea"></div>
-            <div id="menubar">
-                <div><span id="saveText">💾 Save blocks:</span> <input type="button" value="Save" id="saveButton" /></div>
-                <div><span id="loadText">📂 Load blocks:</span> <input type="file" id="fileButton" style="max-width:200px" /></div>
-                <div><span id="exportText">📄 Export webpage as HTML:</span> <input type="button" value="Export" id="exportButton" /></div>
-                <script>
-                 if (typeof (Msg) == "object" && Msg.buttons) {
-                     document.getElementById("saveText").textContent = Msg.buttons.save.desc;
-                     document.getElementById("saveButton").textContent = Msg.buttons.save.button;
-                     document.getElementById("loadText").textContent = Msg.buttons.load.desc;
-                     document.getElementById("exportText").value = Msg.buttons.export.desc;
-                     document.getElementById("exportButton").value = Msg.buttons.export.button;
-                 }
-                </script>
-            </div>
-            <div id="title">untitled web page</div>
-            <div id="websiteFrame"><iframe id="website"></iframe></div>
-            <pre id="sourcecode">sum contnent</pre>
+<body>
+    <div id="container">
+        <div id="blocklyArea"></div>
+        <div id="menubar">
+            <div><span id="saveText">💾 Save blocks:</span> <input type="button" value="Save" id="saveButton" /></div>
+            <div><span id="loadText">📂 Load blocks:</span> <input type="file" id="fileButton" style="max-width:200px" /></div>
+            <div><span id="exportText">📄 Export webpage as HTML:</span> <input type="button" value="Export" id="exportButton" /></div>
+            <script>
+                if (typeof (Msg) == "object" && Msg.buttons) {
+                    document.getElementById("saveText").textContent = Msg.buttons.save.desc;
+                    document.getElementById("saveButton").textContent = Msg.buttons.save.button;
+                    document.getElementById("loadText").textContent = Msg.buttons.load.desc;
+                    document.getElementById("exportText").value = Msg.buttons.export.desc;
+                    document.getElementById("exportButton").value = Msg.buttons.export.button;
+                }
+            </script>
         </div>
-        <script>
-         if (typeof (Msg) == "object" && Msg.categories) {
-             for (category in Msg.categories) {
-                 elements = document.getElementsByName(category);
-                 if (elements.length == 0) {
-                     continue;
-                 }
-                 elements[0].setAttribute("name", Msg.categories[category]);
-             }
-         }
+        <div id="title">untitled web page</div>
+        <div id="websiteFrame"><iframe id="website"></iframe></div>
+        <pre id="sourcecode">sum contnent</pre>
+    </div>
+    <script>
+        if (typeof (Msg) == "object" && Msg.categories) {
+            for (category in Msg.categories) {
+                elements = document.getElementsByName(category);
+                if (elements.length == 0) {
+                    continue;
+                }
+                elements[0].setAttribute("name", Msg.categories[category]);
+            }
+        }
 
-         const loadXml = url => {
-             return fetch(url)
-                 .then( response => response.text())
-                 .then( data => data)
-                 .catch(error => console.error(error));
-         }
+        const loadXml = url => {
+            return fetch(url)
+                .then(response => response.text())
+                .then(data => data)
+                .catch(error => console.error(error));
+        }
 
-         (async () => {
-             // var toolbox = document.getElementById("toolbox");
-             const blocklyArea = document.getElementById('blocklyArea');
+        (async () => {
+            // var toolbox = document.getElementById("toolbox");
+            const blocklyArea = document.getElementById('blocklyArea');
 
-             const requestUrl = ["http://localhost:8000/toolbox.xml", "http://localhost:8000/workspace.xml"];
-             const result = await Promise.all(requestUrl.map(loadXml));
+            const requestUrl = ["http://localhost:8000/toolbox.xml", "http://localhost:8000/workspace.xml"];
+            const result = await Promise.all(requestUrl.map(loadXml));
 
-             const toolbox = result[0];
-             // const workspaceBlocks = result[1];
+            const toolbox = result[0];
+            // const workspaceBlocks = result[1];
 
-             const options = {
-                 toolbox: toolbox,
-                 collapse: true,
-                 maxBlocks: Infinity,
-                 trashcan: true,
-                 tooltips: true,
-                 css: true,
-                 media: 'https://blockly-demo.appspot.com/static/media/',
-                 rtl: false,
-                 scrollbars: true,
-                 sounds: true,
-                 oneBasedIndex: true
-             };
+            const options = {
+                toolbox: toolbox,
+                collapse: true,
+                maxBlocks: Infinity,
+                trashcan: true,
+                tooltips: true,
+                css: true,
+                media: 'https://blockly-demo.appspot.com/static/media/',
+                rtl: false,
+                scrollbars: true,
+                sounds: true,
+                oneBasedIndex: true
+            };
 
-             const workspace = Blockly.inject(blocklyArea, options);
+            const workspace = Blockly.inject(blocklyArea, options);
 
-             var xml_text = localStorage.getItem('blockly-html-code');
-             if (xml_text) {
-                 var xml = Blockly.Xml.textToDom(xml_text);
-                 Blockly.Xml.domToWorkspace(xml, workspace);
-             }
+            var xml_text = localStorage.getItem('blockly-html-code');
+            if (xml_text) {
+                var xml = Blockly.Xml.textToDom(xml_text);
+                Blockly.Xml.domToWorkspace(xml, workspace);
+            }
 
-             Blockly.svgResize(workspace);
+            Blockly.svgResize(workspace);
 
-             function myUpdateFunction(event) {
-                 var code = HtmlGenerator.workspaceToCode(workspace);
-                 document.getElementById('sourcecode').innerText = code;
-                 document.getElementById('website').src = "data:text/html;charset=utf-8," + encodeURIComponent(code);
+            function myUpdateFunction(event) {
+                var code = HtmlGenerator.workspaceToCode(workspace);
+                document.getElementById('sourcecode').innerText = code;
+                document.getElementById('website').src = "data:text/html;charset=utf-8," + encodeURIComponent(code);
 
-                 // Save Blocks
-                 var xml = Blockly.Xml.workspaceToDom(workspace);
-                 var xml_text = Blockly.Xml.domToText(xml);
-                 localStorage.setItem('blockly-html-code', xml_text);
-             }
-             workspace.addChangeListener(myUpdateFunction);
+                // Save Blocks
+                var xml = Blockly.Xml.workspaceToDom(workspace);
+                var xml_text = Blockly.Xml.domToText(xml);
+                localStorage.setItem('blockly-html-code', xml_text);
+            }
+            workspace.addChangeListener(myUpdateFunction);
 
-             function saveWorkspaceToDownload() {
-                 var xml = Blockly.Xml.workspaceToDom(workspace);
-                 var xml_text = Blockly.Xml.domToText(xml);
-                 newWindow = window.open("data:application/octet-stream," + encodeURIComponent(xml_text), 'webseite.blockly.xml');
-             }
-             document.getElementById("saveButton").onclick = saveWorkspaceToDownload;
+            function saveWorkspaceToDownload() {
+                var xml = Blockly.Xml.workspaceToDom(workspace);
+                var xml_text = Blockly.Xml.domToText(xml);
+                newWindow = window.open("data:application/octet-stream," + encodeURIComponent(xml_text), 'webseite.blockly.xml');
+            }
+            document.getElementById("saveButton").onclick = saveWorkspaceToDownload;
 
-             function saveHtmlToDownload() {
-                 var code = HtmlGenerator.workspaceToCode(workspace);
-                 newWindow = window.open("data:application/octet-stream," + encodeURIComponent(code), 'webseite.html');
-             }
-             document.getElementById("exportButton").onclick = saveHtmlToDownload;
+            function saveHtmlToDownload() {
+                var code = HtmlGenerator.workspaceToCode(workspace);
+                newWindow = window.open("data:application/octet-stream," + encodeURIComponent(code), 'webseite.html');
+            }
+            document.getElementById("exportButton").onclick = saveHtmlToDownload;
 
-             function loadWorkspaceFromUpload(e) {
-                 var file = e.target.files[0];
-                 if (!file) {
-                     return;
-                 }
-                 var reader = new FileReader();
-                 reader.onload = function (e) {
-                     var xml_text = e.target.result;
-                     if (xml_text) {
-                         var xml = Blockly.Xml.textToDom(xml_text);
-                         Blockly.Xml.domToWorkspace(xml, workspace);
-                     }
-                 };
-                 reader.readAsText(file);
-             }
-             document.getElementById('fileButton').addEventListener('change', loadWorkspaceFromUpload, false);
-         })();
-        </script>
-    </body>
+            function loadWorkspaceFromUpload(e) {
+                var file = e.target.files[0];
+                if (!file) {
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var xml_text = e.target.result;
+                    if (xml_text) {
+                        var xml = Blockly.Xml.textToDom(xml_text);
+                        Blockly.Xml.domToWorkspace(xml, workspace);
+                    }
+                };
+                reader.readAsText(file);
+            }
+            document.getElementById('fileButton').addEventListener('change', loadWorkspaceFromUpload, false);
+        })();
+    </script>
+</body>
 
 </html>
