@@ -80,7 +80,14 @@ const loadXml = url => {
     var xml_text = Blockly.Xml.domToText(xml);
     localStorage.setItem("blockly-html-code", xml_text);
   }
+
+  function jsWorkspaceUpdate(event) {
+    const code = Blockly.JavaScript.workspaceToCode(jsworkspace);
+    console.log(code);
+    document.getElementById("jsSourcecode").innerText = code;
+  }
   workspace.addChangeListener(myUpdateFunction);
+  jsworkspace.addChangeListener(jsWorkspaceUpdate);
 
   function saveWorkspaceToDownload() {
     var xml = Blockly.Xml.workspaceToDom(workspace);

@@ -1,0 +1,61 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+#container {
+    width:100vw;
+    height:100vh;
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "blocklyHtml	webcontent"
+        "blocklyJs   code";
+}
+
+#blocklyArea {
+    grid-area: blocklyHtml;
+}
+
+#blocklyJsArea {
+    grid-area: blocklyJs;
+}
+
+#webcontentsArea {
+    grid-area: webcontent;
+    display: grid;
+    grid-template-rows: 10% 2rem 1fr;
+    border: solid 1px #c6c6c6;
+}
+
+#webcontentsArea > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sourcecodeArea {
+    grid-area: code;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: solid 1px #c6c6c6;
+}
+
+#sourcecodeArea > pre {
+    border-right: solid 1px #c6c6c6;
+}
+
+#title {
+    font-size: 2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #ddd;
+}
+
+#website {
+    border: 0px;
+    width: 100%;
+    height: 100%;
+    box-shadow: border-box;
+}
