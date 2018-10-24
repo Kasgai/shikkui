@@ -1,12 +1,9 @@
-if (typeof Msg == "object" && Msg.categories) {
-  for (category in Msg.categories) {
-    elements = document.getElementsByName(category);
-    if (elements.length == 0) {
-      continue;
-    }
-    elements[0].setAttribute("name", Msg.categories[category]);
-  }
-}
+"use strict";
+
+const executeJavaScript = () => {
+  const jsSourcecode = document.getElementById("jsSourcecode").innerText;
+  eval(jsSourcecode);
+};
 
 const loadXml = url => {
   return fetch(url)
@@ -15,22 +12,58 @@ const loadXml = url => {
     .catch(error => console.error(error));
 };
 
-(async () => {
-  // var toolbox = document.getElementById("toolbox");
-  const blocklyArea = document.getElementById("blocklyArea");
+const makeWorkspace = (htmlToolbox, jsToolbox) => {
+  const htmlBlocklyArea = document.getElementById("blocklyArea");
+  const jsBlocklyArea = document.getElementById("blocklyJsArea");
 
-  const location = window.location;
+  const htmlWorkspace = Blockly.inject(
+    htmlBlocklyArea,
+    makeOption(htmlToolbox)
+  );
+  const jsWorkspace = Blockly.inject(jsBlocklyArea, makeOption(jsToolbox));
 
-  const requestUrl = [
-    `${location}/html_toolbox.xml`,
-    `${location}/js_toolbox.xml`
-  ];
-  const result = await Promise.all(requestUrl.map(loadXml));
+  const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
+  if (htmlBlockXmlCode) {
+    const xml = Blockly.Xml.textToDom(htmlBlockXmlCode);
+    Blockly.Xml.domToWorkspace(xml, htmlWorkspace);
+  }
 
-  const toolbox = result[0];
-  const jstoolbox = result[1];
+  const jsBlockXmlCode = localStorage.getItem("blockly-js-code");
+  if (jsBlockXmlCode) {
+    var xml = Blockly.Xml.textToDom(jsBlockXmlCode);
+    Blockly.Xml.domToWorkspace(xml, jsWorkspace);
+  }
 
-  const options = {
+  Blockly.svgResize(htmlWorkspace);
+  Blockly.svgResize(jsWorkspace);
+
+  const updateHtmlWorkspace = () => {
+    const code = HtmlGenerator.workspaceToCode(htmlWorkspace);
+    document.getElementById("htmlSourcecode").innerText = code;
+    document.getElementById(
+      "website"
+    ).src = `data:text/html;charset=utf-8,${encodeURIComponent(code)}`;
+
+    const xml = Blockly.Xml.workspaceToDom(htmlWorkspace);
+    const xml_text = Blockly.Xml.domToText(xml);
+    localStorage.setItem("blockly-html-code", xml_text);
+  };
+
+  const updateJsWorkspace = () => {
+    const code = Blockly.JavaScript.workspaceToCode(jsWorkspace);
+    document.getElementById("jsSourcecode").innerText = code;
+
+    const xml = Blockly.Xml.workspaceToDom(jsWorkspace);
+    const xml_text = Blockly.Xml.domToText(xml);
+    localStorage.setItem("blockly-js-code", xml_text);
+  };
+
+  htmlWorkspace.addChangeListener(updateHtmlWorkspace);
+  jsWorkspace.addChangeListener(updateJsWorkspace);
+};
+
+const makeOption = toolbox => {
+  return {
     toolbox: toolbox,
     collapse: true,
     maxBlocks: Infinity,
@@ -43,87 +76,13 @@ const loadXml = url => {
     sounds: true,
     oneBasedIndex: true
   };
+};
 
-  const jsoptions = {
-    toolbox: jstoolbox,
-    collapse: true,
-    maxBlocks: Infinity,
-    trashcan: true,
-    tooltips: true,
-    css: true,
-    media: "https://blockly-demo.appspot.com/static/media/",
-    rtl: false,
-    scrollbars: true,
-    sounds: true,
-    oneBasedIndex: true
-  };
+(async () => {
+  const requestUrl = ["/html_toolbox.xml", "/js_toolbox.xml"];
+  const result = await Promise.all(requestUrl.map(loadXml));
 
-  const workspace = Blockly.inject(blocklyArea, options);
-  const jsworkspace = Blockly.inject(blocklyJsArea, jsoptions);
-
-  var xml_text = localStorage.getItem("blockly-html-code");
-  if (xml_text) {
-    var xml = Blockly.Xml.textToDom(xml_text);
-    Blockly.Xml.domToWorkspace(xml, workspace);
-  }
-
-  Blockly.svgResize(workspace);
-
-  function myUpdateFunction(event) {
-    var code = HtmlGenerator.workspaceToCode(workspace);
-    document.getElementById("sourcecode").innerText = code;
-    document.getElementById("website").src =
-      "data:text/html;charset=utf-8," + encodeURIComponent(code);
-
-    // Save Blocks
-    var xml = Blockly.Xml.workspaceToDom(workspace);
-    var xml_text = Blockly.Xml.domToText(xml);
-    localStorage.setItem("blockly-html-code", xml_text);
-  }
-
-  function jsWorkspaceUpdate(event) {
-    const code = Blockly.JavaScript.workspaceToCode(jsworkspace);
-    console.log(code);
-    document.getElementById("jsSourcecode").innerText = code;
-  }
-  workspace.addChangeListener(myUpdateFunction);
-  jsworkspace.addChangeListener(jsWorkspaceUpdate);
-
-  function saveWorkspaceToDownload() {
-    var xml = Blockly.Xml.workspaceToDom(workspace);
-    var xml_text = Blockly.Xml.domToText(xml);
-    newWindow = window.open(
-      "data:application/octet-stream," + encodeURIComponent(xml_text),
-      "webseite.blockly.xml"
-    );
-  }
-  document.getElementById("saveButton").onclick = saveWorkspaceToDownload;
-
-  function saveHtmlToDownload() {
-    var code = HtmlGenerator.workspaceToCode(workspace);
-    newWindow = window.open(
-      "data:application/octet-stream," + encodeURIComponent(code),
-      "webseite.html"
-    );
-  }
-  document.getElementById("exportButton").onclick = saveHtmlToDownload;
-
-  function loadWorkspaceFromUpload(e) {
-    var file = e.target.files[0];
-    if (!file) {
-      return;
-    }
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var xml_text = e.target.result;
-      if (xml_text) {
-        var xml = Blockly.Xml.textToDom(xml_text);
-        Blockly.Xml.domToWorkspace(xml, workspace);
-      }
-    };
-    reader.readAsText(file);
-  }
-  document
-    .getElementById("fileButton")
-    .addEventListener("change", loadWorkspaceFromUpload, false);
+  const htmlToolbox = result[0];
+  const jsToolbox = result[1];
+  makeWorkspace(htmlToolbox, jsToolbox);
 })();
