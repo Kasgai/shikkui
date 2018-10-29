@@ -1,5 +1,5 @@
 <xml xmlns="http://www.w3.org/1999/xhtml" id="jstoolbox" style="display: none;">
-  <category name="JavaScript">
+  <category name="JavaScript" expanded="true">
     <category name="logic" colour="#5C81A6">
       <block type="controls_if"></block>
       <block type="logic_compare"></block>
@@ -235,5 +235,10 @@
     </category>
     <category name="variables" colour="#A65C81" custom="VARIABLE"></category>
     <category name="functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+    <category name="node" colour="#22aa40">
+      <block type="text"></block>
+      <block type="getelementbyid"></block>
+      <block type="innerhtml"></block>
+    </category>
   </category>
 </xml>

@@ -2,7 +2,15 @@
 
 const executeJavaScript = () => {
   const jsSourcecode = document.getElementById("jsSourcecode").innerText;
-  eval(jsSourcecode);
+
+  const iframeDocument =
+    "document.getElementById('website').contentWindow.document";
+  const fixDocumentRootJsSourceCode = jsSourcecode.replace(
+    "document",
+    iframeDocument
+  );
+
+  eval(fixDocumentRootJsSourceCode);
 };
 
 const loadXml = url => {

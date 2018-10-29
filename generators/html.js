@@ -379,4 +379,4 @@ HtmlGenerator["id"] = function(block) {
   var statements_name = block.getFieldValue("NAME");
   var code = ' id="' + statements_name + '"';
   return [code, HtmlGenerator.ORDER_NONE];
-}
+};
