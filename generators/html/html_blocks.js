@@ -896,6 +896,22 @@ const htmlBlocks = [
     colour: 0,
     tooltip: "",
     helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
+  },
+  {
+    type: "id",
+    message0: "id= %1",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "app"
+      }
+    ],
+    inputsInline: true,
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
   }
 ];
 

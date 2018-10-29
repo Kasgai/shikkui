@@ -116,5 +116,8 @@
       <block type="script"></block>
       <block type="onclick"></block>
     </category>
+    <category name="node" colour="#22aa40">
+      <block type="id"></block>
+    </category>
   </category>
 </xml>

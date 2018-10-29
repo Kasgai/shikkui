@@ -374,3 +374,9 @@ HtmlGenerator["body_attributes"] = function(block) {
   var code = "<body" + value_name + ">\n" + statements_content + "</body>\n";
   return code;
 };
+
+HtmlGenerator["id"] = function(block) {
+  var statements_name = block.getFieldValue("NAME");
+  var code = ' id="' + statements_name + '"';
+  return [code, HtmlGenerator.ORDER_NONE];
+}
