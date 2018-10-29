@@ -118,6 +118,7 @@
     </category>
     <category name="node" colour="#22aa40">
       <block type="id"></block>
+      <block type="division"></block>
     </category>
   </category>
 </xml>
