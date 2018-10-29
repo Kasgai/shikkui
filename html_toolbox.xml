@@ -1,0 +1,124 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" id="htmltoolbox" style="display: none;">
+  <category name="html" expanded="true">
+    <category name="baseframe" colour="#a55b5b">
+      <block type="html">
+        <statement name="content">
+          <block type="head">
+            <statement name="content">
+              <block type="title">
+                <statement name="content">
+                  <block type="plaintext"></block>
+                </statement>
+              </block>
+            </statement>
+            <next>
+              <block type="body"></block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="html"></block>
+      <block type="body"></block>
+      <block type="body_attributes"></block>
+      <block type="head"></block>
+      <block type="title">
+        <statement name="content">
+          <block type="plaintext"></block>
+        </statement>
+      </block>
+    </category>
+    <category name="textstructure" colour="#5ba55b">
+      <block type="plaintext"></block>
+      <block type="horizontalbreak"></block>
+      <block type="linebreak"></block>
+      <block type="paragraph"></block>
+      <block type="headline"></block>
+      <block type="link"></block>
+      <block type="image">
+        <field name="ALT">alternative text</field>
+      </block>
+      <block type="generictag"></block>
+    </category>
+    <category name="markup" colour="#5ba55b">
+      <block type="emphasise"></block>
+      <block type="inserted"></block>
+      <block type="strong"></block>
+      <block type="deleted"></block>
+      <block type="super"></block>
+      <block type="sub"></block>
+      <block type="code"></block>
+      <block type="quote"></block>
+      <block type="blockquote"></block>
+      <block type="sample"></block>
+      <block type="keyboard"></block>
+      <block type="variable"></block>
+      <block type="division"></block>
+    </category>
+    <category name="style" colour="#5b6da5">
+      <block type="span">
+        <value name="NAME">
+          <block type="style"></block>
+        </value>
+      </block>
+      <block type="style"></block>
+      <block type="color"></block>
+      <block type="bgcolour"></block>
+      <block type="genericstyle">
+        <field name="value">value</field>
+      </block>
+      <block type="span"></block>
+      <block type="division"></block>
+      <block type="generictag"></block>
+    </category>
+    <category name="enumerations" colour="#a55ba5">
+      <block type="unorderedlist"></block>
+      <block type="orderedlist"></block>
+      <block type="listelement"></block>
+    </category>
+    <category name="tables" colour="#5ba5a5">
+      <block type="table">
+        <statement name="content">
+          <block type="tablerow">
+            <statement name="content">
+              <block type="tablecell">
+                <next>
+                  <block type="tablecell"></block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="tablerow">
+                <statement name="content">
+                  <block type="tablecell">
+                    <next>
+                      <block type="tablecell"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="table"></block>
+      <block type="tablerow"></block>
+      <block type="tablecell"></block>
+    </category>
+    <category name="forms" colour="#80a55b">
+      <block type="form"></block>
+      <block type="input_text"></block>
+      <block type="button"></block>
+      <block type="input">
+        <field name="value"></field>
+      </block>
+    </category>
+    <category name="scripts" colour="#a5a55b">
+      <block type="script"></block>
+      <block type="onclick"></block>
+    </category>
+    <category name="node" colour="#22aa40">
+      <block type="id"></block>
+      <block type="division"></block>
+    </category>
+  </category>
+</xml>

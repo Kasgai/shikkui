@@ -2318,4 +2318,47 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="C+58o.^|EatIbdVJDaU)" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">id</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="E?E7C?vJ[p|C{pNS@m0e">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="_U!1M?OoGN*Yeg6?)nP|">
+            <field name="TEXT">id=</field>
+            <next>
+              <block type="field_input" id="ub2Fex4kniQ[kHtbGaol">
+                <field name="TEXT">app</field>
+                <field name="FIELDNAME">NAME</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="kKgWjOA@FUzj}/lt1xsq" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="~J==nFWKQ~8-*+ps21fQ" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="JN,Kr[b[%8=dX.sv9_Li"></shadow>
+      <block type="type_other" id="DYD%jV96d+,.BV}kt3Xx">
+        <field name="TYPE">attribute</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=")Q%_-5e7_X-!EG9epMWO">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
   </block></xml>
