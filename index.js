@@ -1,18 +1,5 @@
 "use strict";
 
-const executeJavaScript = () => {
-  const jsSourcecode = document.getElementById("jsSourcecode").innerText;
-
-  const iframeDocument =
-    "document.getElementById('website').contentWindow.document";
-  const fixDocumentRootJsSourceCode = jsSourcecode.replace(
-    "document",
-    iframeDocument
-  );
-
-  eval(fixDocumentRootJsSourceCode);
-};
-
 const loadXml = url => {
   return fetch(url)
     .then(response => response.text())
@@ -20,15 +7,13 @@ const loadXml = url => {
     .catch(error => console.error(error));
 };
 
-const makeWorkspace = (htmlToolbox, jsToolbox) => {
+const makeWorkspace = htmlToolbox => {
   const htmlBlocklyArea = document.getElementById("blocklyArea");
-  const jsBlocklyArea = document.getElementById("blocklyJsArea");
 
   const htmlWorkspace = Blockly.inject(
     htmlBlocklyArea,
     makeOption(htmlToolbox)
   );
-  const jsWorkspace = Blockly.inject(jsBlocklyArea, makeOption(jsToolbox));
 
   const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
   if (htmlBlockXmlCode) {
@@ -36,14 +21,7 @@ const makeWorkspace = (htmlToolbox, jsToolbox) => {
     Blockly.Xml.domToWorkspace(xml, htmlWorkspace);
   }
 
-  const jsBlockXmlCode = localStorage.getItem("blockly-js-code");
-  if (jsBlockXmlCode) {
-    var xml = Blockly.Xml.textToDom(jsBlockXmlCode);
-    Blockly.Xml.domToWorkspace(xml, jsWorkspace);
-  }
-
   Blockly.svgResize(htmlWorkspace);
-  Blockly.svgResize(jsWorkspace);
 
   const updateHtmlWorkspace = () => {
     const code = HtmlGenerator.workspaceToCode(htmlWorkspace);
@@ -57,17 +35,7 @@ const makeWorkspace = (htmlToolbox, jsToolbox) => {
     localStorage.setItem("blockly-html-code", xml_text);
   };
 
-  const updateJsWorkspace = () => {
-    const code = Blockly.JavaScript.workspaceToCode(jsWorkspace);
-    document.getElementById("jsSourcecode").innerText = code;
-
-    const xml = Blockly.Xml.workspaceToDom(jsWorkspace);
-    const xml_text = Blockly.Xml.domToText(xml);
-    localStorage.setItem("blockly-js-code", xml_text);
-  };
-
   htmlWorkspace.addChangeListener(updateHtmlWorkspace);
-  jsWorkspace.addChangeListener(updateJsWorkspace);
 };
 
 const makeOption = toolbox => {
@@ -89,13 +57,11 @@ const makeOption = toolbox => {
 (async () => {
   const windowLocation = window.location;
   const requestUrl = [
-    `${windowLocation}/html_toolbox.xml`,
-    `${windowLocation}/js_toolbox.xml`
+    `${windowLocation}/html_toolbox.xml`
   ];
 
   const result = await Promise.all(requestUrl.map(loadXml));
 
   const htmlToolbox = result[0];
-  const jsToolbox = result[1];
-  makeWorkspace(htmlToolbox, jsToolbox);
+  makeWorkspace(htmlToolbox);
 })();

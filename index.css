@@ -11,7 +11,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: "blocklyHtml	webcontent" "blocklyJs   code";
+  grid-template-areas: "blocklyHtml	webcontent" "blocklyHtml   code";
 }
 
 #blocklyArea {
@@ -37,14 +37,6 @@ body {
 
 #sourcecodeArea {
   grid-area: code;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 32px;
-  border: solid 1px #c6c6c6;
-}
-
-#sourcecodeArea > pre {
-  border-right: solid 1px #c6c6c6;
 }
 
 #title {
