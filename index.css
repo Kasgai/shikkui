@@ -25,7 +25,7 @@ body {
 #webcontentsArea {
   grid-area: webcontent;
   display: grid;
-  grid-template-rows: 10% 2rem 1fr;
+  grid-template-rows: 10% 3rem 1fr;
   border: solid 1px #c6c6c6;
 }
 
@@ -41,7 +41,7 @@ body {
 
 #title {
   font-size: 2rem;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: "Noto Sans JP", sans-serif;
   background-color: #ddd;
 }
 
