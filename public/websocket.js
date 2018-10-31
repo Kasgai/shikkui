@@ -1,14 +1,13 @@
 const ws = new Websocket();
 
 ws.onopen = () => {
-    console.log("ok");
-}
+  console.log("ok");
+};
 
 ws.onclose = () => {
-    console.log("close");
-}
+  console.log("close");
+};
 
 ws.onerror = e => {
-    console.log(`error: ${e}`)
-}
-
+  console.log(`error: ${e}`);
+};
