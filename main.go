@@ -35,16 +35,16 @@ func echo(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func home(w http.ResponseWriter, r *http.Request) {
-	http.ServeFile(w, r, "index.html")
-}
-
 func main() {
 	flag.Parse()
-	r := mux.NewRouter()
-	r.HandleFunc("/", home)
-
 	log.SetFlags(0)
-	http.HandleFunc("/echo", echo)
+
+	r := mux.NewRouter()
+	r.HandleFunc("/echo", echo)
+
+	r.PathPrefix("/").Handler(http.FileServer(http.Dir("./public/")))
+	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./public/index.html")
+	})
 	log.Fatal(http.ListenAndServe(*addr, r))
 }
