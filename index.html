@@ -26,9 +26,10 @@
         <div id="blocklyJsArea"></div>
         <div id="webcontentsArea">
             <div>
-                <span id="saveText">💾 Save blocks:</span> <input type="button" value="Save" id="saveButton" />
-                <span id="loadText">📂 Load blocks:</span> <input type="file" id="fileButton" style="max-width:200px" />
-                <span id="exportText">📄 Export webpage as HTML:</span> <input type="button" value="Export" id="exportButton" />
+                <a id="exportBlockXml" href="#" download="workspace.xml" onclick="exportBlockXml()">💾 Save blocks</a>
+                <span id="loadText">📂 Load blocks:</span>
+                <input type="file" id="fileButton" />
+                <a id="exportHtml" href="#" download="index.html" onclick="exportHtml()">📄 Export webpage as HTML:</a>
             </div>
             <div id="title">untitled web page</div>
             <div id="websiteFrame"><iframe id="website"></iframe></div>

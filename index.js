@@ -1,5 +1,9 @@
 "use strict";
 
+let workspace = null;
+
+// XML setup
+
 const loadXml = url => {
   return fetch(url)
     .then(response => response.text())
@@ -10,32 +14,29 @@ const loadXml = url => {
 const makeWorkspace = htmlToolbox => {
   const htmlBlocklyArea = document.getElementById("blocklyArea");
 
-  const htmlWorkspace = Blockly.inject(
-    htmlBlocklyArea,
-    makeOption(htmlToolbox)
-  );
+  workspace = Blockly.inject(htmlBlocklyArea, makeOption(htmlToolbox));
 
   const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
   if (htmlBlockXmlCode) {
     const xml = Blockly.Xml.textToDom(htmlBlockXmlCode);
-    Blockly.Xml.domToWorkspace(xml, htmlWorkspace);
+    Blockly.Xml.domToWorkspace(xml, workspace);
   }
 
-  Blockly.svgResize(htmlWorkspace);
+  Blockly.svgResize(workspace);
 
-  const updateHtmlWorkspace = () => {
-    const code = HtmlGenerator.workspaceToCode(htmlWorkspace);
+  const updateWorkspace = () => {
+    const code = HtmlGenerator.workspaceToCode(workspace);
     document.getElementById("htmlSourcecode").innerText = code;
     document.getElementById(
       "website"
     ).src = `data:text/html;charset=utf-8,${encodeURIComponent(code)}`;
 
-    const xml = Blockly.Xml.workspaceToDom(htmlWorkspace);
+    const xml = Blockly.Xml.workspaceToDom(workspace);
     const xml_text = Blockly.Xml.domToText(xml);
     localStorage.setItem("blockly-html-code", xml_text);
   };
 
-  htmlWorkspace.addChangeListener(updateHtmlWorkspace);
+  workspace.addChangeListener(updateWorkspace);
 };
 
 const makeOption = toolbox => {
@@ -63,3 +64,32 @@ const makeOption = toolbox => {
   const htmlToolbox = result[0];
   makeWorkspace(htmlToolbox);
 })();
+
+// export Files
+
+const exportBlockXml = () => {
+  if (workspace) {
+    const xml = Blockly.Xml.workspaceToDom(workspace);
+    const xml_text = Blockly.Xml.domToText(xml);
+    const blob = new Blob([xml_text], { type: "text/xml;charset=utf-8" });
+    document.getElementById("exportBlockXml").href = window.URL.createObjectURL(
+      blob
+    );
+  } else {
+    console.error("cannot export Block XML");
+  }
+};
+
+const exportHtml = () => {
+  if (workspace) {
+    const code = HtmlGenerator.workspaceToCode(workspace);
+    const blob = new Blob([code], {
+      type: "text/html;charset=utf-8"
+    });
+    document.getElementById("exportHtml").href = window.URL.createObjectURL(
+      blob
+    );
+  } else {
+    console.error("cannot export HTML");
+  }
+};
