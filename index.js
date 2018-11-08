@@ -56,8 +56,7 @@ const makeOption = toolbox => {
 };
 
 (async () => {
-  const windowLocation = window.location;
-  const requestUrl = [`${windowLocation}/html_toolbox.xml`];
+  const requestUrl = ['/html_toolbox.xml'];
 
   const result = await Promise.all(requestUrl.map(loadXml));
 
