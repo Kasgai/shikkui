@@ -32,8 +32,8 @@ const makeWorkspace = htmlToolbox => {
     ).src = `data:text/html;charset=utf-8,${encodeURIComponent(code)}`;
 
     const xml = Blockly.Xml.workspaceToDom(workspace);
-    const xml_text = Blockly.Xml.domToText(xml);
-    localStorage.setItem("blockly-html-code", xml_text);
+    const xmlText = Blockly.Xml.domToText(xml);
+    localStorage.setItem("blockly-html-code", xmlText);
   };
 
   workspace.addChangeListener(updateWorkspace);
@@ -64,13 +64,35 @@ const makeOption = toolbox => {
   makeWorkspace(htmlToolbox);
 })();
 
+// import Files
+
+const importBlockXml = e => {
+  const file = e.files[0];
+  if (!file) {
+    console.error("file was not found");
+    return;
+  }
+  if (!workspace) {
+    console.error("workspace was not found");
+  }
+  const reader = new FileReader();
+  reader.onload = e => {
+    const xmlText = e.target.result;
+    if (xmlText) {
+      const xml = Blockly.Xml.textToDom(xmlText);
+      Blockly.Xml.domToWorkspace(xml, workspace);
+    }
+  };
+  reader.readAsText(file);
+};
+
 // export Files
 
 const exportBlockXml = () => {
   if (workspace) {
     const xml = Blockly.Xml.workspaceToDom(workspace);
-    const xml_text = Blockly.Xml.domToText(xml);
-    const blob = new Blob([xml_text], { type: "text/xml;charset=utf-8" });
+    const xmlText = Blockly.Xml.domToText(xml);
+    const blob = new Blob([xmlText], { type: "text/xml;charset=utf-8" });
     document.getElementById("exportBlockXml").href = window.URL.createObjectURL(
       blob
     );
