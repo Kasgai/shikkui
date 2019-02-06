@@ -10,32 +10,26 @@ body {
   display: -ms-grid;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "blocklyHtml	webcontent" "blocklyHtml   code";
+  grid-template-rows: 50px 1fr 1fr;
+  grid-template-areas: "navigation navigation" "blocklyHtml	webcontent" "blocklyHtml   code";
 }
 
-#blocklyArea {
-  grid-area: blocklyHtml;
-}
-
-#blocklyJsArea {
-  grid-area: blocklyJs;
-}
-
-#webcontentsArea {
-  grid-area: webcontent;
-  display: grid;
-  grid-template-rows: 10% 3rem 1fr;
-  border: solid 1px #c6c6c6;
-}
-
-#webcontentsArea > div {
+.navigation {
+  grid-area: navigation;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
-#sourcecodeArea {
+.blockly {
+  grid-area: blocklyHtml;
+}
+
+.preview {
+  grid-area: webcontent;
+  border: solid 1px #c6c6c6;
+}
+
+.sourceCode {
   grid-area: code;
 }
 
