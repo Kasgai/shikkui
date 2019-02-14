@@ -2,6 +2,13 @@
 
 let workspace = null;
 
+// firebase connection control
+
+const db = firebase.database();
+const dbCodeHoge = db.ref("/code/hoge");
+
+let isHost = false;
+
 // XML setup
 
 const loadXml = url => {
@@ -16,10 +23,13 @@ const makeWorkspace = htmlToolbox => {
 
   workspace = Blockly.inject(htmlBlocklyArea, makeOption(htmlToolbox));
 
-  const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
-  if (htmlBlockXmlCode) {
-    const xml = Blockly.Xml.textToDom(htmlBlockXmlCode);
-    Blockly.Xml.domToWorkspace(xml, workspace);
+  if (isHost) {
+    const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
+    if (htmlBlockXmlCode) {
+      workspace.clear();
+      const xml = Blockly.Xml.textToDom(htmlBlockXmlCode);
+      Blockly.Xml.domToWorkspace(xml, workspace);
+    }
   }
 
   Blockly.svgResize(workspace);
@@ -31,9 +41,13 @@ const makeWorkspace = htmlToolbox => {
       "website"
     ).src = `data:text/html;charset=utf-8,${encodeURIComponent(code)}`;
 
-    const xml = Blockly.Xml.workspaceToDom(workspace);
-    const xmlText = Blockly.Xml.domToText(xml);
-    localStorage.setItem("blockly-html-code", xmlText);
+    if (isHost) {
+      const xml = Blockly.Xml.workspaceToDom(workspace);
+      const xmlText = Blockly.Xml.domToText(xml);
+      localStorage.setItem("blockly-html-code", xmlText);
+
+      dbCodeHoge.set({ xmlCode: xmlText });
+    }
   };
 
   workspace.addChangeListener(updateWorkspace);
@@ -55,15 +69,6 @@ const makeOption = toolbox => {
   };
 };
 
-(async () => {
-  const requestUrl = ["/html_toolbox.xml"];
-
-  const result = await Promise.all(requestUrl.map(loadXml));
-
-  const htmlToolbox = result[0];
-  makeWorkspace(htmlToolbox);
-})();
-
 // import Files
 
 const importBlockXml = e => {
@@ -74,11 +79,13 @@ const importBlockXml = e => {
   }
   if (!workspace) {
     console.error("workspace was not found");
+    return;
   }
   const reader = new FileReader();
   reader.onload = e => {
     const xmlText = e.target.result;
     if (xmlText) {
+      workspace.clear();
       const xml = Blockly.Xml.textToDom(xmlText);
       Blockly.Xml.domToWorkspace(xml, workspace);
     }
@@ -114,3 +121,22 @@ const exportHtml = () => {
     console.error("cannot export HTML");
   }
 };
+
+// receive xml code
+dbCodeHoge.on("value", snapshot => {
+  if (snapshot.val() != null && !isHost) {
+    workspace.clear();
+    const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
+    Blockly.Xml.domToWorkspace(xml, workspace);
+  }
+});
+
+// main logic
+(async () => {
+  const requestUrl = ["/html_toolbox.xml"];
+
+  const result = await Promise.all(requestUrl.map(loadXml));
+
+  const htmlToolbox = result[0];
+  makeWorkspace(htmlToolbox);
+})();

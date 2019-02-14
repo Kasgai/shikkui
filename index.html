@@ -7,15 +7,32 @@
 
     <link href="index.css" rel="stylesheet" />
 
+    <!-- blockly settings -->
     <script src="blockly/blockly_compressed.js"></script>
     <script src="blockly/blocks_compressed.js"></script>
     <script src="blockly/msg/js/ja.js"></script>
     <script src="blockly/javascript_compressed.js"></script>
 
+    <!-- firebase settings -->
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      // This is develop server
+      const config = {
+        apiKey: "AIzaSyAz3DeqyRJ7HMrn0kJS0rTHTLkgy7WfZ-o",
+        authDomain: "today-is-a-beautiful-day.firebaseapp.com",
+        databaseURL: "https://today-is-a-beautiful-day.firebaseio.com",
+        projectId: "today-is-a-beautiful-day",
+        storageBucket: "today-is-a-beautiful-day.appspot.com",
+        messagingSenderId: "125896135034"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- shikkui settings -->
     <script src="ja.js"></script>
     <script src="generators/html.js"></script>
     <script src="generators/html/html_blocks.js"></script>
-
     <script src="generators/javascript/js_blocks.js"></script>
   </head>
 
