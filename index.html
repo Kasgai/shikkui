@@ -44,17 +44,24 @@
           href="#"
           download="workspace.xml"
           onclick="exportBlockXml()"
-          >Save blocks</a
         >
+          Save blocks
+        </a>
         <label for="importBlockXml">Load blocks</label>
         <input
           type="file"
           id="importBlockXml"
           onchange="importBlockXml(this)"
         />
-        <a id="exportHtml" href="#" download="index.html" onclick="exportHtml()"
-          >Export webpage as HTML:</a
+        <a
+          id="exportHtml"
+          href="#"
+          download="index.html"
+          onclick="exportHtml()"
         >
+          Export webpage as HTML
+        </a>
+        <button id="hostButton" onclick="toggleHost()">slave</button>
       </nav>
       <div id="blocklyArea" class="blockly"></div>
       <div id="webcontentsArea" class="preview">

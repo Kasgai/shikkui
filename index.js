@@ -131,6 +131,13 @@ dbCodeHoge.on("value", snapshot => {
   }
 });
 
+// change isHost
+const toggleHost = () => {
+  isHost = !isHost;
+  const label = isHost ? "master" : "slave";
+  document.getElementById("hostButton").innerText = label;
+};
+
 // main logic
 (async () => {
   const requestUrl = ["/html_toolbox.xml"];
