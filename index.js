@@ -140,7 +140,7 @@ const toggleHost = () => {
 
 // main logic
 (async () => {
-  const requestUrl = ["/html_toolbox.xml"];
+  const requestUrl = ["/toolbox.xml"];
 
   const result = await Promise.all(requestUrl.map(loadXml));
 
