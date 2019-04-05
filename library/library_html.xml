@@ -2457,4 +2457,55 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="]666dlj^UR|e+v{qY=[(" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">select_image</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="?WgDd6}z4eAOHvLte!z$">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="ejFhn@K-*k:KD=@oa$4K">
+            <field name="TEXT">image</field>
+            <next>
+              <block type="field_dropdown" id="fr:4_kArvzqgP4=!M%:U">
+                <mutation options="[&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">NAME</field>
+                <field name="USER0">Kasgai</field>
+                <field name="CPU0">https://kasgai.com/asset/icon.jpg</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="|bS;5zvKk2w8.d-_WHOr" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Fy5!0BN+Z*lIHf2Rlx?J" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="2,#WCX:)JzwQWB%B3jTu"></shadow>
+      <block type="type_other" id="5hN%J[kZw:1Qe^8DUplL">
+        <field name="TYPE">html</field>
+      </block>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="(c/Tn$n|qb!,JBu|]`A:"></shadow>
+      <block type="type_other" id="R~xsySZQnj]%lMh.6Ok)">
+        <field name="TYPE">html</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="6e6:9g-a2fp-*jOCgePC">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
+      </block>
+    </value>
   </block></xml>
