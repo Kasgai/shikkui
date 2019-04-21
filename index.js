@@ -5,7 +5,7 @@ let workspace = null;
 // firebase connection control
 
 const db = firebase.database();
-const dbCodeHoge = db.ref("/code/hoge");
+const dbCodeHoge = db.ref("/shikkui/");
 
 let isHost = false;
 
