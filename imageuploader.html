@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shikkui image uploader</title>
+    <meta content="" />
+    <meta charset="utf-8" />
+
+    <link href="index.css" rel="stylesheet" />
+
+    <!-- firebase settings -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      let userInfo = null;
+
+      // Initialize Firebase
+      const config = {
+        apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
+        authDomain: "kasgai.firebaseapp.com",
+        databaseURL: "https://kasgai.firebaseio.com",
+        projectId: "kasgai",
+        storageBucket: "kasgai.appspot.com",
+        messagingSenderId: "143262592214"
+      };
+      firebase.initializeApp(config);
+
+      // firebase auth
+      const firebaseAuth = new Promise((resolve, reject) => {
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            resolve(user);
+          }
+          reject("please login");
+        });
+      });
+
+      // main logic
+      (async () => {
+        const result = await Promise.all([firebaseAuth]).catch(error => {
+          alert(error);
+          return;
+        });
+
+        userInfo = result[0];
+      })();
+    </script>
+  </head>
+
+  <body>
+    <h1>Image Uploader</h1>
+    <input type="text" id="filename" />
+    <input type="file" id="uploadfile" />
+    <button onclick="upload()">upload</button>
+    <script>
+      const upload = () => {
+         // check filename
+         if (filename.value === "") {
+           alert("please set filename");
+           return;
+         }
+         const uploadFileName = filename.value;
+
+         // check upload file
+         if (uploadfile.files.length === 0) {
+           alert("please set image");
+           return;
+         }
+         const file = uploadfile.files[0];
+
+         // check user id
+         if (userInfo.uid == null) {
+             alert("please login again");
+             return;
+         }
+         const userId = userInfo.uid;
+
+	 // upload file
+         const storageRef = firebase.storage().ref(`/shikkui_images/${userId}/${uploadFileName}`);
+         storageRef.put(file).then(snapshot => {
+             alert(`done`);
+         }).catch(error => {
+             alert(`error : ${error}`)
+         });
+       };
+    </script>
+  </body>
+</html>
