@@ -1,18 +1,27 @@
 "use strict";
 
 let workspace = null;
-
-// firebase connection control
-
-const db = firebase.database();
-const dbCodeHoge = db.ref("/shikkui/");
-
+let userInfo = null;
 let isHost = false;
 
-// XML setup
+// firebase connection control
+const db = firebase.database();
+// public database
+let fbDatabase = db.ref(`/shikkui`);
 
+// firebase auth
+const firebaseAuth = new Promise((resolve, reject) => {
+  firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+      resolve(user);
+    }
+    reject("please login");
+  });
+});
+
+// XML setup
 const loadXml = url => {
-  return fetch(url)
+  return fetch(`/shikkui/${url}`)
     .then(response => response.text())
     .then(data => data)
     .catch(error => console.error(error));
@@ -46,7 +55,7 @@ const makeWorkspace = htmlToolbox => {
       const xmlText = Blockly.Xml.domToText(xml);
       localStorage.setItem("blockly-html-code", xmlText);
 
-      dbCodeHoge.set({ xmlCode: xmlText });
+      fbDatabase.set({ xmlCode: xmlText });
     }
   };
 
@@ -70,7 +79,6 @@ const makeOption = toolbox => {
 };
 
 // import Files
-
 const importBlockXml = e => {
   const file = e.files[0];
   if (!file) {
@@ -94,7 +102,6 @@ const importBlockXml = e => {
 };
 
 // export Files
-
 const exportBlockXml = () => {
   if (workspace) {
     const xml = Blockly.Xml.workspaceToDom(workspace);
@@ -122,14 +129,19 @@ const exportHtml = () => {
   }
 };
 
-// receive xml code
-dbCodeHoge.on("value", snapshot => {
-  if (snapshot.val() != null && !isHost) {
-    workspace.clear();
-    const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
-    Blockly.Xml.domToWorkspace(xml, workspace);
-  }
-});
+const firebaseDataAccess = userInfo => {
+  // load personal database
+  fbDatabase = db.ref(`/shikkui/${userInfo.uid}`);
+
+  // receive xml code
+  fbDatabase.on("value", snapshot => {
+    if (snapshot.val() != null && !isHost) {
+      workspace.clear();
+      const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
+      Blockly.Xml.domToWorkspace(xml, workspace);
+    }
+  });
+};
 
 // change isHost
 const toggleHost = () => {
@@ -140,10 +152,17 @@ const toggleHost = () => {
 
 // main logic
 (async () => {
-  const requestUrl = ["/toolbox.xml"];
-
-  const result = await Promise.all(requestUrl.map(loadXml));
+  const requestUrl = "/toolbox.xml";
+  const result = await Promise.all([loadXml(requestUrl), firebaseAuth]).catch(
+    error => {
+      alert(error);
+      return;
+    }
+  );
 
   const htmlToolbox = result[0];
   makeWorkspace(htmlToolbox);
+
+  const userInfo = result[1];
+  firebaseDataAccess(userInfo);
 })();
