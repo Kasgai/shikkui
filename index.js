@@ -152,6 +152,9 @@ const toggleHost = () => {
 
 // main logic
 (async () => {
+  // add uploader link
+  const projectId = window.location.search.replace(/\?id=/, "");
+  document.getElementById("uploadImage").href = `imageuploader.html?id=${projectId}`;
   const requestUrl = "/toolbox.xml";
   const result = await Promise.all([loadXml(requestUrl), firebaseAuth]).catch(
     error => {
