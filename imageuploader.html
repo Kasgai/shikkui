@@ -41,16 +41,90 @@
         });
 
         userInfo = result[0];
+        fetchAllImages();
       })();
     </script>
+    <style>
+      .abstract {
+        margin: 16px;
+      }
+      .tile__grid {
+        background-color: aqua;
+        margin: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-gap: 20px;
+        align-items: center;
+      }
+      .tile__image > img {
+        max-width: 100%;
+      }
+      .tile__image p {
+        text-align: center;
+      }
+    </style>
   </head>
 
   <body>
-    <h1>Image Uploader</h1>
-    <input type="text" id="filename" />
-    <input type="file" id="uploadfile" />
-    <button onclick="upload()">upload</button>
+    <div class="abstract">
+      <h1>画像投稿ページ</h1>
+      <p>
+        投稿する画像のタイトル
+        <input type="text" id="filename" />
+      </p>
+      <p>
+        <input type="file" id="uploadfile" />
+        <button onclick="upload()">upload</button>
+      </p>
+    </div>
+    <div class="tile__grid" id="tile__image--root"></div>
     <script>
+      const fetchAllImages = () => {
+        // check user id
+        if (userInfo.uid == null) {
+          alert("please login again");
+          return;
+        }
+
+        const storageRef = firebase
+          .storage()
+          .ref(`/shikkui_images/projectId/kasgai`);
+
+        storageRef
+          .getDownloadURL()
+          .then(url => {
+            console.log(url);
+            document
+              .getElementById("tile__image--root")
+              .appendChild(createTileImage(url, "kasgai"));
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
+
+      const createTileImage = (src, alt) => {
+        const div = document.createElement("div");
+        div.classList.add("tile__image");
+
+        const image = createImage(src, alt);
+        div.appendChild(image);
+
+        const p = document.createElement("p");
+        p.textContent = alt;
+        div.appendChild(p);
+
+        return div;
+      };
+      const createImage = (src, alt) => {
+        const img = document.createElement("img");
+        img.src = src;
+        if (alt != null) {
+          img.alt = alt;
+        }
+        return img;
+      };
+
       const upload = () => {
         // check filename
         if (filename.value === "") {
@@ -71,12 +145,11 @@
           alert("please login again");
           return;
         }
-        const userId = userInfo.uid;
 
         // upload file
         const storageRef = firebase
           .storage()
-          .ref(`/shikkui_images/${userId}/${uploadFileName}`);
+          .ref(`/shikkui_images/projectId/${uploadFileName}`);
         storageRef
           .put(file)
           .then(snapshot => {
