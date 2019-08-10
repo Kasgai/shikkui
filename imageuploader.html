@@ -79,6 +79,8 @@
     </div>
     <div class="tile__grid" id="tile__image--root"></div>
     <script>
+      const projectId = window.location.search.replace(/\?id=/, "");
+
       const fetchAllImages = () => {
         // check user id
         if (userInfo.uid == null) {
@@ -86,21 +88,36 @@
           return;
         }
 
-        const storageRef = firebase
-          .storage()
-          .ref(`/shikkui_images/projectId/kasgai`);
+        const imageTitleList = firebase
+          .database()
+          .ref(`/projects/${projectId}/shikkui`);
 
-        storageRef
-          .getDownloadURL()
-          .then(url => {
-            console.log(url);
-            document
-              .getElementById("tile__image--root")
-              .appendChild(createTileImage(url, "kasgai"));
-          })
-          .catch(error => {
-            console.error(error);
-          });
+        imageTitleList.on("value", snapshot => {
+          if (snapshot.val() != null) {
+            // clear previous image element
+            const target = document.getElementById("tile__image--root");
+            while (target.firstChild) {
+              target.removeChild(target.firstChild);
+            }
+
+            snapshot.val().forEach(imageTitle => {
+              const storageRef = firebase
+                .storage()
+                .ref(`/shikkui_images/${projectId}/${imageTitle}`);
+
+              storageRef
+                .getDownloadURL()
+                .then(url => {
+                  document
+                    .getElementById("tile__image--root")
+                    .appendChild(createTileImage(url, imageTitle));
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            });
+          }
+        });
       };
 
       const createTileImage = (src, alt) => {
@@ -149,11 +166,21 @@
         // upload file
         const storageRef = firebase
           .storage()
-          .ref(`/shikkui_images/projectId/${uploadFileName}`);
+          .ref(`/shikkui_images/${projectId}/${uploadFileName}`);
         storageRef
           .put(file)
           .then(snapshot => {
-            alert(`done`);
+            // add filename list
+            const imageTitleList = firebase
+              .database()
+              .ref(`/projects/${projectId}/shikkui`);
+
+            imageTitleList.on("value", snapshot => {
+              const beforeImages = snapshot.val() || [];
+              if (!beforeImages.includes(uploadFileName)) {
+                imageTitleList.set([...snapshot.val(), uploadFileName]);
+              }
+            });
           })
           .catch(error => {
             alert(`error : ${error}`);

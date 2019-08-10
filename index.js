@@ -3,6 +3,7 @@
 let workspace = null;
 let userInfo = null;
 let isHost = false;
+let imageList = [];
 
 // firebase connection control
 const db = firebase.database();
@@ -143,6 +144,16 @@ const firebaseDataAccess = userInfo => {
   });
 };
 
+const fetchImageList = projectId => {
+  const imageDatabase = db.ref(`/projects/${projectId}/shikkui/images`);
+  // imageDatabase.set(["dummy1", "dummy2"]);
+  imageDatabase.on("value", snapshot => {
+    if (snapshot.val() != null) {
+      imageList = snapshot.val();
+    }
+  });
+}
+
 // change isHost
 const toggleHost = () => {
   isHost = !isHost;
@@ -157,6 +168,9 @@ const toggleHost = () => {
   document.getElementById(
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
+
+  fetchImageList(projectId);
+
   const requestUrl = "/toolbox.xml";
   const result = await Promise.all([loadXml(requestUrl), firebaseAuth]).catch(
     error => {
