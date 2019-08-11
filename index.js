@@ -5,10 +5,11 @@ let userInfo = null;
 let isHost = false;
 let imageList = [];
 
-// firebase connection control
-const db = firebase.database();
-// public database
-let fbDatabase = db.ref(`/shikkui`);
+// project database for shikkui
+const projectId = window.location.search.replace(/\?id=/, "");
+let shikkuiDatabase = path => {
+  return firebase.database().ref(`/projects/${projectId}/shikkui/${path}`);
+};
 
 // firebase auth
 const firebaseAuth = new Promise((resolve, reject) => {
@@ -130,12 +131,8 @@ const exportHtml = () => {
   }
 };
 
-const firebaseDataAccess = userInfo => {
-  // load personal database
-  fbDatabase = db.ref(`/shikkui/${userInfo.uid}`);
-
-  // receive xml code
-  fbDatabase.on("value", snapshot => {
+const firebaseDataAccess = projectId => {
+  shikkuiDatabase(`/xml`).on("value", snapshot => {
     if (snapshot.val() != null && !isHost) {
       workspace.clear();
       const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
@@ -145,8 +142,7 @@ const firebaseDataAccess = userInfo => {
 };
 
 const fetchImageList = projectId => {
-  const imageDatabase = db.ref(`/projects/${projectId}/shikkui`);
-  imageDatabase.on("value", snapshot => {
+  shikkuiDatabase(`/images`).on("value", snapshot => {
     if (snapshot.val() != null) {
       imageList = snapshot.val();
       console.log(imageList);
@@ -180,8 +176,6 @@ const fetchImageList = projectId => {
             }
           };
         });
-      /*
-       */
     }
   });
 };
@@ -211,11 +205,9 @@ const toggleHost = () => {
 // main logic
 (async () => {
   // add uploader link
-  const projectId = window.location.search.replace(/\?id=/, "");
   document.getElementById(
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
-
   fetchImageList(projectId);
 
   const requestUrl = "/toolbox.xml";

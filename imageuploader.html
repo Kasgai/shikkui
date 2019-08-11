@@ -49,7 +49,6 @@
         margin: 16px;
       }
       .tile__grid {
-        background-color: aqua;
         margin: 16px;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -69,7 +68,7 @@
     <div class="abstract">
       <h1>画像投稿ページ</h1>
       <p>
-        投稿する画像のタイトル
+        ファイル名
         <input type="text" id="filename" />
       </p>
       <p>
@@ -80,19 +79,23 @@
     <div class="tile__grid" id="tile__image--root"></div>
     <script>
       const projectId = window.location.search.replace(/\?id=/, "");
+      let shikkuiDatabase = path => {
+        return firebase
+          .database()
+          .ref(`/projects/${projectId}/shikkui/${path}`);
+      };
+      let shikkuiStorage = title => {
+        return firebase.storage().ref(`/shikkui_images/${projectId}/${title}`);
+      };
 
       const fetchAllImages = () => {
-        // check user id
+        // require authentication to upload image
         if (userInfo.uid == null) {
-          alert("please login again");
+          alert("ログインしてください");
           return;
         }
 
-        const imageTitleList = firebase
-          .database()
-          .ref(`/projects/${projectId}/shikkui`);
-
-        imageTitleList.on("value", snapshot => {
+        shikkuiDatabase("images").on("value", snapshot => {
           if (snapshot.val() != null) {
             // clear previous image element
             const target = document.getElementById("tile__image--root");
@@ -101,11 +104,7 @@
             }
 
             snapshot.val().forEach(imageTitle => {
-              const storageRef = firebase
-                .storage()
-                .ref(`/shikkui_images/${projectId}/${imageTitle}`);
-
-              storageRef
+              shikkuiStorage(imageTitle)
                 .getDownloadURL()
                 .then(url => {
                   document
@@ -120,65 +119,59 @@
         });
       };
 
+      // Display tiled
       const createTileImage = (src, alt) => {
+        const createImage = (src, alt) => {
+          const img = document.createElement("img");
+          img.src = src;
+          if (alt != null) {
+            img.alt = alt;
+          }
+          return img;
+        };
+
         const div = document.createElement("div");
         div.classList.add("tile__image");
-
         const image = createImage(src, alt);
         div.appendChild(image);
-
         const p = document.createElement("p");
         p.textContent = alt;
         div.appendChild(p);
-
         return div;
       };
-      const createImage = (src, alt) => {
-        const img = document.createElement("img");
-        img.src = src;
-        if (alt != null) {
-          img.alt = alt;
-        }
-        return img;
-      };
 
+      // image uploading function
       const upload = () => {
         // check filename
         if (filename.value === "") {
-          alert("please set filename");
+          alert("ファイル名を入力してください。");
           return;
         }
         const uploadFileName = filename.value;
 
         // check upload file
         if (uploadfile.files.length === 0) {
-          alert("please set image");
+          alert("画像をセットしてください。");
           return;
         }
         const file = uploadfile.files[0];
 
         // check user id
         if (userInfo.uid == null) {
-          alert("please login again");
+          alert("ログインしてください");
           return;
         }
 
         // upload file
-        const storageRef = firebase
-          .storage()
-          .ref(`/shikkui_images/${projectId}/${uploadFileName}`);
-        storageRef
+        shikkuiStorage(`${uploadFileName}`)
           .put(file)
           .then(snapshot => {
             // add filename list
-            const imageTitleList = firebase
-              .database()
-              .ref(`/projects/${projectId}/shikkui`);
-
-            imageTitleList.on("value", snapshot => {
+            const imageDB = shikkuiDatabase("images");
+            imageDB.on("value", snapshot => {
               const beforeImages = snapshot.val() || [];
               if (!beforeImages.includes(uploadFileName)) {
-                imageTitleList.set([...snapshot.val(), uploadFileName]);
+                imageDB.set([...beforeImages, uploadFileName]);
               }
             });
           })
