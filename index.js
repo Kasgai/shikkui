@@ -3,7 +3,6 @@
 let workspace = null;
 let userInfo = null;
 let isHost = false;
-let imageList = [];
 
 // project database for shikkui
 const projectId = window.location.search.replace(/\?id=/, "");
@@ -57,7 +56,7 @@ const makeWorkspace = htmlToolbox => {
       const xmlText = Blockly.Xml.domToText(xml);
       localStorage.setItem("blockly-html-code", xmlText);
 
-      fbDatabase.set({ xmlCode: xmlText });
+      shikkuiDatabase(`/xml`).set({ xmlCode: xmlText });
     }
   };
 
@@ -144,8 +143,7 @@ const firebaseDataAccess = projectId => {
 const fetchImageList = projectId => {
   shikkuiDatabase(`/images`).on("value", snapshot => {
     if (snapshot.val() != null) {
-      imageList = snapshot.val();
-      console.log(imageList);
+      const imageList = snapshot.val();
       Promise.all(getStrageUrl(projectId, imageList))
         .then(results => {
           return results.map((result, i) => [imageList[i], result]);
