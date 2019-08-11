@@ -140,42 +140,48 @@ const firebaseDataAccess = projectId => {
   });
 };
 
-const fetchImageList = projectId => {
-  shikkuiDatabase(`/images`).on("value", snapshot => {
-    if (snapshot.val() != null) {
-      const imageList = snapshot.val();
-      Promise.all(getStrageUrl(projectId, imageList))
-        .then(results => {
-          return results.map((result, i) => [imageList[i], result]);
-        })
-        .then(imageOptions => {
-          if (imageOptions == null || imageOptions.length === 0) {
-            return;
-          }
-          const newSelectImageJson = {
-            type: "select_image",
-            message0: "image %1",
-            args0: [
-              {
-                type: "field_dropdown",
-                name: "NAME",
-                options: imageOptions
-              }
-            ],
-            previousStatement: "html",
-            nextStatement: "html",
-            colour: 90,
-            tooltip: "",
-            helpUrl: ""
-          };
-          Blockly.Blocks["select_image"] = {
-            init: function() {
-              this.jsonInit(newSelectImageJson);
-            }
-          };
-        });
-    }
+const loadImageList = projectId =>
+  new Promise((resolve, reject) => {
+    shikkuiDatabase(`/images`).on("value", snapshot => {
+      if (snapshot.val() != null) {
+        const imageList = snapshot.val();
+        Promise.all(getStrageUrl(projectId, imageList))
+          .then(results => {
+            return results.map((result, i) => [imageList[i], result]);
+          })
+          .then(imageOptions => {
+            updateSelectImageBlock(imageOptions);
+            resolve();
+          });
+      }
+    });
   });
+
+const updateSelectImageBlock = imageOptions => {
+  if (imageOptions == null || imageOptions.length === 0) {
+    return;
+  }
+  const newSelectImageJson = {
+    type: "select_image",
+    message0: "image %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "NAME",
+        options: imageOptions
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: ""
+  };
+  Blockly.Blocks["select_image"] = {
+    init: function() {
+      this.jsonInit(newSelectImageJson);
+    }
+  };
 };
 
 const getStrageUrl = (projectId, contentNameList) => {
@@ -206,15 +212,16 @@ const toggleHost = () => {
   document.getElementById(
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
-  fetchImageList(projectId);
 
   const requestUrl = "/toolbox.xml";
-  const result = await Promise.all([loadXml(requestUrl), firebaseAuth]).catch(
-    error => {
-      alert(error);
-      return;
-    }
-  );
+  const result = await Promise.all([
+    loadXml(requestUrl),
+    firebaseAuth,
+    loadImageList(projectId)
+  ]).catch(error => {
+    alert(error);
+    return;
+  });
 
   const htmlToolbox = result[0];
   makeWorkspace(htmlToolbox);
