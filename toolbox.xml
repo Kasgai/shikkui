@@ -37,6 +37,7 @@
       <block type="image">
         <field name="ALT">alternative text</field>
       </block>
+      <block type="select_image"></block>
       <block type="generictag"></block>
     </category>
     <category name="markup" colour="#5ba55b">

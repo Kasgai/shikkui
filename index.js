@@ -145,14 +145,61 @@ const firebaseDataAccess = userInfo => {
 };
 
 const fetchImageList = projectId => {
-  const imageDatabase = db.ref(`/projects/${projectId}/shikkui/images`);
-  // imageDatabase.set(["dummy1", "dummy2"]);
+  const imageDatabase = db.ref(`/projects/${projectId}/shikkui`);
   imageDatabase.on("value", snapshot => {
     if (snapshot.val() != null) {
       imageList = snapshot.val();
+      console.log(imageList);
+      Promise.all(getStrageUrl(projectId, imageList))
+        .then(results => {
+          return results.map((result, i) => [imageList[i], result]);
+        })
+        .then(imageOptions => {
+          if (imageOptions == null || imageOptions.length === 0) {
+            return;
+          }
+          const newSelectImageJson = {
+            type: "select_image",
+            message0: "image %1",
+            args0: [
+              {
+                type: "field_dropdown",
+                name: "NAME",
+                options: imageOptions
+              }
+            ],
+            previousStatement: "html",
+            nextStatement: "html",
+            colour: 90,
+            tooltip: "",
+            helpUrl: ""
+          };
+          Blockly.Blocks["select_image"] = {
+            init: function() {
+              this.jsonInit(newSelectImageJson);
+            }
+          };
+        });
+      /*
+       */
     }
   });
-}
+};
+
+const getStrageUrl = (projectId, contentNameList) => {
+  return contentNameList.map(name => {
+    return new Promise((resolve, reject) => {
+      const storageRef = firebase
+        .storage()
+        .ref(`/shikkui_images/${projectId}/${name}`);
+
+      storageRef
+        .getDownloadURL()
+        .then(url => resolve(url))
+        .catch(error => reject(error));
+    });
+  });
+};
 
 // change isHost
 const toggleHost = () => {
