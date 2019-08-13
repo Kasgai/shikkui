@@ -13,6 +13,11 @@ cd shikkui
 git submodule update --init --recursive
 ```
 
+## Library files
+
+You can modify the blocks using the Blockly developer tools:
+https://blockly-demo.appspot.com/static/demos/blockfactory/index.html
+
 ## Licence
 
 [GPL-3.0](https://github.com/Kasgai/shikkui/blob/firebase/LICENSE)
