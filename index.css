@@ -31,17 +31,18 @@ body {
 
 .sourceCode {
   grid-area: code;
+  overflow-x: auto;
 }
 
 #title {
   font-size: 2rem;
   font-family: "Noto Sans JP", sans-serif;
   background-color: #ddd;
+  height: 40px;
 }
 
 #website {
   border: 0px;
   width: 100%;
-  height: 100%;
-  box-shadow: border-box;
+  height: calc(100% - 40px);
 }
