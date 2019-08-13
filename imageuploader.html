@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>shikkui image uploader</title>
+    <meta content="" />
+    <meta charset="utf-8" />
+
+    <link href="index.css" rel="stylesheet" />
+
+    <!-- firebase settings -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      let userInfo = null;
+
+      // Initialize Firebase
+      const config = {
+        apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
+        authDomain: "kasgai.firebaseapp.com",
+        databaseURL: "https://kasgai.firebaseio.com",
+        projectId: "kasgai",
+        storageBucket: "kasgai.appspot.com",
+        messagingSenderId: "143262592214"
+      };
+      firebase.initializeApp(config);
+
+      // firebase auth
+      const firebaseAuth = new Promise((resolve, reject) => {
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            resolve(user);
+          }
+          reject("please login");
+        });
+      });
+
+      // main logic
+      (async () => {
+        const result = await Promise.all([firebaseAuth]).catch(error => {
+          alert(error);
+          return;
+        });
+
+        userInfo = result[0];
+        fetchAllImages();
+      })();
+    </script>
+    <style>
+      .abstract {
+        margin: 16px;
+      }
+      .tile__grid {
+        margin: 16px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-gap: 20px;
+        align-items: center;
+      }
+      .tile__image > img {
+        max-width: 100%;
+      }
+      .tile__image p {
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="abstract">
+      <h1>画像投稿ページ</h1>
+      <p>
+        ファイル名
+        <input type="text" id="filename" />
+      </p>
+      <p>
+        <input type="file" id="uploadfile" />
+        <button onclick="upload()">upload</button>
+      </p>
+    </div>
+    <div class="tile__grid" id="tile__image--root"></div>
+    <script>
+      const projectId = window.location.search.replace(/\?id=/, "");
+      let shikkuiDatabase = path => {
+        return firebase
+          .database()
+          .ref(`/projects/${projectId}/shikkui/${path}`);
+      };
+      let shikkuiStorage = title => {
+        return firebase.storage().ref(`/shikkui_images/${projectId}/${title}`);
+      };
+
+      const fetchAllImages = () => {
+        // require authentication to upload image
+        if (userInfo.uid == null) {
+          alert("ログインしてください");
+          return;
+        }
+
+        shikkuiDatabase("images").on("value", snapshot => {
+          if (snapshot.val() != null) {
+            // clear previous image element
+            const target = document.getElementById("tile__image--root");
+            while (target.firstChild) {
+              target.removeChild(target.firstChild);
+            }
+
+            snapshot.val().forEach(imageTitle => {
+              shikkuiStorage(imageTitle)
+                .getDownloadURL()
+                .then(url => {
+                  document
+                    .getElementById("tile__image--root")
+                    .appendChild(createTileImage(url, imageTitle));
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            });
+          }
+        });
+      };
+
+      // Display tiled
+      const createTileImage = (src, alt) => {
+        const createImage = (src, alt) => {
+          const img = document.createElement("img");
+          img.src = src;
+          if (alt != null) {
+            img.alt = alt;
+          }
+          return img;
+        };
+
+        const div = document.createElement("div");
+        div.classList.add("tile__image");
+        const image = createImage(src, alt);
+        div.appendChild(image);
+        const p = document.createElement("p");
+        p.textContent = alt;
+        div.appendChild(p);
+        return div;
+      };
+
+      // image uploading function
+      const upload = () => {
+        // check filename
+        if (filename.value === "") {
+          alert("ファイル名を入力してください。");
+          return;
+        }
+        const uploadFileName = filename.value;
+
+        // check upload file
+        if (uploadfile.files.length === 0) {
+          alert("画像をセットしてください。");
+          return;
+        }
+        const file = uploadfile.files[0];
+
+        // check user id
+        if (userInfo.uid == null) {
+          alert("ログインしてください");
+          return;
+        }
+
+        // upload file
+        shikkuiStorage(`${uploadFileName}`)
+          .put(file)
+          .then(snapshot => {
+            // add filename list
+            const imageDB = shikkuiDatabase("images");
+            imageDB.on("value", snapshot => {
+              const beforeImages = snapshot.val() || [];
+              if (!beforeImages.includes(uploadFileName)) {
+                imageDB.set([...beforeImages, uploadFileName]);
+              }
+            });
+          })
+          .catch(error => {
+            alert(`error : ${error}`);
+          });
+      };
+    </script>
+  </body>
+</html>

@@ -7,15 +7,31 @@
 
     <link href="index.css" rel="stylesheet" />
 
+    <!-- blockly settings -->
     <script src="blockly/blockly_compressed.js"></script>
     <script src="blockly/blocks_compressed.js"></script>
     <script src="blockly/msg/js/ja.js"></script>
     <script src="blockly/javascript_compressed.js"></script>
 
+    <!-- firebase settings -->
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      const config = {
+        apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
+        authDomain: "kasgai.firebaseapp.com",
+        databaseURL: "https://kasgai.firebaseio.com",
+        projectId: "kasgai",
+        storageBucket: "kasgai.appspot.com",
+        messagingSenderId: "143262592214"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- shikkui settings -->
     <script src="ja.js"></script>
     <script src="generators/html.js"></script>
     <script src="generators/html/html_blocks.js"></script>
-
     <script src="generators/javascript/js_blocks.js"></script>
   </head>
 
@@ -27,17 +43,25 @@
           href="#"
           download="workspace.xml"
           onclick="exportBlockXml()"
-          >Save blocks</a
         >
+          Save blocks
+        </a>
         <label for="importBlockXml">Load blocks</label>
         <input
           type="file"
           id="importBlockXml"
           onchange="importBlockXml(this)"
         />
-        <a id="exportHtml" href="#" download="index.html" onclick="exportHtml()"
-          >Export webpage as HTML:</a
+        <a
+          id="exportHtml"
+          href="#"
+          download="index.html"
+          onclick="exportHtml()"
         >
+          Export webpage as HTML
+        </a>
+        <a id="uploadImage" target="_blank">Upload Image</a>
+        <button id="hostButton" onclick="toggleHost()">slave</button>
       </nav>
       <div id="blocklyArea" class="blockly"></div>
       <div id="webcontentsArea" class="preview">

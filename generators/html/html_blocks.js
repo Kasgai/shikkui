@@ -912,48 +912,30 @@ const htmlBlocks = [
     colour: 230,
     tooltip: "",
     helpUrl: ""
+  },
+  {
+    type: "select_image",
+    message0: "image %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "NAME",
+        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: ""
   }
 ];
 
-if (Msg && Msg.blocks) {
-  // Update jsons with translations
-  for (let iBlock in htmlBlocks) {
-    const json = htmlBlocks[iBlock];
-    const trs = Msg.blocks[json.type];
-    for (let iTr in trs) {
-      if (typeof trs[iTr] === "string") {
-        json[iTr] = trs[iTr];
-      } else if (typeof trs[iTr] === "object") {
-        // Mainly for args0 property
-        // Follow two levels, then just replace
-        for (let iTrObj in trs[iTr]) {
-          if (typeof trs[iTr][iTrObj] === "object") {
-            for (let index in trs[iTr][iTrObj]) {
-              json[iTr][iTrObj][index] = trs[iTr][iTrObj][index];
-            }
-          } else {
-            console.error(
-              "Don't know how to translate that: Msg.blocks." +
-                iTr +
-                "." +
-                iTrObj
-            );
-          }
-        }
-      } else {
-        console.error("Don't know how to translate that: Msg.blocks." + iTr);
-      }
+for (let i = 0; i < htmlBlocks.length; i++) {
+  const blockJson = htmlBlocks[i];
+  Blockly.Blocks[blockJson.type] = {
+    init: function() {
+      this.jsonInit(blockJson);
     }
-  }
-}
-
-for (let iBlock in htmlBlocks) {
-  function makeBlock(json) {
-    Blockly.Blocks[json.type] = {
-      init: function() {
-        this.jsonInit(json);
-      }
-    };
-  }
-  makeBlock(htmlBlocks[iBlock]);
+  };
 }
