@@ -15,7 +15,7 @@ git submodule update --init --recursive
 
 ## Library files
 
-You can modify the blocks using the Blockly developer tools: 
+You can modify the blocks using the Blockly developer tools:
 https://blockly-demo.appspot.com/static/demos/blockfactory/index.html
 
 ## Licence
