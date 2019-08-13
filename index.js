@@ -153,6 +153,8 @@ const loadImageList = projectId =>
             updateSelectImageBlock(imageOptions);
             resolve();
           });
+      } else {
+        resolve();
       }
     });
   });
