@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>kasgai</title>
-    <meta content="" />
-    <meta charset="utf-8" />
 
-    <link href="index.css" rel="stylesheet" />
+<head>
+  <title>kasgai</title>
+  <meta content="" />
+  <meta charset="utf-8" />
 
-    <!-- blockly settings -->
-    <script src="blockly/blockly_compressed.js"></script>
-    <script src="blockly/blocks_compressed.js"></script>
-    <script src="blockly/msg/js/ja.js"></script>
-    <script src="blockly/javascript_compressed.js"></script>
+  <link href="index.css" rel="stylesheet" />
 
-    <!-- firebase settings -->
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-storage.js"></script>
+  <!-- blockly settings -->
+  <script src="blockly/blockly_compressed.js"></script>
+  <script src="blockly/blocks_compressed.js"></script>
+  <script src="blockly/msg/js/ja.js"></script>
+  <script src="blockly/javascript_compressed.js"></script>
 
-    <script>
-      // Initialize Firebase
-      const config = {
-        apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
-        authDomain: "kasgai.firebaseapp.com",
-        databaseURL: "https://kasgai.firebaseio.com",
-        projectId: "kasgai",
-        storageBucket: "kasgai.appspot.com",
-        messagingSenderId: "143262592214"
-      };
-      firebase.initializeApp(config);
-    </script>
+  <!-- firebase settings -->
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-storage.js"></script>
 
-    <!-- shikkui settings -->
-    <script src="ja.js"></script>
-    <script src="generators/html.js"></script>
-    <script src="generators/html/html_blocks.js"></script>
-    <script src="generators/javascript/js_blocks.js"></script>
-  </head>
+  <script>
+    // Initialize Firebase
+    const config = {
+      apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
+      authDomain: "kasgai.firebaseapp.com",
+      databaseURL: "https://kasgai.firebaseio.com",
+      projectId: "kasgai",
+      storageBucket: "kasgai.appspot.com",
+      messagingSenderId: "143262592214"
+    };
+    firebase.initializeApp(config);
+  </script>
 
-  <body>
-    <div id="container">
-      <nav class="navigation">
-        <a
-          id="exportBlockXml"
-          href="#"
-          download="workspace.xml"
-          onclick="exportBlockXml()"
-        >
-          Save blocks
-        </a>
-        <label for="importBlockXml">Load blocks</label>
-        <input
-          type="file"
-          id="importBlockXml"
-          onchange="importBlockXml(this)"
-        />
-        <a
-          id="exportHtml"
-          href="#"
-          download="index.html"
-          onclick="exportHtml()"
-        >
-          Export webpage as HTML
-        </a>
-        <a id="uploadImage" target="_blank">Upload Image</a>
-        <button id="hostButton" onclick="toggleHost()">slave</button>
-      </nav>
-      <div id="blocklyArea" class="blockly"></div>
-      <div id="webcontentsArea" class="preview">
-        <div id="title">untitled web page</div>
-        <iframe id="website"></iframe>
+  <!-- shikkui settings -->
+  <script src="ja.js"></script>
+  <script src="generators/html.js"></script>
+  <script src="generators/html/html_blocks.js"></script>
+  <script src="generators/javascript/js_blocks.js"></script>
+
+  <!--bootstrap settings-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div id="container">
+    <nav class="navigation">
+      <div class="btn-group ml-5 mr-auto" role="group">
+        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Actions
+        </button>
+        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <a id="uploadImage" target="_blank" class="dropdown-item" href="#">Upload Image</a>
+          <a class="dropdown-item" href="#">
+            Load Blocks: <input type="file" id="importBlockXml" onchange="importBlockXml(this)" />
+          </a>
+          <a id="exportBlockXml" download="workspace.xml" onclick="exportBlockXml()" class="dropdown-item" href="#">Save
+            Blocks</a>
+          <a id="exportHtml" href="#" download="index.html" onclick="exportHtml()" class="dropdown-item">Export Webpage
+            as HTML</a>
+        </div>
+
       </div>
-      <div class="sourceCode">
-        <pre id="htmlSourcecode">source code area</pre>
-      </div>
+      <!--
+      <a id="exportBlockXml" href="#" download="workspace.xml" onclick="exportBlockXml()">
+        Save blocks
+      </a>
+      <label for="importBlockXml">Load blocks</label>
+      
+      <input type="file" id="importBlockXml" onchange="importBlockXml(this)" />
+      
+      <a id="exportHtml" href="#" download="index.html" onclick="exportHtml()">
+        Export webpage as HTML
+      </a>
+      <a id="uploadImage" target="_blank">Upload Image</a>
+    -->
+      <button id="hostButton" onclick="toggleHost()" type="button" class="btn btn-outline-dark mr-5">slave</button>
+    </nav>
+    <div id="blocklyArea" class="blockly"></div>
+    <div id="webcontentsArea" class="preview">
+      <div id="title">untitled web page</div>
+      <iframe id="website"></iframe>
     </div>
-    <script src="index.js"></script>
-  </body>
+    <div class="sourceCode">
+      <pre id="htmlSourcecode">source code area</pre>
+    </div>
+  </div>
+  <script src="index.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
