@@ -119,16 +119,33 @@ const exportBlockXml = () => {
 const exportHtml = () => {
   if (workspace) {
     const code = HtmlGenerator.workspaceToCode(workspace);
-    const blob = new Blob([code], {
-      type: "text/html;charset=utf-8"
+    downloadArchivedPage(code).then(function (response) {
+      const blob = new Blob([response], { type: "application/zip" });
+      const link = document.createElement("a");
+      document.body.appendChild(link);
+      link.href = window.URL.createObjectURL(blob);
+      link.download = "MyPage.zip";
+      link.click();
+      document.body.removeChild(link);
     });
-    document.getElementById("exportHtml").href = window.URL.createObjectURL(
-      blob
-    );
   } else {
     console.error("cannot export HTML");
   }
+  return false;
 };
+
+const downloadArchivedPage = code => {
+  return new Promise(function (resolve, reject) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://kasgai-kura.herokuapp.com");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.responseType = "blob";
+    xhr.onload = () => {
+      resolve(xhr.response);
+    };
+    xhr.send(JSON.stringify({ html: code }));
+  });
+}
 
 const firebaseDataAccess = projectId => {
   shikkuiDatabase(`/xml`).on("value", snapshot => {
@@ -180,7 +197,7 @@ const updateSelectImageBlock = imageOptions => {
     helpUrl: ""
   };
   Blockly.Blocks["select_image"] = {
-    init: function() {
+    init: function () {
       this.jsonInit(newSelectImageJson);
     }
   };
