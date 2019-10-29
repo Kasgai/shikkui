@@ -232,7 +232,7 @@ const toggleHost = () => {
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
 
-  const requestUrl = "/toolbox.xml";
+  const requestUrl = "/toolbox-hyogo-u.xml";
   const result = await Promise.all([
     loadXml(requestUrl),
     firebaseAuth,
