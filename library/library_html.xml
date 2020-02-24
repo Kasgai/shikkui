@@ -1,4 +1,4 @@
-<xml xmlns="http://www.w3.org/1999/xhtml"><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+<xml xmlns="https://developers.google.com/blockly/xml"><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="NONE"></mutation>
     <field name="NAME">baseFrame</field>
     <field name="INLINE">AUTO</field>
@@ -73,7 +73,7 @@
         <field name="HUE">0</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="NONE"></mutation>
     <field name="NAME">html</field>
     <field name="INLINE">AUTO</field>
@@ -116,7 +116,7 @@
         <field name="HUE">0</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">body</field>
     <field name="INLINE">AUTO</field>
@@ -171,7 +171,7 @@
         <field name="HUE">0</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">head</field>
     <field name="INLINE">AUTO</field>
@@ -226,7 +226,7 @@
         <field name="HUE">0</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">title</field>
     <field name="INLINE">AUTO</field>
@@ -276,7 +276,7 @@
         <field name="HUE">0</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">paragraph</field>
     <field name="INLINE">AUTO</field>
@@ -326,7 +326,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">plaintext</field>
     <field name="INLINE">AUTO</field>
@@ -369,7 +369,7 @@
         <field name="HUE">330</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">division</field>
     <field name="INLINE">AUTO</field>
@@ -431,7 +431,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">style</field>
     <field name="INLINE">INT</field>
@@ -480,7 +480,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">color</field>
     <field name="INLINE">AUTO</field>
@@ -529,7 +529,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">bgcolour</field>
     <field name="INLINE">AUTO</field>
@@ -578,7 +578,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="y@[iQuhuW.WLCtcq;r^v" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">genericstyle</field>
     <field name="INLINE">AUTO</field>
@@ -633,7 +633,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">generictag</field>
     <field name="INLINE">AUTO</field>
@@ -700,7 +700,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id="{71$q^$r;ppC^M9l;-~X" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="{71$q^$r;ppC^M9l;-~X" deletable="false" movable="false" x="0" y="0">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">more_attributes</field>
     <field name="INLINE">AUTO</field>
@@ -763,7 +763,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">genericattribute</field>
     <field name="INLINE">INT</field>
@@ -812,7 +812,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">link</field>
     <field name="INLINE">AUTO</field>
@@ -873,7 +873,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">span</field>
     <field name="INLINE">AUTO</field>
@@ -935,7 +935,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">image</field>
     <field name="INLINE">AUTO</field>
@@ -995,7 +995,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">emphasise</field>
     <field name="INLINE">AUTO</field>
@@ -1041,7 +1041,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">strong</field>
     <field name="INLINE">AUTO</field>
@@ -1087,7 +1087,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">headline</field>
     <field name="INLINE">AUTO</field>
@@ -1151,7 +1151,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">linebreak</field>
     <field name="INLINE">AUTO</field>
@@ -1188,7 +1188,7 @@
         <field name="HUE">330</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">horizontalbreak</field>
     <field name="INLINE">AUTO</field>
@@ -1225,7 +1225,7 @@
         <field name="HUE">330</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">unorderedlist</field>
     <field name="INLINE">AUTO</field>
@@ -1271,7 +1271,7 @@
         <field name="HUE">330</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">orderedlist</field>
     <field name="INLINE">AUTO</field>
@@ -1317,7 +1317,7 @@
         <field name="HUE">330</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">listelement</field>
     <field name="INLINE">AUTO</field>
@@ -1363,7 +1363,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">inserted</field>
     <field name="INLINE">AUTO</field>
@@ -1409,7 +1409,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">deleted</field>
     <field name="INLINE">AUTO</field>
@@ -1455,7 +1455,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">super</field>
     <field name="INLINE">AUTO</field>
@@ -1501,7 +1501,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">sub</field>
     <field name="INLINE">AUTO</field>
@@ -1547,7 +1547,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">code</field>
     <field name="INLINE">AUTO</field>
@@ -1593,7 +1593,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">quote</field>
     <field name="INLINE">AUTO</field>
@@ -1639,7 +1639,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">blockquote</field>
     <field name="INLINE">AUTO</field>
@@ -1685,7 +1685,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">sample</field>
     <field name="INLINE">AUTO</field>
@@ -1731,7 +1731,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">keyboard</field>
     <field name="INLINE">AUTO</field>
@@ -1777,7 +1777,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">variable</field>
     <field name="INLINE">AUTO</field>
@@ -1823,7 +1823,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">form</field>
     <field name="INLINE">AUTO</field>
@@ -1869,7 +1869,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">table</field>
     <field name="INLINE">AUTO</field>
@@ -1924,7 +1924,7 @@
         <field name="HUE">180</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">tablerow</field>
     <field name="INLINE">AUTO</field>
@@ -1979,7 +1979,7 @@
         <field name="HUE">180</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">tablecell</field>
     <field name="INLINE">AUTO</field>
@@ -2034,7 +2034,7 @@
         <field name="HUE">180</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">input_text</field>
     <field name="INLINE">AUTO</field>
@@ -2077,7 +2077,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">button</field>
     <field name="INLINE">AUTO</field>
@@ -2123,7 +2123,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">input</field>
     <field name="INLINE">AUTO</field>
@@ -2220,7 +2220,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">script</field>
     <field name="INLINE">AUTO</field>
@@ -2269,7 +2269,7 @@
         <field name="HUE">90</field>
       </block>
     </value>
-  </block><block type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">onclick</field>
     <field name="INLINE">INT</field>
@@ -2318,7 +2318,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="C+58o.^|EatIbdVJDaU)" deletable="false" movable="false" x="10" y="10">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="C+58o.^|EatIbdVJDaU)" deletable="false" movable="false" x="10" y="10">
     <mutation connections="LEFT"></mutation>
     <field name="NAME">id</field>
     <field name="INLINE">INT</field>
@@ -2361,7 +2361,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="C;zn]AIi44qrnC5[HWJu" deletable="false" movable="false" x="10" y="10">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="C;zn]AIi44qrnC5[HWJu" deletable="false" movable="false" x="10" y="10">
     <mutation connections="BOTH"></mutation>
     <field name="NAME">getelementbyid</field>
     <field name="INLINE">AUTO</field>
@@ -2415,7 +2415,7 @@
         <field name="HUE">230</field>
       </block>
     </value>
-  </block><block type="factory_base" id="FDd:kO|WlgmMT2C_A{Hh" deletable="false" movable="false" x="10" y="10">
+  </block><block xmlns="http://www.w3.org/1999/xhtml" type="factory_base" id="FDd:kO|WlgmMT2C_A{Hh" deletable="false" movable="false" x="10" y="10">
     <mutation connections="TOP"></mutation>
     <field name="NAME">innerhtml</field>
     <field name="INLINE">AUTO</field>
@@ -2458,7 +2458,7 @@
       </block>
     </value>
   </block><block type="factory_base" id="]666dlj^UR|e+v{qY=[(" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="BOTH"></mutation>
+    <mutation connections="BOTH"/>
     <field name="NAME">select_image</field>
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">BOTH</field>
@@ -2470,10 +2470,32 @@
             <field name="TEXT">image</field>
             <next>
               <block type="field_dropdown" id="fr:4_kArvzqgP4=!M%:U">
-                <mutation options="[&quot;text&quot;]"></mutation>
+                <mutation options="[&quot;text&quot;]"/>
                 <field name="FIELDNAME">NAME</field>
                 <field name="USER0">Kasgai</field>
                 <field name="CPU0">https://kasgai.com/asset/icon.jpg</field>
+                <next>
+                  <block type="field_static" id="^c}K:]BDG{N_sE]cV_[X">
+                    <field name="TEXT">width</field>
+                    <next>
+                      <block type="field_input" id="ibtBOAeFjS6t]rfs^[y-">
+                        <field name="TEXT"/>
+                        <field name="FIELDNAME">WIDTH</field>
+                        <next>
+                          <block type="field_static" id="m{JE+h=Wa8`aNWN=RBPB">
+                            <field name="TEXT">height</field>
+                            <next>
+                              <block type="field_input" id="S_6sPu}a.:sXMg$Ku;1j">
+                                <field name="TEXT"/>
+                                <field name="FIELDNAME">HEIGHT</field>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
               </block>
             </next>
           </block>
@@ -2482,29 +2504,29 @@
     </statement>
     <value name="TOOLTIP">
       <block type="text" id="|bS;5zvKk2w8.d-_WHOr" deletable="false" movable="false">
-        <field name="TEXT"></field>
+        <field name="TEXT"/>
       </block>
     </value>
     <value name="HELPURL">
       <block type="text" id="Fy5!0BN+Z*lIHf2Rlx?J" deletable="false" movable="false">
-        <field name="TEXT"></field>
+        <field name="TEXT"/>
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="2,#WCX:)JzwQWB%B3jTu"></shadow>
+      <shadow type="type_null" id=".;4M6-V{98FzO^rr~y^h"/>
       <block type="type_other" id="5hN%J[kZw:1Qe^8DUplL">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="(c/Tn$n|qb!,JBu|]`A:"></shadow>
+      <shadow type="type_null" id="8{3ggX0~x4[]P-/N!|`H"/>
       <block type="type_other" id="R~xsySZQnj]%lMh.6Ok)">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="6e6:9g-a2fp-*jOCgePC">
-        <mutation colour="#80a55b"></mutation>
+        <mutation colour="#80a55b"/>
         <field name="HUE">90</field>
       </block>
     </value>
