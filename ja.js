@@ -68,7 +68,23 @@ var Msg = {
       message0: "< %1 > %2 %3",
       tooltip: "",
       helpUrl: "http://www.w3schools.com/tags/tag_html.asp",
-      args0: [{ text: "tag" }]
+      args0: [
+        {
+          type: "field_input",
+          name: "NAME",
+          text: "tag"
+        },
+        {
+          type: "input_value",
+          name: "NAME",
+          check: "attribute"
+        },
+        {
+          type: "input_statement",
+          name: "content",
+          check: "html"
+        }
+      ]
     },
     more_attributes: {
       message0: "%1 %2 %3",
@@ -85,7 +101,21 @@ var Msg = {
       message0: "a href= %1 %2 %3",
       tooltip: "",
       helpUrl: "http://www.w3schools.com/tags/tag_html.asp",
-      args0: [{ text: "target" }]
+      args0: [
+        {
+          type: "field_input",
+          name: "NAME",
+          text: "target"
+        },
+        {
+          type: "input_dummy"
+        },
+        {
+          type: "input_statement",
+          name: "content",
+          check: "html"
+        }
+      ],
     },
     span: {
       message0: "span %1 %2",
@@ -96,7 +126,18 @@ var Msg = {
       message0: "img %1 or %2",
       tooltip: "",
       helpUrl: "http://www.w3schools.com/tags/tag_html.asp",
-      args0: [{ text: "URL" }, { text: "alt" }]
+      args0: [
+        {
+          type: "field_input",
+          name: "IMAGE",
+          text: "URL"
+        },
+        {
+          type: "field_input",
+          name: "ALT",
+          text: "alternative text"
+        }
+      ],
     },
     emphasise: {
       message0: "em %1 %2",
@@ -114,6 +155,8 @@ var Msg = {
       helpUrl: "http://www.w3schools.com/tags/tag_html.asp",
       args0: [
         {
+          type: "field_dropdown",
+          name: "NAME",
           options: [
             ["h1", "h1"],
             ["h2", "h2"],
@@ -122,6 +165,13 @@ var Msg = {
             ["h5", "h5"],
             ["h6", "h6"]
           ]
+        },
+        {
+          type: "input_dummy"
+        },
+        {
+          type: "input_statement",
+          name: "content"
         }
       ]
     },

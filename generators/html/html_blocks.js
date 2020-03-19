@@ -931,8 +931,18 @@ const htmlBlocks = [
   }
 ];
 
+const localize = blockDefinition => {
+  if (blockDefinition.type in Msg.blocks) {
+    blockDefinition = {
+      ...blockDefinition,
+      ...Msg.blocks[blockDefinition.type]
+    };
+  }
+  return blockDefinition;
+};
+
 for (let i = 0; i < htmlBlocks.length; i++) {
-  const blockJson = htmlBlocks[i];
+  const blockJson = localize(htmlBlocks[i]);
   Blockly.Blocks[blockJson.type] = {
     init: function() {
       this.jsonInit(blockJson);
