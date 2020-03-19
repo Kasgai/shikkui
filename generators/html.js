@@ -397,6 +397,15 @@ HtmlGenerator["innerhtml"] = function(block) {
 
 HtmlGenerator["select_image"] = function(block) {
   var dropdown_name = block.getFieldValue("NAME");
-  var code = '<img src="' + dropdown_name + '">\n';
+  var text_width = block.getFieldValue("WIDTH");
+  var text_height = block.getFieldValue("HEIGHT");
+  var code =
+    '<img src="' +
+    dropdown_name +
+    '" width="' +
+    text_width +
+    '" height="' +
+    text_height +
+    '">\n';
   return code;
 };

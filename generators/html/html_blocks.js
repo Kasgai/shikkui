@@ -915,12 +915,22 @@ const htmlBlocks = [
   },
   {
     type: "select_image",
-    message0: "image %1",
+    message0: "image %1 width %2 height %3",
     args0: [
       {
         type: "field_dropdown",
         name: "NAME",
         options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
+      },
+      {
+        type: "field_input",
+        name: "WIDTH",
+        text: ""
+      },
+      {
+        type: "field_input",
+        name: "HEIGHT",
+        text: ""
       }
     ],
     previousStatement: "html",
