@@ -147,7 +147,10 @@
         button.onclick = () => {
           const newImageList = ImageList.filter(v => v !== alt);
           shikkuiDatabase("images").set(newImageList);
-          console.log(newImageList);
+          const target = document.getElementById("tile__image--root");
+          while (target.firstChild) {
+            target.removeChild(target.firstChild);
+          }
         };
         div.appendChild(button);
         return div;
