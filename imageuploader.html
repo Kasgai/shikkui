@@ -90,6 +90,7 @@
       let shikkuiStorage = title => {
         return firebase.storage().ref(`/shikkui_images/${projectId}/${title}`);
       };
+      let ImageList = [];
 
       const fetchAllImages = () => {
         // require authentication to upload image
@@ -101,6 +102,7 @@
         shikkuiDatabase("images").on("value", snapshot => {
           if (snapshot.val() != null) {
             // clear previous image element
+            ImageList = snapshot.val();
             const target = document.getElementById("tile__image--root");
             while (target.firstChild) {
               target.removeChild(target.firstChild);
@@ -140,6 +142,17 @@
         const p = document.createElement("p");
         p.textContent = alt;
         div.appendChild(p);
+        const button = document.createElement("button");
+        button.textContent = "delete";
+        button.onclick = () => {
+          const newImageList = ImageList.filter(v => v !== alt);
+          shikkuiDatabase("images").set(newImageList);
+          const target = document.getElementById("tile__image--root");
+          while (target.firstChild) {
+            target.removeChild(target.firstChild);
+          }
+        };
+        div.appendChild(button);
         return div;
       };
 
