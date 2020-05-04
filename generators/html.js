@@ -409,3 +409,22 @@ HtmlGenerator["select_image"] = function(block) {
     '">\n';
   return code;
 };
+
+HtmlGenerator["function"] = function(block) {
+  var text_name = block.getFieldValue("NAME");
+  var statements_statement = Blockly.JavaScript.statementToCode(
+    block,
+    "STATEMENT"
+  );
+  var value_return_value = Blockly.JavaScript.valueToCode(
+    block,
+    "RETURN_VALUE",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `function ${text_name}() {
+${statements_statement}
+
+  return ${value_return_value};
+}\n`;
+  return code;
+};

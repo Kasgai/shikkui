@@ -358,6 +358,9 @@
     </category>
     <category name="variables" colour="#A65C81" custom="VARIABLE"></category>
     <category name="functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+    <category name="function" colour="#9A5CA6">
+      <block type="function"></block>
+    </category>
     <category name="node" colour="#22aa40">
       <block type="text"></block>
       <block type="getelementbyid"></block>

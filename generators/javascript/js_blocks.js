@@ -36,6 +36,34 @@ const jsBlocks = [
     colour: 230,
     tooltip: "",
     helpUrl: ""
+  },
+  {
+    type: "function",
+    message0: "function %1 %2 %3 %4",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "myFunc"
+      },
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "STATEMENT"
+      },
+      {
+        type: "input_value",
+        name: "RETURN_VALUE",
+        align: "RIGHT"
+      }
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
   }
 ];
 
