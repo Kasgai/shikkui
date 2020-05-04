@@ -39,7 +39,7 @@ const jsBlocks = [
   },
   {
     type: "function",
-    message0: "function %1 %2 %3 %4",
+    message0: "function %1 %2 %3",
     args0: [
       {
         type: "field_input",
@@ -52,15 +52,39 @@ const jsBlocks = [
       {
         type: "input_statement",
         name: "STATEMENT"
-      },
-      {
-        type: "input_value",
-        name: "RETURN_VALUE",
-        align: "RIGHT"
       }
     ],
     previousStatement: null,
     nextStatement: null,
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "return",
+    message0: "return %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "NAME"
+      }
+    ],
+    previousStatement: null,
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "call_function",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_input",
+        name: "FUNCTION_NAME",
+        text: "myFunc"
+      }
+    ],
+    previousStatement: null,
     colour: 230,
     tooltip: "",
     helpUrl: ""

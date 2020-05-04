@@ -55,6 +55,7 @@
       </statement>
     </block>
     <block type="onclick"></block>
+    <block type="call_function"></block>
     <block type="division">
       <statement name="NAME">
         <block type="id"></block>
@@ -101,7 +102,10 @@
     <block type="controls_forEach"></block>
     <block type="controls_flow_statements"></block>
   </category>
-  <category name="functions" colour="#9A5CA6" custom="PROCEDURE"></category>
+  <category name="function" colour="#9A5CA6">
+    <block type="function"></block>
+    <block type="return"></block>
+  </category>
   <category name="math" colour="#5C68A6">
     <block type="math_round">
       <value name="NUM">

@@ -416,15 +416,24 @@ HtmlGenerator["function"] = function(block) {
     block,
     "STATEMENT"
   );
-  var value_return_value = Blockly.JavaScript.valueToCode(
-    block,
-    "RETURN_VALUE",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
   var code = `function ${text_name}() {
 ${statements_statement}
-
-  return ${value_return_value};
 }\n`;
+  return code;
+};
+
+HtmlGenerator["return"] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(
+    block,
+    "NAME",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  var code = `return ${value_name};`;
+  return code;
+};
+
+Blockly.JavaScript["call_function"] = function(block) {
+  var text_function_name = block.getFieldValue("FUNCTION_NAME");
+  var code = `${text_function_name}()`;
   return code;
 };
