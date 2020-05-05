@@ -2653,4 +2653,152 @@
         <field name="HUE">180</field>
       </block>
     </value>
+  </block><block type="factory_base" id=")zleT1?}e8Yq{7NHHy=P" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">function</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="~O0fD_VjT-1~b6@3KOTP">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="~cM,HDK0akE[aBN`/Nk@">
+            <field name="TEXT">function</field>
+            <next>
+              <block type="field_input" id="oD0{_[{-`EfuMD+Ka3;?">
+                <field name="TEXT">myFunc</field>
+                <field name="FIELDNAME">NAME</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="input_statement" id="`:A^U3dwZ(zS*2Zl=mwd">
+            <field name="INPUTNAME">STATEMENT</field>
+            <field name="ALIGN">LEFT</field>
+            <value name="TYPE">
+              <shadow type="type_null" id="eW6kPPhG3-||;{Pr|,DP"></shadow>
+              <block type="type_other" id="UX1bOD+ZydA[Siq+[.Ie">
+                <field name="TYPE">javascirpt</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="1(2J)d$`@hJzOPWvot:J" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="LBHy@/]i1$nKq-:QVMdh" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="J6[*y#a`aXS,U0]F?2{C"></shadow>
+      <block type="type_other" id="JQ-x5!4{J)-R~W^KscwH">
+        <field name="TYPE">javascirpt</field>
+      </block>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="ZP8+[3Rc]7}Loo),ifuT"></shadow>
+      <block type="type_other" id="MOJrfIk2y03ohc.7ly(d">
+        <field name="TYPE">javascirpt</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="@v`g-h]p;c#Bry0V(aJA">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="0UH+}L^E30@mQ0`.8V+B" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="TOP"></mutation>
+    <field name="NAME">return</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">TOP</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="Y:@Vqyf^yi.9F*_$Xq~F">
+        <field name="INPUTNAME">value</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="*C1$qlyvDC29v;FV#M7U">
+            <field name="TEXT">return</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="4kI/!mbQEx^}B(x4n9@e"></shadow>
+          <block type="type_other" id="tL|(5g.F*#IXq.Aw9JU/">
+            <field name="TYPE">javascript</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="m7H#S3q6RzRSi(:Pfadz" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="?ULjY}N9UK7Z*t%8=/+D" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="-.Ka;p?iLq(yEAOq6q*("></shadow>
+      <block type="type_other" id="XbL=LC6cGz7jfG@9jg/^">
+        <field name="TYPE">javascript</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="(.fXrb]/SnGXvDtjGVHI">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id=")B(^`DvHyQlaCv)R3~-t" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="TOP"></mutation>
+    <field name="NAME">call_function</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">TOP</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="y5:{`tD;fke5|[{UwZ-1">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_input" id="];_e]?:.Y~9/|01FvWGV">
+            <field name="TEXT">myFunc</field>
+            <field name="FIELDNAME">FUNCTION_NAME</field>
+            <next>
+              <block type="field_static" id="BHMy5%}f|9r=%EEuTJ!M">
+                <field name="TEXT">()</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="PYsF{,xYM5lQf!Q^htUW" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Cotu0oSLW?01dLvKb}ri" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="T3MaEQ(6hpE_VVpfgSm("></shadow>
+      <block type="type_other" id="E09+eXA!h6AS_I,8zF]a">
+        <field name="TYPE">javascript</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="v1dROcJ!3q.V@SCt(0e4">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
   </block></xml>
