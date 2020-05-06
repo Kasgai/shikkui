@@ -99,6 +99,38 @@ const textBlock = [
   }
 ];
 
+const content_sectioning = [
+  {
+    type: "h",
+    message0: "h %1 %2",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "level",
+        options: [
+          ["1", "h1"],
+          ["2", "h2"],
+          ["3", "h2"],
+          ["4", "h4"],
+          ["5", "h5"],
+          ["6", "h6"]
+        ]
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl:
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -696,35 +728,6 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"
   },
   {
-    type: "h",
-    message0: "h %1 %2",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "level",
-        options: [
-          ["1", "h1"],
-          ["2", "h2"],
-          ["3", "h2"],
-          ["4", "h4"],
-          ["5", "h5"],
-          ["6", "h6"]
-        ]
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl:
-      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
-  },
-  {
     type: "br",
     message0: "br",
     previousStatement: null,
@@ -1027,6 +1030,7 @@ const blockDefinitions = [
   ...mainRootBlock,
   ...documentMetadataBlock,
   ...sectioningRootBlock,
+  ...content_sectioning,
   ...textBlock
 ];
 

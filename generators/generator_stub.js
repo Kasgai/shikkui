@@ -167,17 +167,10 @@ BlockGenerator["strong"] = function(block) {
   return code;
 };
 
-BlockGenerator["headline"] = function(block) {
-  var dropdown_name = block.getFieldValue("NAME");
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code =
-    "<" +
-    dropdown_name +
-    ">" +
-    statements_content.trim() +
-    "</" +
-    dropdown_name +
-    ">\n";
+BlockGenerator["h"] = function(block) {
+  const level = block.getFieldValue("level");
+  const content = BlockGenerator.statementToCode(block, "content");
+  const code = `<${level}>${content.trim()}</${level}>\n`;
   return code;
 };
 
