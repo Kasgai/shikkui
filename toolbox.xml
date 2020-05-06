@@ -78,6 +78,10 @@
       <block type="var"></block>
       <block type="plaintext"></block>
     </category>
+    <category name="Image and multimedia">
+      <block type="img"></block>
+      <block type="select_image"></block>
+    </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
       <block type="horizontalbreak"></block>

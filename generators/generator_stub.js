@@ -153,10 +153,10 @@ BlockGenerator["span"] = function(block) {
   return code;
 };
 
-BlockGenerator["image"] = function(block) {
-  var text_image = block.getFieldValue("IMAGE");
-  var text_alt = block.getFieldValue("ALT");
-  var code = '<img src="' + text_image + '" alt="' + text_alt + '">\n';
+BlockGenerator["img"] = function(block) {
+  const source = block.getFieldValue("source");
+  const alt = block.getFieldValue("alt");
+  const code = `<img src="${source}" alt="${alt}">\n`;
   return code;
 };
 
@@ -356,17 +356,10 @@ BlockGenerator["innerhtml"] = function(block) {
 };
 
 BlockGenerator["select_image"] = function(block) {
-  var dropdown_name = block.getFieldValue("NAME");
-  var text_width = block.getFieldValue("WIDTH");
-  var text_height = block.getFieldValue("HEIGHT");
-  var code =
-    '<img src="' +
-    dropdown_name +
-    '" width="' +
-    text_width +
-    '" height="' +
-    text_height +
-    '">\n';
+  const source = block.getFieldValue("source");
+  const width = block.getFieldValue("width");
+  const height = block.getFieldValue("height");
+  const code = `<img src="${source}" width="${width}" height="${height}">\n`;
   return code;
 };
 

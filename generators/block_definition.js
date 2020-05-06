@@ -464,6 +464,56 @@ const inlineTextSemanticsBlock = [
   }
 ];
 
+const imageAndultimediaBlock = [
+  {
+    type: "img",
+    message0: "img %1 or %2",
+    args0: [
+      {
+        type: "field_input",
+        name: "source",
+        text: "URL"
+      },
+      {
+        type: "field_input",
+        name: "alt",
+        text: "alternative text"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
+  },
+  {
+    type: "select_image",
+    message0: "image %1 width %2 height %3",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "source",
+        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
+      },
+      {
+        type: "field_input",
+        name: "width",
+        text: ""
+      },
+      {
+        type: "field_input",
+        name: "height",
+        text: ""
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: ""
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -750,32 +800,6 @@ const otherBlocks = [
     helpUrl: ""
   },
   {
-    type: "select_image",
-    message0: "image %1 width %2 height %3",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "source",
-        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
-      },
-      {
-        type: "field_input",
-        name: "width",
-        text: ""
-      },
-      {
-        type: "field_input",
-        name: "height",
-        text: ""
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
     type: "background_color",
     message0: "background-color :  %1",
     args0: [
@@ -882,27 +906,6 @@ const otherBlocks = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
-  },
-  {
-    type: "img",
-    message0: "img %1 or %2",
-    args0: [
-      {
-        type: "field_input",
-        name: "source",
-        text: "URL"
-      },
-      {
-        type: "field_input",
-        name: "alt",
-        text: "alternative text"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
   },
   {
     type: "p",
@@ -1119,6 +1122,7 @@ const blockDefinitions = [
   ...contentSectioningBlock,
   ...textContentBlock,
   ...inlineTextSemanticsBlock,
+  ...imageAndultimediaBlock,
   ...textBlock
 ];
 
