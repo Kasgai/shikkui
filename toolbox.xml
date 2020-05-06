@@ -63,6 +63,21 @@
       </block>
       <block type="plaintext"></block>
     </category>
+    <category name="Inline text semantics">
+      <block type="a_href"></block>
+      <block type="br"></block>
+      <block type="code"></block>
+      <block type="em"></block>
+      <block type="kbd"></block>
+      <block type="q"></block>
+      <block type="samp"></block>
+      <block type="span"></block>
+      <block type="strong"></block>
+      <block type="sub"></block>
+      <block type="sup"></block>
+      <block type="var"></block>
+      <block type="plaintext"></block>
+    </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
       <block type="horizontalbreak"></block>

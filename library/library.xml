@@ -1882,7 +1882,7 @@
     </value>
     <value name="HELPURL">
       <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">http://www.w3schools.com/tags/tag_html.asp</field>
+        <field name="TEXT">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br</field>
       </block>
     </value>
     <value name="TOPTYPE">

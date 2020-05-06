@@ -240,66 +240,131 @@ const textContentBlock = [
   }
 ];
 
-const otherBlocks = [
+const inlineTextSemanticsBlock = [
   {
-    type: "style",
-    message0: "style =  %1 %2",
+    type: "a_href",
+    message0: 'a href = " %1 " %2 %3',
+    args0: [
+      {
+        type: "field_input",
+        name: "target",
+        text: "target"
+      },
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+  },
+  {
+    type: "br",
+    message0: "br",
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 330,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br"
+  },
+  {
+    type: "code",
+    message0: "code %1 %2",
     args0: [
       {
         type: "input_dummy"
       },
       {
         type: "input_statement",
-        name: "NAME",
-        check: "css"
+        name: "content"
       }
     ],
-    inputsInline: true,
-    output: "attribute",
-    colour: 230,
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"
   },
   {
-    type: "color",
-    message0: "color :  %1",
+    type: "em",
+    message0: "em %1 %2",
     args0: [
       {
-        type: "field_colour",
-        name: "NAME",
-        colour: "#ff0000"
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
       }
     ],
-    previousStatement: "css",
-    nextStatement: "css",
-    colour: 230,
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
   },
   {
-    type: "more_attributes",
-    message0: "%1 %2 %3",
+    type: "kbd",
+    message0: "kbd %1 %2",
     args0: [
       {
-        type: "input_value",
-        name: "NAME1",
-        check: "attribute"
+        type: "input_dummy"
       },
       {
-        type: "input_value",
-        name: "NAME2",
-        check: "attribute"
-      },
-      {
-        type: "input_value",
-        name: "NAME3",
-        check: "attribute"
+        type: "input_statement",
+        name: "content"
       }
     ],
-    output: "attribute",
-    colour: 230,
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"
+  },
+  {
+    type: "q",
+    message0: "q %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"
+  },
+  {
+    type: "samp",
+    message0: "samp %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp"
   },
   {
     type: "span",
@@ -361,8 +426,27 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub"
   },
   {
-    type: "code",
-    message0: "code %1 %2",
+    type: "sup",
+    message0: "sup %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"
+  },
+  {
+    type: "var",
+    message0: "var %1 %2",
     args0: [
       {
         type: "input_dummy"
@@ -376,7 +460,70 @@ const otherBlocks = [
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"
+    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
+  }
+];
+
+const otherBlocks = [
+  {
+    type: "style",
+    message0: "style =  %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "NAME",
+        check: "css"
+      }
+    ],
+    inputsInline: true,
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "color",
+    message0: "color :  %1",
+    args0: [
+      {
+        type: "field_colour",
+        name: "NAME",
+        colour: "#ff0000"
+      }
+    ],
+    previousStatement: "css",
+    nextStatement: "css",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "more_attributes",
+    message0: "%1 %2 %3",
+    args0: [
+      {
+        type: "input_value",
+        name: "NAME1",
+        check: "attribute"
+      },
+      {
+        type: "input_value",
+        name: "NAME2",
+        check: "attribute"
+      },
+      {
+        type: "input_value",
+        name: "NAME3",
+        check: "attribute"
+      }
+    ],
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
   },
   {
     type: "form",
@@ -796,15 +943,6 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
   },
   {
-    type: "br",
-    message0: "br",
-    previousStatement: null,
-    nextStatement: null,
-    colour: 330,
-    tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
-  },
-  {
     type: "ul",
     message0: "ul %1 %2",
     args0: [
@@ -879,98 +1017,6 @@ const otherBlocks = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"
-  },
-  {
-    type: "sup",
-    message0: "sup %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"
-  },
-  {
-    type: "q",
-    message0: "q %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"
-  },
-  {
-    type: "samp",
-    message0: "samp %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp"
-  },
-  {
-    type: "kbd",
-    message0: "kbd %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"
-  },
-  {
-    type: "var",
-    message0: "var %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
   },
   {
     type: "tr",
@@ -1072,6 +1118,7 @@ const blockDefinitions = [
   ...sectioningRootBlock,
   ...contentSectioningBlock,
   ...textContentBlock,
+  ...inlineTextSemanticsBlock,
   ...textBlock
 ];
 

@@ -135,23 +135,21 @@ BlockGenerator["genericattribute"] = function(block) {
   return [code, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["link"] = function(block) {
-  var text_name = block.getFieldValue("NAME");
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code =
-    '<a href="' + text_name + '">' + statements_content.trim() + "</a>\n";
+BlockGenerator["a_href"] = function(block) {
+  const target = block.getFieldValue("target");
+  const content = BlockGenerator.statementToCode(block, "content");
+  const code = `<a href="${target}">${content.trim()}</a>\n`;
   return code;
 };
 
 BlockGenerator["span"] = function(block) {
-  var value_name = BlockGenerator.valueToCode(
+  const attribute = BlockGenerator.valueToCode(
     block,
-    "NAME",
+    "attribute",
     BlockGenerator.ORDER_NONE
   );
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code =
-    "<span" + value_name + ">" + statements_content.trim() + "</span>\n";
+  const content = BlockGenerator.statementToCode(block, "content");
+  const code = `<span ${attribute}>${content.trim()}</span>\n`;
   return code;
 };
 
@@ -162,16 +160,14 @@ BlockGenerator["image"] = function(block) {
   return code;
 };
 
-BlockGenerator["emphasise"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<em>" + statements_content.trim() + "</em>\n";
-  return code;
+BlockGenerator["em"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("em", content, false);
 };
 
 BlockGenerator["strong"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<strong>" + statements_content.trim() + "</strong>\n";
-  return code;
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("strong", content, false);
 };
 
 BlockGenerator["h"] = function(block) {
@@ -181,8 +177,8 @@ BlockGenerator["h"] = function(block) {
   return code;
 };
 
-BlockGenerator["linebreak"] = function(block) {
-  var code = "<br>\n";
+BlockGenerator["br"] = function(block) {
+  const code = "<br>\n";
   return code;
 };
 
@@ -218,28 +214,24 @@ BlockGenerator["deleted"] = function(block) {
   return code;
 };
 
-BlockGenerator["super"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<sup>" + statements_content.trim() + "</sup>\n";
-  return code;
+BlockGenerator["sup"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("sup", content, false);
 };
 
 BlockGenerator["sub"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<sub>" + statements_content.trim() + "</sub>\n";
-  return code;
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("sub", content, false);
 };
 
 BlockGenerator["code"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<code>\n" + statements_content + "</code>\n";
-  return code;
+  var content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("code", content);
 };
 
-BlockGenerator["quote"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<q>" + statements_content.trim() + "</q>\n";
-  return code;
+BlockGenerator["q"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("q", content, false);
 };
 
 BlockGenerator["blockquote"] = function(block) {
@@ -247,22 +239,19 @@ BlockGenerator["blockquote"] = function(block) {
   return generateTag("blockquote", content);
 };
 
-BlockGenerator["sample"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<samp>\n" + statements_content + "</samp>\n";
-  return code;
+BlockGenerator["samp"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("samp", content);
 };
 
-BlockGenerator["keyboard"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<kbd>\n" + statements_content + "</kbd>\n";
-  return code;
+BlockGenerator["kbd"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("kbd", content);
 };
 
-BlockGenerator["variable"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<var>" + statements_content.trim() + "</var>\n";
-  return code;
+BlockGenerator["var"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("var", content, false);
 };
 
 BlockGenerator["form"] = function(block) {
