@@ -310,9 +310,8 @@ BlockGenerator["input"] = function(block) {
 };
 
 BlockGenerator["script"] = function(block) {
-  var statements_content = Blockly.JavaScript.statementToCode(block, "content");
-  var code = "<script>\n" + statements_content + "</script>\n";
-  return code;
+  const code = Blockly.JavaScript.statementToCode(block, "code");
+  return generateTag("script", code);
 };
 
 BlockGenerator["onclick"] = function(block) {

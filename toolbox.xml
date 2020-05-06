@@ -82,6 +82,9 @@
       <block type="img"></block>
       <block type="select_image"></block>
     </category>
+    <category name="Scripting">
+      <block type="script"></block>
+    </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
       <block type="horizontalbreak"></block>

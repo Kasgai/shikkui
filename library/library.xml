@@ -984,17 +984,17 @@
     </value>
     <value name="HELPURL">
       <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">http://www.w3schools.com/tags/tag_html.asp</field>
+        <field name="TEXT"></field>
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="tqZnk+wmNEhvHC_)m=Hn"></shadow>
+      <shadow type="type_null" id="E=[kgvW*d1zSX~E9,Xdc"></shadow>
       <block type="type_other" id="-`C61,h0b;*6*s:aic4J">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="ECoeJexKHN1}X58b]fG0"></shadow>
+      <shadow type="type_null" id="v,MPdAtKhir;rdjKX`]|"></shadow>
       <block type="type_other" id="Qx//O%78*{19J3Pb/,6_">
         <field name="TYPE">html</field>
       </block>
@@ -1887,9 +1887,15 @@
     </value>
     <value name="TOPTYPE">
       <shadow type="type_null" id="eA90.8h@dZOnhT$LeX.:"></shadow>
+      <block type="type_other" id="Jlk1Q6m}mXiq@@9%dX^i">
+        <field name="TYPE">html</field>
+      </block>
     </value>
     <value name="BOTTOMTYPE">
       <shadow type="type_null" id="N/qP;#CGcZ{H[Dk,r?]+"></shadow>
+      <block type="type_other" id="9.W0-Q74|NFL0x!pqr=N">
+        <field name="TYPE">html</field>
+      </block>
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="[@5*@t_`=T(C(rX^c;%l">

@@ -514,6 +514,28 @@ const imageAndultimediaBlock = [
   }
 ];
 
+const scriptingBlock = [
+  {
+    type: "script",
+    message0: "script %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "code",
+        check: "javascript"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: ""
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -679,25 +701,6 @@ const otherBlocks = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
-  },
-  {
-    type: "script",
-    message0: "script %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "code",
-        check: "javascript"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
   },
   {
     type: "onclick",
@@ -1123,6 +1126,7 @@ const blockDefinitions = [
   ...textContentBlock,
   ...inlineTextSemanticsBlock,
   ...imageAndultimediaBlock,
+  ...scriptingBlock,
   ...textBlock
 ];
 
