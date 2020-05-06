@@ -202,16 +202,14 @@ BlockGenerator["li"] = function(block) {
   return generateTag("li", content, false);
 };
 
-BlockGenerator["inserted"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<ins>" + statements_content.trim() + "</ins>\n";
-  return code;
+BlockGenerator["ins"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("ins", content, false);
 };
 
-BlockGenerator["deleted"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<del>" + statements_content.trim() + "</del>\n";
-  return code;
+BlockGenerator["del"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("del", content, false);
 };
 
 BlockGenerator["sup"] = function(block) {

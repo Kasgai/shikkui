@@ -536,6 +536,47 @@ const scriptingBlock = [
   }
 ];
 
+const demarcatingEditsBlock = [
+  {
+    type: "del",
+    message0: "del %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"
+  },
+  {
+    type: "ins",
+    message0: "ins %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins"
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -987,44 +1028,6 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
   },
   {
-    type: "ins",
-    message0: "ins %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins"
-  },
-  {
-    type: "del",
-    message0: "del %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"
-  },
-  {
     type: "tr",
     message0: "tr %1 %2",
     args0: [
@@ -1127,6 +1130,7 @@ const blockDefinitions = [
   ...inlineTextSemanticsBlock,
   ...imageAndultimediaBlock,
   ...scriptingBlock,
+  ...demarcatingEditsBlock,
   ...textBlock
 ];
 

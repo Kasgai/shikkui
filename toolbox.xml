@@ -85,6 +85,10 @@
     <category name="Scripting">
       <block type="script"></block>
     </category>
+    <category name="Demarcating edits">
+      <block type="del"></block>
+      <block type="ins"></block>
+    </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
       <block type="horizontalbreak"></block>
