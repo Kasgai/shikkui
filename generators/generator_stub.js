@@ -3,6 +3,13 @@
 // extend Blockly.JavaScript for HTML
 var BlockGenerator = Blockly.JavaScript;
 
+const generateTag = (tagName, content, isIndented = true) => {
+  if (isIndented) {
+    return `<${tagName}>\n${content}</${tagName}>\n`;
+  }
+  return `<${tagName}>${content.trim()}</${tagName}>\n`;
+};
+
 BlockGenerator["html"] = function(block) {
   var statements_content = BlockGenerator.statementToCode(block, "content");
   var code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
@@ -45,14 +52,14 @@ BlockGenerator["plaintext"] = function(block) {
   return code;
 };
 
-BlockGenerator["division"] = function(block) {
-  var value_name = BlockGenerator.valueToCode(
+BlockGenerator["div"] = function(block) {
+  const attribute = BlockGenerator.valueToCode(
     block,
-    "NAME",
+    "attribute",
     BlockGenerator.ORDER_NONE
   );
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<div" + value_name + ">\n" + statements_content + "</div>\n";
+  const content = BlockGenerator.statementToCode(block, "content");
+  const code = `<div${attribute}>\n${content}</div>\n`;
   return code;
 };
 
@@ -179,27 +186,24 @@ BlockGenerator["linebreak"] = function(block) {
   return code;
 };
 
-BlockGenerator["horizontalbreak"] = function(block) {
-  var code = "<hr>\n";
+BlockGenerator["hr"] = function(block) {
+  const code = "<hr>\n";
   return code;
 };
 
-BlockGenerator["unorderedlist"] = function(block) {
-  var statements_name = BlockGenerator.statementToCode(block, "NAME");
-  var code = "<ul>\n" + statements_name + "</ul>\n";
-  return code;
+BlockGenerator["ul"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("ul", content, false);
 };
 
-BlockGenerator["orderedlist"] = function(block) {
-  var statements_name = BlockGenerator.statementToCode(block, "NAME");
-  var code = "<ol>\n" + statements_name + "</ol>\n";
-  return code;
+BlockGenerator["ol"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("ol", content, false);
 };
 
-BlockGenerator["listelement"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<li>" + statements_content + "</li>\n";
-  return code;
+BlockGenerator["li"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("li", content, false);
 };
 
 BlockGenerator["inserted"] = function(block) {
@@ -239,9 +243,8 @@ BlockGenerator["quote"] = function(block) {
 };
 
 BlockGenerator["blockquote"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<blockquote>\n" + statements_content + "</blockquote>\n";
-  return code;
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("blockquote", content);
 };
 
 BlockGenerator["sample"] = function(block) {

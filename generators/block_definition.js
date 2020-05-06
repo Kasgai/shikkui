@@ -99,7 +99,7 @@ const textBlock = [
   }
 ];
 
-const content_sectioning = [
+const contentSectioningBlock = [
   {
     type: "h",
     message0: "h %1 %2",
@@ -128,6 +128,115 @@ const content_sectioning = [
     tooltip: "",
     helpUrl:
       "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
+  }
+];
+
+const textContentBlock = [
+  {
+    type: "blockquote",
+    message0: "blockquote %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl:
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"
+  },
+  {
+    type: "div",
+    message0: "div %1 %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "attribute",
+        check: "attribute"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"
+  },
+  {
+    type: "hr",
+    message0: "hr",
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 330,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr"
+  },
+  {
+    type: "li",
+    message0: "li %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"
+  },
+  {
+    type: "ol",
+    message0: "ol %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 330,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
+  },
+  {
+    type: "ul",
+    message0: "ul %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 330,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"
   }
 ];
 
@@ -269,26 +378,6 @@ const otherBlocks = [
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"
   },
-  {
-    type: "blockquote",
-    message0: "blockquote %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl:
-      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"
-  },
-
   {
     type: "form",
     message0: "form %1 %2",
@@ -707,27 +796,6 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
   },
   {
-    type: "div",
-    message0: "div %1 %2",
-    args0: [
-      {
-        type: "input_value",
-        name: "attribute",
-        check: "attribute"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"
-  },
-  {
     type: "br",
     message0: "br",
     previousStatement: null,
@@ -735,15 +803,6 @@ const otherBlocks = [
     colour: 330,
     tooltip: "",
     helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
-  },
-  {
-    type: "hr",
-    message0: "hr",
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 330,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr"
   },
   {
     type: "ul",
@@ -782,25 +841,6 @@ const otherBlocks = [
     colour: 330,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
-  },
-  {
-    type: "li",
-    message0: "li %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"
   },
   {
     type: "ins",
@@ -1030,7 +1070,8 @@ const blockDefinitions = [
   ...mainRootBlock,
   ...documentMetadataBlock,
   ...sectioningRootBlock,
-  ...content_sectioning,
+  ...contentSectioningBlock,
+  ...textContentBlock,
   ...textBlock
 ];
 

@@ -27,8 +27,41 @@
       </block>
       <block type="plaintext"></block>
     </category>
-    <category name="Content Sectioning">
-      <block type="h"></block>
+    <category name="Content sectioning">
+      <block type="h">
+        <statement name="content">
+          <block type="plaintext"></block>
+        </statement>
+      </block>
+    </category>
+    <category name="Text content">
+      <block type="blockquote"></block>
+      <block type="div"></block>
+      <block type="hr"></block>
+      <block type="li">
+        <statement name="content">
+          <block type="plaintext"></block>
+        </statement>
+      </block>
+      <block type="ul">
+        <statement name="content">
+          <block type="li">
+            <statement name="content">
+              <block type="plaintext"></block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+      <block type="ol">
+        <statement name="content">
+          <block type="li">
+            <statement name="content">
+              <block type="plaintext"></block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+      <block type="plaintext"></block>
     </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
