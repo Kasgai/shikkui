@@ -40,10 +40,9 @@ BlockGenerator["title"] = function(block) {
   return code;
 };
 
-BlockGenerator["paragraph"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<p>\n" + statements_content + "</p>\n";
-  return code;
+BlockGenerator["p"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("p", content);
 };
 
 BlockGenerator["plaintext"] = function(block) {
@@ -64,24 +63,24 @@ BlockGenerator["div"] = function(block) {
 };
 
 BlockGenerator["style"] = function(block) {
-  var statements_name = BlockGenerator.statementToCode(block, "NAME");
-  var code = ' style="' + statements_name.trim() + '"';
+  const style = BlockGenerator.statementToCode(block, "style");
+  var code = ' style="' + style.trim() + '"';
   return [code, BlockGenerator.ORDER_NONE];
 };
 
 BlockGenerator["color"] = function(block) {
-  var colour_name = block.getFieldValue("NAME");
-  var code = "color: " + colour_name + ";";
+  var color = block.getFieldValue("color");
+  var code = "color: " + color + ";";
   return code;
 };
 
-BlockGenerator["bgcolour"] = function(block) {
+BlockGenerator["background_color"] = function(block) {
   var colour_name = block.getFieldValue("NAME");
   var code = "background-color: " + colour_name + ";";
   return code;
 };
 
-BlockGenerator["genericstyle"] = function(block) {
+BlockGenerator["generic_style"] = function(block) {
   var text_property = block.getFieldValue("property");
   var text_value = block.getFieldValue("value");
   var code = text_property + ": " + text_value + ";";
@@ -128,7 +127,7 @@ BlockGenerator["more_attributes"] = function(block) {
   return [code, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["genericattribute"] = function(block) {
+BlockGenerator["generic_attribute"] = function(block) {
   var text_attribute = block.getFieldValue("attribute");
   var text_value = block.getFieldValue("value");
   var code = " " + text_attribute + '="' + text_value + '"';
@@ -149,7 +148,7 @@ BlockGenerator["span"] = function(block) {
     BlockGenerator.ORDER_NONE
   );
   const content = BlockGenerator.statementToCode(block, "content");
-  const code = `<span ${attribute}>${content.trim()}</span>\n`;
+  const code = `<span${attribute}>${content.trim()}</span>\n`;
   return code;
 };
 
@@ -315,42 +314,29 @@ BlockGenerator["script"] = function(block) {
 };
 
 BlockGenerator["onclick"] = function(block) {
-  var statements_name = Blockly.JavaScript.statementToCode(block, "NAME");
-  var code = ' onclick="' + statements_name.trim() + '"';
-  return [code, BlockGenerator.ORDER_NONE];
+  const code = Blockly.JavaScript.statementToCode(block, "code");
+  const output = ` onclick='${code.trim()}'`;
+  return [output, BlockGenerator.ORDER_NONE];
 };
 
 BlockGenerator["id"] = function(block) {
-  var statements_name = block.getFieldValue("NAME");
-  var code = ' id="' + statements_name + '"';
+  const statements_name = block.getFieldValue("id");
+  const code = ` id="${statements_name}"`;
   return [code, BlockGenerator.ORDER_NONE];
 };
 
 // Node control scripts
 
 BlockGenerator["getelementbyid"] = function(block) {
-  var value_id_name = Blockly.JavaScript.valueToCode(
-    block,
-    "NAME",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-  var statements_text = Blockly.JavaScript.statementToCode(block, "TEXT");
-  var code =
-    "document.getElementById(" +
-    value_id_name.trim() +
-    ")" +
-    statements_text.trim() +
-    "\n";
+  const id = block.getFieldValue("id");
+  const domCode = Blockly.JavaScript.statementToCode(block, "dom_code");
+  const code = `document.getElementById("${id}")${domCode.trim()}\n`;
   return code;
 };
 
 BlockGenerator["innerhtml"] = function(block) {
-  var value_id_name = Blockly.JavaScript.valueToCode(
-    block,
-    "NAME",
-    Blockly.JavaScript.ORDER_ATOMIC
-  );
-  var code = ".innerHTML=" + value_id_name.trim() + ";";
+  const text = block.getFieldValue("text");
+  const code = `.innerHTML = "${text.trim()}";`;
   return code;
 };
 

@@ -259,7 +259,7 @@
         </statement>
         <next>
           <block type="input_statement" id="]HEOJ1tAF%yc(M(*GnSi">
-            <field name="INPUTNAME">NAME</field>
+            <field name="INPUTNAME">style</field>
             <field name="ALIGN">LEFT</field>
             <value name="TYPE">
               <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null" id="Whd=(:[}!kaP^GJpG#RQ"></shadow>
@@ -282,7 +282,7 @@
       </block>
     </value>
     <value name="OUTPUTTYPE">
-      <shadow type="type_null" id="P((fmi1M7@Lk:MgG;imw"></shadow>
+      <shadow type="type_null" id="FTd-nxH5$9a{J5SgKgf7"></shadow>
       <block type="type_other" id="44n}inD}w_-n#/5qUYV,">
         <field name="TYPE">attribute</field>
       </block>
@@ -307,7 +307,7 @@
             <next>
               <block type="field_colour" id="=dXSCh1L(S$]rJtEknH[">
                 <field name="COLOUR">#ff0000</field>
-                <field name="FIELDNAME">NAME</field>
+                <field name="FIELDNAME">color</field>
               </block>
             </next>
           </block>
@@ -325,13 +325,13 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="vjpilu_AQO;5/l,wN;RV"></shadow>
+      <shadow type="type_null" id="J/?V|pALRoRmPx)hlKz+"></shadow>
       <block type="type_other" id=".WhWsopU6w({]6b(yL0D">
         <field name="TYPE">css</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="+_~csz7SMk}MkggzVR.O"></shadow>
+      <shadow type="type_null" id=".ErePKmo6l9moIY(}4{)"></shadow>
       <block type="type_other" id="dCDts2|_XotDwOg9bK#:">
         <field name="TYPE">css</field>
       </block>
@@ -2674,9 +2674,6 @@
         </statement>
         <value name="TYPE">
           <shadow type="type_null" id="4kI/!mbQEx^}B(x4n9@e"></shadow>
-          <block type="type_other" id="tL|(5g.F*#IXq.Aw9JU/">
-            <field name="TYPE">javascript</field>
-          </block>
         </value>
       </block>
     </statement>
@@ -2691,7 +2688,7 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="-.Ka;p?iLq(yEAOq6q*("></shadow>
+      <shadow type="type_null" id="qT(GOOnv:3%SgaJJzk=2"></shadow>
       <block type="type_other" id="XbL=LC6cGz7jfG@9jg/^">
         <field name="TYPE">javascript</field>
       </block>
@@ -2703,10 +2700,10 @@
       </block>
     </value>
   </block><block type="factory_base" id=")B(^`DvHyQlaCv)R3~-t" deletable="false" movable="false" x="10" y="10">
-    <mutation connections="TOP"></mutation>
+    <mutation connections="BOTH"></mutation>
     <field name="NAME">call_function</field>
     <field name="INLINE">AUTO</field>
-    <field name="CONNECTIONS">TOP</field>
+    <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
       <block type="input_dummy" id="y5:{`tD;fke5|[{UwZ-1">
         <field name="ALIGN">LEFT</field>
@@ -2734,8 +2731,14 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="T3MaEQ(6hpE_VVpfgSm("></shadow>
-      <block type="type_other" id="E09+eXA!h6AS_I,8zF]a">
+      <shadow type="type_null" id="t(/.JE:FJ-de=cq5$(z@"></shadow>
+      <block type="type_other" id="n6yrw2l3]!3}a*)$gdjj">
+        <field name="TYPE">javascript</field>
+      </block>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="W1i/8?oXOiP#-aiEGBy^"></shadow>
+      <block type="type_other" id="GYJe]@~bS,j/J:?mXLs(">
         <field name="TYPE">javascript</field>
       </block>
     </value>

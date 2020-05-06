@@ -80,25 +80,6 @@ const sectioningRootBlock = [
   }
 ];
 
-const textBlock = [
-  {
-    type: "plaintext",
-    message0: "text %1",
-    args0: [
-      {
-        type: "field_input",
-        name: "content",
-        text: ""
-      }
-    ],
-    previousStatement: null,
-    nextStatement: null,
-    colour: 330,
-    tooltip: "",
-    helpUrl: ""
-  }
-];
-
 const contentSectioningBlock = [
   {
     type: "h",
@@ -218,6 +199,25 @@ const textContentBlock = [
     colour: 330,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
+  },
+  {
+    type: "p",
+    message0: "p %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"
   },
   {
     type: "ul",
@@ -726,7 +726,7 @@ const formsBlock = [
   }
 ];
 
-const otherBlocks = [
+const attributeBlock = [
   {
     type: "style",
     message0: "style =  %1 %2",
@@ -736,7 +736,7 @@ const otherBlocks = [
       },
       {
         type: "input_statement",
-        name: "NAME",
+        name: "style",
         check: "css"
       }
     ],
@@ -752,138 +752,13 @@ const otherBlocks = [
     args0: [
       {
         type: "field_colour",
-        name: "NAME",
+        name: "color",
         colour: "#ff0000"
       }
     ],
     previousStatement: "css",
     nextStatement: "css",
     colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "more_attributes",
-    message0: "%1 %2 %3",
-    args0: [
-      {
-        type: "input_value",
-        name: "NAME1",
-        check: "attribute"
-      },
-      {
-        type: "input_value",
-        name: "NAME2",
-        check: "attribute"
-      },
-      {
-        type: "input_value",
-        name: "NAME3",
-        check: "attribute"
-      }
-    ],
-    output: "attribute",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "onclick",
-    message0: "on click =  %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "code",
-        check: "javascript"
-      }
-    ],
-    inputsInline: true,
-    output: "attribute",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "id",
-    message0: "id= %1",
-    args0: [
-      {
-        type: "field_input",
-        name: "id",
-        text: "app"
-      }
-    ],
-    inputsInline: true,
-    output: "attribute",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "getelementbyid",
-    message0: "getElementById %1 %2 %3",
-    args0: [
-      {
-        type: "field_input",
-        name: "id",
-        text: "app"
-      },
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "dom_code",
-        check: "dom"
-      }
-    ],
-    previousStatement: "javascript",
-    nextStatement: "javascript",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "innerhtml",
-    message0: "innerHTML %1",
-    args0: [
-      {
-        type: "field_input",
-        name: "text",
-        text: "Hello, World!"
-      }
-    ],
-    previousStatement: "dom",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "select_image",
-    message0: "image %1 width %2 height %3",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "NAME",
-        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
-      },
-      {
-        type: "field_input",
-        name: "WIDTH",
-        text: ""
-      },
-      {
-        type: "field_input",
-        name: "HEIGHT",
-        text: ""
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
     tooltip: "",
     helpUrl: ""
   },
@@ -925,6 +800,66 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
   },
   {
+    type: "id",
+    message0: "id= %1",
+    args0: [
+      {
+        type: "field_input",
+        name: "id",
+        text: "app"
+      }
+    ],
+    inputsInline: true,
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "onclick",
+    message0: "on click =  %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "code",
+        check: "javascript"
+      }
+    ],
+    inputsInline: true,
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "more_attributes",
+    message0: "%1 %2 %3",
+    args0: [
+      {
+        type: "input_value",
+        name: "NAME1",
+        check: "attribute"
+      },
+      {
+        type: "input_value",
+        name: "NAME2",
+        check: "attribute"
+      },
+      {
+        type: "input_value",
+        name: "NAME3",
+        check: "attribute"
+      }
+    ],
+    output: "attribute",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
     type: "generic_attribute",
     message0: "%1  =  %2",
     args0: [
@@ -942,6 +877,121 @@ const otherBlocks = [
     inputsInline: true,
     output: "attribute",
     colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "function",
+    message0: "function %1 %2 %3",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "myFunc"
+      },
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "STATEMENT",
+        check: "javascript"
+      }
+    ],
+    previousStatement: "javascript",
+    nextStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "return",
+    message0: "return %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "value"
+      }
+    ],
+    previousStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "call_function",
+    message0: "%1 ()",
+    args0: [
+      {
+        type: "field_input",
+        name: "FUNCTION_NAME",
+        text: "myFunc"
+      }
+    ],
+    previousStatement: "javascript",
+    nextStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  }
+];
+
+const domBlocks = [
+  {
+    type: "getelementbyid",
+    message0: "getElementById %1 %2 %3",
+    args0: [
+      {
+        type: "field_input",
+        name: "id",
+        text: "app"
+      },
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "dom_code",
+        check: "dom"
+      }
+    ],
+    previousStatement: "javascript",
+    nextStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "innerhtml",
+    message0: "innerHTML %1",
+    args0: [
+      {
+        type: "field_input",
+        name: "text",
+        text: "Hello, World!"
+      }
+    ],
+    previousStatement: "dom",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  }
+];
+
+const otherBlock = [
+  {
+    type: "plaintext",
+    message0: "text %1",
+    args0: [
+      {
+        type: "field_input",
+        name: "content",
+        text: ""
+      }
+    ],
+    previousStatement: null,
+    nextStatement: null,
+    colour: 330,
     tooltip: "",
     helpUrl: ""
   },
@@ -970,177 +1020,25 @@ const otherBlocks = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference"
-  },
-  {
-    type: "a_href",
-    message0: 'a href = " %1 " %2 %3',
-    args0: [
-      {
-        type: "field_input",
-        name: "target",
-        text: "target"
-      },
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
-  },
-  {
-    type: "p",
-    message0: "p %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"
-  },
-  {
-    type: "em",
-    message0: "em %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
-  },
-  {
-    type: "ul",
-    message0: "ul %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 330,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"
-  },
-  {
-    type: "ol",
-    message0: "ol %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 330,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
-  },
-  {
-    type: "function",
-    message0: "function %1 %2 %3",
-    args0: [
-      {
-        type: "field_input",
-        name: "NAME",
-        text: "myFunc"
-      },
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "STATEMENT",
-        check: "javascirpt"
-      }
-    ],
-    previousStatement: "javascirpt",
-    nextStatement: "javascirpt",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "return",
-    message0: "return %1",
-    args0: [
-      {
-        type: "input_value",
-        name: "value",
-        check: "javascript"
-      }
-    ],
-    previousStatement: "javascript",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
-  },
-  {
-    type: "call_function",
-    message0: "%1 ()",
-    args0: [
-      {
-        type: "field_input",
-        name: "FUNCTION_NAME",
-        text: "myFunc"
-      }
-    ],
-    previousStatement: "javascript",
-    colour: 230,
-    tooltip: "",
-    helpUrl: ""
   }
 ];
 
 const blockDefinitions = [
-  ...mainRootBlock,
-  ...documentMetadataBlock,
-  ...sectioningRootBlock,
-  ...contentSectioningBlock,
-  ...textContentBlock,
-  ...inlineTextSemanticsBlock,
-  ...imageAndultimediaBlock,
-  ...scriptingBlock,
-  ...demarcatingEditsBlock,
-  ...tableContentBlock,
-  ...formsBlock,
-  ...textBlock
-];
+  mainRootBlock,
+  documentMetadataBlock,
+  sectioningRootBlock,
+  contentSectioningBlock,
+  textContentBlock,
+  inlineTextSemanticsBlock,
+  imageAndultimediaBlock,
+  scriptingBlock,
+  demarcatingEditsBlock,
+  tableContentBlock,
+  formsBlock,
+  attributeBlock,
+  domBlocks,
+  otherBlock
+].flat();
 
 const localize = blockDefinition => {
   if (blockDefinition.type in Msg.blocks) {
