@@ -88,6 +88,37 @@
     <category name="Demarcating edits">
       <block type="del"></block>
       <block type="ins"></block>
+      <block type="plaintext"></block>
+    </category>
+    <category name="Table content">
+      <block type="table">
+        <statement name="content">
+          <block type="tr">
+            <statement name="content">
+              <block type="td">
+                <next>
+                  <block type="td"></block>
+                </next>
+              </block>
+            </statement>
+            <next>
+              <block type="tr">
+                <statement name="content">
+                  <block type="td">
+                    <next>
+                      <block type="td"></block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+      <block type="table"></block>
+      <block type="td"></block>
+      <block type="tr"></block>
+      <block type="plaintext"></block>
     </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>

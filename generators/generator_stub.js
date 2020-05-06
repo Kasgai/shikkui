@@ -259,21 +259,18 @@ BlockGenerator["form"] = function(block) {
 };
 
 BlockGenerator["table"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<table>\n" + statements_content + "</table>\n";
-  return code;
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("table", content);
 };
 
-BlockGenerator["tablerow"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<tr>\n" + statements_content + "</tr>\n";
-  return code;
+BlockGenerator["tr"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("tr", content);
 };
 
-BlockGenerator["tablecell"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<td>" + statements_content.trim() + "</td>\n";
-  return code;
+BlockGenerator["td"] = function(block) {
+  const content = BlockGenerator.statementToCode(block, "content");
+  return generateTag("td", content, false);
 };
 
 BlockGenerator["input_text"] = function(block) {

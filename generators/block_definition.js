@@ -577,6 +577,66 @@ const demarcatingEditsBlock = [
   }
 ];
 
+const tableContentBlock = [
+  {
+    type: "table",
+    message0: "table %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "table"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 180,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+  },
+  {
+    type: "td",
+    message0: "td %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "tablerow",
+    nextStatement: "tablerow",
+    colour: 180,
+    tooltip: "",
+    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
+  },
+  {
+    type: "tr",
+    message0: "tr %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "tablerow"
+      }
+    ],
+    previousStatement: "table",
+    nextStatement: "table",
+    colour: 180,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -655,25 +715,6 @@ const otherBlocks = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
-  },
-  {
-    type: "table",
-    message0: "table %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "table"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 180,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
   },
   {
     type: "button",
@@ -1028,44 +1069,6 @@ const otherBlocks = [
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
   },
   {
-    type: "tr",
-    message0: "tr %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "tablerow"
-      }
-    ],
-    previousStatement: "table",
-    nextStatement: "table",
-    colour: 180,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"
-  },
-  {
-    type: "td",
-    message0: "td %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "tablerow",
-    nextStatement: "tablerow",
-    colour: 180,
-    tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
-  },
-  {
     type: "function",
     message0: "function %1 %2 %3",
     args0: [
@@ -1131,6 +1134,7 @@ const blockDefinitions = [
   ...imageAndultimediaBlock,
   ...scriptingBlock,
   ...demarcatingEditsBlock,
+  ...tableContentBlock,
   ...textBlock
 ];
 
