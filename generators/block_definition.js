@@ -637,6 +637,95 @@ const tableContentBlock = [
   }
 ];
 
+const formsBlock = [
+  {
+    type: "button",
+    message0: "button %1 %2",
+    args0: [
+      {
+        type: "input_value",
+        name: "attribute"
+      },
+      {
+        type: "input_statement",
+        name: "content",
+        check: "html"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"
+  },
+  {
+    type: "form",
+    message0: "form %1 %2",
+    args0: [
+      {
+        type: "input_dummy"
+      },
+      {
+        type: "input_statement",
+        name: "content"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+  },
+  {
+    type: "input",
+    message0: "%1 input %2 %3",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "type",
+        options: [
+          ["text", "text"],
+          ["email", "email"],
+          ["number", "number"],
+          ["password", "password"],
+          ["checkbox", "checkbox"],
+          ["radiobutton", "radio"],
+          ["button", "button"],
+          ["color", "color"],
+          ["date", "date"],
+          ["local time", "datetime-local"],
+          ["file", "file"],
+          ["hidden", "hidden"],
+          ["image", "image"],
+          ["month", "month"],
+          ["range", "range"],
+          ["reset", "reset"],
+          ["search", "search"],
+          ["submit", "submit"],
+          ["telephone number", "tel"],
+          ["time", "time"],
+          ["url", "url"],
+          ["week", "week"]
+        ]
+      },
+      {
+        type: "field_input",
+        name: "value",
+        text: ""
+      },
+      {
+        type: "input_value",
+        name: "text"
+      }
+    ],
+    previousStatement: "html",
+    nextStatement: "html",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
+  }
+];
+
 const otherBlocks = [
   {
     type: "style",
@@ -697,92 +786,6 @@ const otherBlocks = [
     colour: 230,
     tooltip: "",
     helpUrl: ""
-  },
-  {
-    type: "form",
-    message0: "form %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
-  },
-  {
-    type: "button",
-    message0: "button %1 %2",
-    args0: [
-      {
-        type: "input_value",
-        name: "attribute"
-      },
-      {
-        type: "input_statement",
-        name: "content",
-        check: "html"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"
-  },
-  {
-    type: "input",
-    message0: "%1 input %2 %3",
-    args0: [
-      {
-        type: "field_dropdown",
-        name: "type",
-        options: [
-          ["text", "text"],
-          ["email", "email"],
-          ["number", "number"],
-          ["password", "password"],
-          ["checkbox", "checkbox"],
-          ["radiobutton", "radio"],
-          ["button", "button"],
-          ["color", "color"],
-          ["date", "date"],
-          ["local time", "datetime-local"],
-          ["file", "file"],
-          ["hidden", "hidden"],
-          ["image", "image"],
-          ["month", "month"],
-          ["range", "range"],
-          ["reset", "reset"],
-          ["search", "search"],
-          ["submit", "submit"],
-          ["telephone number", "tel"],
-          ["time", "time"],
-          ["url", "url"],
-          ["week", "week"]
-        ]
-      },
-      {
-        type: "field_input",
-        name: "value",
-        text: ""
-      },
-      {
-        type: "input_value",
-        name: "text"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
   },
   {
     type: "onclick",
@@ -1135,6 +1138,7 @@ const blockDefinitions = [
   ...scriptingBlock,
   ...demarcatingEditsBlock,
   ...tableContentBlock,
+  ...formsBlock,
   ...textBlock
 ];
 

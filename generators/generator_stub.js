@@ -47,8 +47,8 @@ BlockGenerator["paragraph"] = function(block) {
 };
 
 BlockGenerator["plaintext"] = function(block) {
-  var text_content = block.getFieldValue("content");
-  var code = text_content + "\n";
+  const content = block.getFieldValue("content");
+  const code = content + "\n";
   return code;
 };
 
@@ -280,8 +280,13 @@ BlockGenerator["input_text"] = function(block) {
 };
 
 BlockGenerator["button"] = function(block) {
-  var statements_name = BlockGenerator.statementToCode(block, "NAME");
-  var code = "<button>" + statements_name.trim() + "</button>\n";
+  const attribute = BlockGenerator.valueToCode(
+    block,
+    "attribute",
+    BlockGenerator.ORDER_NONE
+  );
+  const content = BlockGenerator.statementToCode(block, "content");
+  const code = `<button ${attribute}>\n${content}</button>\n`;
   return code;
 };
 

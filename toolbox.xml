@@ -120,6 +120,16 @@
       <block type="tr"></block>
       <block type="plaintext"></block>
     </category>
+    <category name="Forms">
+      <block type="button">
+        <statement name="content">
+          <block type="plaintext">
+            <field name="content">button</field>
+          </block>
+        </statement>
+      </block>
+      <block type="form"></block>
+    </category>
     <category name="textstructure" colour="#5ba55b">
       <block type="plaintext"></block>
       <block type="horizontalbreak"></block>
