@@ -6,6 +6,10 @@ let isHost = false;
 
 // project database for shikkui
 const projectId = window.location.search.replace(/\?id=/, "");
+if (projectId == null) {
+  projectId = "demo";
+}
+
 let shikkuiDatabase = path => {
   return firebase.database().ref(`/projects/${projectId}/shikkui/${path}`);
 };
@@ -243,18 +247,19 @@ const toggleHost = () => {
   ).href = `imageuploader.html?id=${projectId}`;
 
   const requestUrl = "/toolbox.xml";
+  const toolbox = await loadXml(requestUrl);
+  makeWorkspace(toolbox);
+
   const result = await Promise.all([
-    loadXml(requestUrl),
     firebaseAuth,
     loadImageList(projectId)
   ]).catch(error => {
-    alert(error);
+    console.error(error);
     return;
   });
 
-  const htmlToolbox = result[0];
-  makeWorkspace(htmlToolbox);
+  if (result == null) return;
 
-  const userInfo = result[1];
+  const userInfo = result[0];
   firebaseDataAccess(userInfo);
 })();
