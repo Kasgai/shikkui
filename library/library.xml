@@ -18,7 +18,7 @@
             <value name="TYPE">
               <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null" id="BLj0bOn$fER9KS;#`RU]"></shadow>
               <block type="type_other" id="?R|hV3^UIbV=V=`9w3z@">
-                <field name="TYPE">html</field>
+                <field name="TYPE">document</field>
               </block>
             </value>
           </block>
@@ -242,68 +242,6 @@
       <block type="colour_hue" id="[@5*@t_`=T(C(rX^c;%l">
         <mutation colour="#a55b80"></mutation>
         <field name="HUE">330</field>
-      </block>
-    </value>
-  </block><block type="factory_base" id=",uZ?DNf{6+qhfT`pYF6H" deletable="false" movable="false" x="0" y="0">
-    <mutation connections="BOTH"></mutation>
-    <field name="NAME">division</field>
-    <field name="INLINE">AUTO</field>
-    <field name="CONNECTIONS">BOTH</field>
-    <statement name="INPUTS">
-      <block type="input_value" id="Ox^]*eM?Ku1p[A9XcNh3">
-        <field name="INPUTNAME">attribute</field>
-        <field name="ALIGN">LEFT</field>
-        <statement name="FIELDS">
-          <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
-            <field name="TEXT">div</field>
-          </block>
-        </statement>
-        <value name="TYPE">
-          <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null" id="4})L,Ee-wWBJMMV~T:,f"></shadow>
-          <block type="type_other" id="]2#hZOFm6T#,C[$/b~*E">
-            <field name="TYPE">attribute</field>
-          </block>
-        </value>
-        <next>
-          <block type="input_statement" id="G=XG;fCLl3!c6GM17`Yt">
-            <field name="INPUTNAME">content</field>
-            <field name="ALIGN">LEFT</field>
-            <value name="TYPE">
-              <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null" id="BLj0bOn$fER9KS;#`RU]"></shadow>
-              <block type="type_other" id="tj|f%Y1S`uVze|_u2YGO">
-                <field name="TYPE">html</field>
-              </block>
-            </value>
-          </block>
-        </next>
-      </block>
-    </statement>
-    <value name="TOOLTIP">
-      <block type="text" id=":}DEzID4=tMRK}@{b).[" deletable="false" movable="false">
-        <field name="TEXT"></field>
-      </block>
-    </value>
-    <value name="HELPURL">
-      <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div</field>
-      </block>
-    </value>
-    <value name="TOPTYPE">
-      <shadow type="type_null" id=";.1g,a[oXscFvi{NgxmU"></shadow>
-      <block type="type_other" id="n79uw=K3F(e25Tc`DD4-">
-        <field name="TYPE">html</field>
-      </block>
-    </value>
-    <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="TsTqeB4Iu@2X(Em-)ih;"></shadow>
-      <block type="type_other" id="=S35t,]5Ct2vJO395)M}">
-        <field name="TYPE">html</field>
-      </block>
-    </value>
-    <value name="COLOUR">
-      <block type="colour_hue" id="[@5*@t_`=T(C(rX^c;%l">
-        <mutation colour="#80a55b"></mutation>
-        <field name="HUE">90</field>
       </block>
     </value>
   </block><block type="factory_base" id=":-t5[PLmDJ5ZY%v?6gR$" deletable="false" movable="false" x="0" y="0">
@@ -936,7 +874,7 @@
             <field name="CPU5">radio</field>
             <field name="USER6">button</field>
             <field name="CPU6">button</field>
-            <field name="USER7">colour</field>
+            <field name="USER7">color</field>
             <field name="CPU7">color</field>
             <field name="USER8">date</field>
             <field name="CPU8">date</field>
@@ -995,13 +933,13 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="eA90.8h@dZOnhT$LeX.:"></shadow>
+      <shadow type="type_null" id="(uy(~E2t.Cr8mQ[J*bM="></shadow>
       <block type="type_other" id="P}lP%C/05HG,d7?1]:aQ">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="N/qP;#CGcZ{H[Dk,r?]+"></shadow>
+      <shadow type="type_null" id="ZU@u?9!m[P2moSXVCLQk"></shadow>
       <block type="type_other" id="f@RYxE~ryPXAd)2n$+F,">
         <field name="TYPE">html</field>
       </block>
@@ -1277,7 +1215,7 @@
             <next>
               <block type="field_dropdown" id="fr:4_kArvzqgP4=!M%:U">
                 <mutation options="[&quot;text&quot;]"></mutation>
-                <field name="FIELDNAME">NAME</field>
+                <field name="FIELDNAME">source</field>
                 <field name="USER0">Kasgai</field>
                 <field name="CPU0">https://kasgai.com/asset/icon.jpg</field>
                 <next>
@@ -1286,14 +1224,14 @@
                     <next>
                       <block type="field_input" id="ibtBOAeFjS6t]rfs^[y-">
                         <field name="TEXT"></field>
-                        <field name="FIELDNAME">WIDTH</field>
+                        <field name="FIELDNAME">width</field>
                         <next>
                           <block type="field_static" id="m{JE+h=Wa8`aNWN=RBPB">
                             <field name="TEXT">height</field>
                             <next>
                               <block type="field_input" id="S_6sPu}a.:sXMg$Ku;1j">
                                 <field name="TEXT"></field>
-                                <field name="FIELDNAME">HEIGHT</field>
+                                <field name="FIELDNAME">height</field>
                               </block>
                             </next>
                           </block>
@@ -1319,13 +1257,13 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id=".;4M6-V{98FzO^rr~y^h"></shadow>
+      <shadow type="type_null" id="^rSe6V)DUR50m#KQZp?S"></shadow>
       <block type="type_other" id="5hN%J[kZw:1Qe^8DUplL">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="8{3ggX0~x4[]P-/N!|`H"></shadow>
+      <shadow type="type_null" id="dlomXFdRtSimN}LI5*I["></shadow>
       <block type="type_other" id="R~xsySZQnj]%lMh.6Ok)">
         <field name="TYPE">html</field>
       </block>
@@ -1981,17 +1919,17 @@
     </value>
     <value name="HELPURL">
       <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">http://www.w3schools.com/tags/tag_html.asp</field>
+        <field name="TEXT">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr</field>
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="eA90.8h@dZOnhT$LeX.:"></shadow>
+      <shadow type="type_null" id="qDz;XwopF5d,MfO7p]y1"></shadow>
       <block type="type_other" id="G[qPHHgl}.r5z8Exql1!">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="N/qP;#CGcZ{H[Dk,r?]+"></shadow>
+      <shadow type="type_null" id="Z.kWe+Nhdk=k;whJSIK8"></shadow>
       <block type="type_other" id="j%`s~GpFg%Et|022A|Y8">
         <field name="TYPE">html</field>
       </block>
@@ -2036,17 +1974,17 @@
     </value>
     <value name="HELPURL">
       <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">http://www.w3schools.com/tags/tag_html.asp</field>
+        <field name="TEXT">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul</field>
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="eA90.8h@dZOnhT$LeX.:"></shadow>
+      <shadow type="type_null" id="PuP}?bQdjv}RF$FT@.qi"></shadow>
       <block type="type_other" id="vi%{JXtkMG!sfw|RVg}(">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="N/qP;#CGcZ{H[Dk,r?]+"></shadow>
+      <shadow type="type_null" id="*){c(^9_A+?#m]H6Lj#2"></shadow>
       <block type="type_other" id="KI@df,BdF#V`@+RdH-9G">
         <field name="TYPE">html</field>
       </block>
@@ -2366,17 +2304,17 @@
     </value>
     <value name="HELPURL">
       <block type="text" id="R?.3!qt:L|Eu?Xv/#aea" deletable="false" movable="false">
-        <field name="TEXT">http://www.w3schools.com/tags/tag_html.asp</field>
+        <field name="TEXT">https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q</field>
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="eA90.8h@dZOnhT$LeX.:"></shadow>
+      <shadow type="type_null" id="U*4NdiB;-j1$Ibymum_0"></shadow>
       <block type="type_other" id="``WiLgVpfM17tmEbH|J*">
         <field name="TYPE">html</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="N/qP;#CGcZ{H[Dk,r?]+"></shadow>
+      <shadow type="type_null" id="KL=wt}50iRX2if?,OU|$"></shadow>
       <block type="type_other" id="W0f7fHri]%{V.`+(Yvzh">
         <field name="TYPE">html</field>
       </block>
@@ -2553,7 +2491,7 @@
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
-            <field name="TEXT">row</field>
+            <field name="TEXT">tr</field>
           </block>
         </statement>
         <next>
@@ -2581,13 +2519,13 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="UxUMy*LH|[9j+]{%udWR"></shadow>
+      <shadow type="type_null" id=":@72)1NVR~_Q3,8.TMda"></shadow>
       <block type="type_other" id="bNO`S5,y+x^J9+hzM#y_">
         <field name="TYPE">table</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="=TRN4UsqBAs4Z~,hsyV)"></shadow>
+      <shadow type="type_null" id=".s8Ltjo}b]`o[!;K9p#c"></shadow>
       <block type="type_other" id="219trt=]/1%H;[J%VCL?">
         <field name="TYPE">table</field>
       </block>

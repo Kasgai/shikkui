@@ -45,7 +45,7 @@ const makeWorkspace = htmlToolbox => {
   Blockly.svgResize(workspace);
 
   const updateWorkspace = () => {
-    const code = HtmlGenerator.workspaceToCode(workspace);
+    const code = BlockGenerator.workspaceToCode(workspace);
     document.getElementById("htmlSourcecode").innerText = code;
     document.getElementById(
       "website"
@@ -118,7 +118,7 @@ const exportBlockXml = () => {
 
 const exportHtml = () => {
   if (workspace) {
-    const code = HtmlGenerator.workspaceToCode(workspace);
+    const code = BlockGenerator.workspaceToCode(workspace);
     downloadArchivedPage(code).then(function(response) {
       const blob = new Blob([response], { type: "application/zip" });
       const link = document.createElement("a");
