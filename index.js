@@ -26,7 +26,7 @@ const firebaseAuth = new Promise((resolve, reject) => {
 
 // XML setup
 const loadXml = url => {
-  return fetch(`/shikkui/${url}`)
+  return fetch(url)
     .then(response => response.text())
     .then(data => data)
     .catch(error => console.error(error));
@@ -246,7 +246,7 @@ const toggleHost = () => {
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
 
-  const requestUrl = "/toolbox.xml";
+  const requestUrl = "./toolbox.xml";
   const toolbox = await loadXml(requestUrl);
   makeWorkspace(toolbox);
 
