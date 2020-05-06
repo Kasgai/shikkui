@@ -182,12 +182,22 @@ const updateSelectImageBlock = imageOptions => {
   }
   const newSelectImageJson = {
     type: "select_image",
-    message0: "image %1",
+    message0: "image %1 width %2 height %3",
     args0: [
       {
         type: "field_dropdown",
-        name: "NAME",
+        name: "source",
         options: imageOptions
+      },
+      {
+        type: "field_input",
+        name: "width",
+        text: ""
+      },
+      {
+        type: "field_input",
+        name: "height",
+        text: ""
       }
     ],
     previousStatement: "html",
