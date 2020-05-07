@@ -1040,18 +1040,8 @@ const blockDefinitions = [
   otherBlock
 ].flat();
 
-const localize = blockDefinition => {
-  if (blockDefinition.type in Msg.blocks) {
-    blockDefinition = {
-      ...blockDefinition,
-      ...Msg.blocks[blockDefinition.type]
-    };
-  }
-  return blockDefinition;
-};
-
 for (let i = 0; i < blockDefinitions.length; i++) {
-  const blockJson = localize(blockDefinitions[i]);
+  const blockJson = blockDefinitions[i];
   Blockly.Blocks[blockJson.type] = {
     init: function() {
       this.jsonInit(blockJson);

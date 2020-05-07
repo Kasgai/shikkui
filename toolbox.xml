@@ -1,6 +1,6 @@
 <xml xmlns="http://www.w3.org/1999/xhtml" id="htmltoolbox" style="display: none;">
   <category name="html" expanded="true">
-    <category name="baseframe" colour="#a55b5b">
+    <category name="Base" colour="#a55b5b">
       <block type="html">
         <statement name="content">
           <block type="head">
