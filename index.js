@@ -26,7 +26,7 @@ const firebaseAuth = new Promise((resolve, reject) => {
 
 // XML setup
 const loadXml = url => {
-  return fetch(url)
+  return fetch(`/shikkui/${url}`)
     .then(response => response.text())
     .then(data => data)
     .catch(error => console.error(error));
