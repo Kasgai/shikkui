@@ -235,8 +235,8 @@ const getStrageUrl = (projectId, contentNameList) => {
 // change isHost
 const toggleHost = () => {
   isHost = !isHost;
-  const label = isHost ? "master" : "slave";
-  document.getElementById("hostButton").innerText = label;
+  const label = isHost ? "off" : "on";
+  document.getElementById("hostButton").innerText = `編集制限モード ${label}`;
 };
 
 // main logic
