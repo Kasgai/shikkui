@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <title>Kasgai</title>
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light"
+      style="background-color: #f7f7f7"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="https://kasgai.com/asset/icon.jpg"
+            width="30"
+            height="30"
+            alt=""
+          />
+          Kasgai</a
+        >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container mt-5 mb-5">
+      <div class="card">
+        <h5 class="card-header">ログイン</h5>
+        <div class="card-body">
+          <p class="card-text">
+            既に登録済みの場合はログインしてください。未登録の場合はサインアップしましょう。
+          </p>
+          <form>
+            <div class="form-group">
+              <label for="inputEmail">E-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                placeholder="username@example.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputPassword">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="inputPassword"
+                placeholder="password"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary float-right"
+              id="loginButton"
+            >
+              ログイン
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-secondary float-right mr-3"
+              id="signupButton"
+            >
+              サインアップ
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="alert alert-danger mt-5 fade" id="problemAlert" role="alert">
+        A simple danger alert—check it out!
+      </div>
+    </div>
+
+    <nav class="navbar sticky-bottom navbar-dark bg-dark">
+      <div class="container">
+        <span class="navbar-text">
+          Copyright (c) 2018-2019 Fukui Masanori, Jo Hagikura & Yuji Sasaki All
+          Rights Reserved.
+        </span>
+      </div>
+    </nav>
+
+    <!-- Optional JavaScript -->
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.0/firebase.js"></script>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDozEEmAxyqJU3avAdW_KBommb4HGR5nRk",
+        authDomain: "kasgai.firebaseapp.com",
+        databaseURL: "https://kasgai.firebaseio.com",
+        projectId: "kasgai",
+        storageBucket: "kasgai.appspot.com",
+        messagingSenderId: "143262592214"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="login.js"></script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
