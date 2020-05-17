@@ -974,6 +974,14 @@ const javascriptBlocks = [
     colour: 230,
     tooltip: "",
     helpUrl: ""
+  },
+  {
+    type: "date",
+    message0: "new Date()",
+    output: null,
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
   }
 ];
 

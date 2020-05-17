@@ -254,6 +254,7 @@
         </value>
       </block>
       <block type="math_random_float"></block>
+      <block type="date"></block>
     </category>
     <category name="text" colour="#5CA68D">
       <block type="text_charAt">

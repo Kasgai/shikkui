@@ -2837,4 +2837,38 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="sxJj(~mwV=n%dE:#cXcc" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">date</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="=.3+}P[nYlZU1MC$K]OK">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="MdU6aa]6ap0aH?:e0c+5">
+            <field name="TEXT">new Date()</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="(8pP`H?|I*+R6:PxFiH5" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Z/X/SrZ4*Tz/(|WA_Qup" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id=".?oevG2=;SOSPp_u8C@M"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="qw:.rCY`XcVd]RV{_I^E">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
   </block></xml>

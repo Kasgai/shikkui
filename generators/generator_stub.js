@@ -395,8 +395,13 @@ BlockGenerator["return"] = function(block) {
   return code;
 };
 
-Blockly.JavaScript["call_function"] = function(block) {
+BlockGenerator["call_function"] = function(block) {
   const text_function_name = block.getFieldValue("FUNCTION_NAME");
   const code = `${text_function_name}()`;
   return code;
+};
+
+BlockGenerator["date"] = function(block) {
+  const code = "new Date()";
+  return [code, BlockGenerator.ORDER_NONE];
 };
