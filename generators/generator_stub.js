@@ -11,32 +11,32 @@ const generateTag = (tagName, content, isIndented = true) => {
 };
 
 BlockGenerator["html"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
+  const statements_content = BlockGenerator.statementToCode(block, "content");
+  const code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
   return code;
 };
 
 BlockGenerator["body"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<body>\n" + statements_content + "</body>\n";
+  const statements_content = BlockGenerator.statementToCode(block, "content");
+  const code = "<body>\n" + statements_content + "</body>\n";
   return code;
 };
 
 BlockGenerator["head"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code =
+  const statements_content = BlockGenerator.statementToCode(block, "content");
+  const code =
     '<head>\n  <meta charset="utf-8">\n' + statements_content + "</head>\n";
   return code;
 };
 
 BlockGenerator["title"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
+  const statements_content = BlockGenerator.statementToCode(block, "content");
 
   if (statements_content != "")
     document.getElementById("title").innerText = statements_content;
   else document.getElementById("title").innerText = "untitled web page";
 
-  var code = "<title>" + statements_content.trim() + "</title>\n";
+  const code = "<title>" + statements_content.trim() + "</title>\n";
   return code;
 };
 
@@ -64,38 +64,38 @@ BlockGenerator["div"] = function(block) {
 
 BlockGenerator["style"] = function(block) {
   const style = BlockGenerator.statementToCode(block, "style");
-  var code = ' style="' + style.trim() + '"';
+  const code = ' style="' + style.trim() + '"';
   return [code, BlockGenerator.ORDER_NONE];
 };
 
 BlockGenerator["color"] = function(block) {
-  var color = block.getFieldValue("color");
-  var code = "color: " + color + ";";
+  const color = block.getFieldValue("color");
+  const code = "color: " + color + ";";
   return code;
 };
 
 BlockGenerator["background_color"] = function(block) {
-  var colour_name = block.getFieldValue("NAME");
-  var code = "background-color: " + colour_name + ";";
+  const colour_name = block.getFieldValue("NAME");
+  const code = "background-color: " + colour_name + ";";
   return code;
 };
 
 BlockGenerator["generic_style"] = function(block) {
-  var text_property = block.getFieldValue("property");
-  var text_value = block.getFieldValue("value");
-  var code = text_property + ": " + text_value + ";";
+  const text_property = block.getFieldValue("property");
+  const text_value = block.getFieldValue("value");
+  const code = text_property + ": " + text_value + ";";
   return code;
 };
 
 BlockGenerator["generictag"] = function(block) {
-  var text_name = block.getFieldValue("NAME");
-  var value_name = BlockGenerator.valueToCode(
+  const text_name = block.getFieldValue("NAME");
+  const value_name = BlockGenerator.valueToCode(
     block,
     "NAME",
     BlockGenerator.ORDER_NONE
   );
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code =
+  const statements_content = BlockGenerator.statementToCode(block, "content");
+  const code =
     "<" +
     text_name +
     value_name +
@@ -108,29 +108,29 @@ BlockGenerator["generictag"] = function(block) {
 };
 
 BlockGenerator["more_attributes"] = function(block) {
-  var value_name1 = BlockGenerator.valueToCode(
+  const value_name1 = BlockGenerator.valueToCode(
     block,
     "NAME1",
     BlockGenerator.ORDER_NONE
   );
-  var value_name2 = BlockGenerator.valueToCode(
+  const value_name2 = BlockGenerator.valueToCode(
     block,
     "NAME2",
     BlockGenerator.ORDER_NONE
   );
-  var value_name3 = BlockGenerator.valueToCode(
+  const value_name3 = BlockGenerator.valueToCode(
     block,
     "NAME3",
     BlockGenerator.ORDER_NONE
   );
-  var code = value_name1 + value_name2 + value_name3;
+  const code = value_name1 + value_name2 + value_name3;
   return [code, BlockGenerator.ORDER_NONE];
 };
 
 BlockGenerator["generic_attribute"] = function(block) {
-  var text_attribute = block.getFieldValue("attribute");
-  var text_value = block.getFieldValue("value");
-  var code = " " + text_attribute + '="' + text_value + '"';
+  const text_attribute = block.getFieldValue("attribute");
+  const text_value = block.getFieldValue("value");
+  const code = " " + text_attribute + '="' + text_value + '"';
   return [code, BlockGenerator.ORDER_NONE];
 };
 
@@ -222,7 +222,7 @@ BlockGenerator["sub"] = function(block) {
 };
 
 BlockGenerator["code"] = function(block) {
-  var content = BlockGenerator.statementToCode(block, "content");
+  const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("code", content);
 };
 
@@ -246,14 +246,9 @@ BlockGenerator["kbd"] = function(block) {
   return generateTag("kbd", content);
 };
 
-BlockGenerator["var"] = function(block) {
-  const content = BlockGenerator.statementToCode(block, "content");
-  return generateTag("var", content, false);
-};
-
 BlockGenerator["form"] = function(block) {
-  var statements_content = BlockGenerator.statementToCode(block, "content");
-  var code = "<form>\n" + statements_content + "</form>\n";
+  const statements_content = BlockGenerator.statementToCode(block, "content");
+  const code = "<form>\n" + statements_content + "</form>\n";
   return code;
 };
 
@@ -273,8 +268,8 @@ BlockGenerator["td"] = function(block) {
 };
 
 BlockGenerator["input_text"] = function(block) {
-  var text_default = block.getFieldValue("default");
-  var code = '<input value="' + text_default + '">\n';
+  const text_default = block.getFieldValue("default");
+  const code = '<input value="' + text_default + '">\n';
   return code;
 };
 
@@ -290,14 +285,14 @@ BlockGenerator["button"] = function(block) {
 };
 
 BlockGenerator["input"] = function(block) {
-  var dropdown_type = block.getFieldValue("type");
-  var text_value = block.getFieldValue("value");
-  var value_text = BlockGenerator.valueToCode(
+  const dropdown_type = block.getFieldValue("type");
+  const text_value = block.getFieldValue("value");
+  const value_text = BlockGenerator.valueToCode(
     block,
     "text",
     BlockGenerator.ORDER_NONE
   );
-  var code =
+  const code =
     '<input type="' +
     dropdown_type +
     '" value="' +
@@ -348,30 +343,60 @@ BlockGenerator["select_image"] = function(block) {
   return code;
 };
 
+// JavaScript
+
+BlockGenerator["var"] = function(block) {
+  const var_name = block.getFieldValue("NAME");
+  const assigned_value = Blockly.JavaScript.valueToCode(
+    block,
+    "assigned_value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  if (assigned_value === "") {
+    return `var ${var_name};\n`;
+  }
+  return `var ${var_name} = ${assigned_value};\n`;
+};
+
+BlockGenerator["assign"] = function(block) {
+  const var_name = block.getFieldValue("NAME");
+  const assigned_value = Blockly.JavaScript.valueToCode(
+    block,
+    "assigned_value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  return `${var_name} = ${assigned_value};\n`;
+};
+
+BlockGenerator["assign_value"] = function(block) {
+  const var_name = block.getFieldValue("NAME");
+  return [var_name, BlockGenerator.ORDER_NONE];
+};
+
 BlockGenerator["function"] = function(block) {
-  var text_name = block.getFieldValue("NAME");
-  var statements_statement = Blockly.JavaScript.statementToCode(
+  const text_name = block.getFieldValue("NAME");
+  const statements_statement = Blockly.JavaScript.statementToCode(
     block,
     "STATEMENT"
   );
-  var code = `function ${text_name}() {
+  const code = `function ${text_name}() {
 ${statements_statement}
 }\n`;
   return code;
 };
 
 BlockGenerator["return"] = function(block) {
-  var value_name = Blockly.JavaScript.valueToCode(
+  const value_name = Blockly.JavaScript.valueToCode(
     block,
     "NAME",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  var code = `return ${value_name};`;
+  const code = `return ${value_name};`;
   return code;
 };
 
 Blockly.JavaScript["call_function"] = function(block) {
-  var text_function_name = block.getFieldValue("FUNCTION_NAME");
-  var code = `${text_function_name}()`;
+  const text_function_name = block.getFieldValue("FUNCTION_NAME");
+  const code = `${text_function_name}()`;
   return code;
 };

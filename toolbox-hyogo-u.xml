@@ -94,7 +94,11 @@
     <block type="controls_forEach"></block>
     <block type="controls_flow_statements"></block>
   </category>
-  <category name="variables" colour="#A65C81" custom="VARIABLE"></category>
+  <category name="variables" colour="#A65C81">
+    <block type="var"></block>
+    <block type="assign"></block>
+    <block type="assign_value"></block>
+  </category>
   <category name="function" colour="#9A5CA6">
     <block type="function"></block>
     <block type="return"></block>

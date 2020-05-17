@@ -443,24 +443,6 @@ const inlineTextSemanticsBlock = [
     colour: 90,
     tooltip: "",
     helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"
-  },
-  {
-    type: "var",
-    message0: "var %1 %2",
-    args0: [
-      {
-        type: "input_dummy"
-      },
-      {
-        type: "input_statement",
-        name: "content"
-      }
-    ],
-    previousStatement: "html",
-    nextStatement: "html",
-    colour: 90,
-    tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
   }
 ];
 
@@ -879,6 +861,65 @@ const attributeBlock = [
     colour: 230,
     tooltip: "",
     helpUrl: ""
+  }
+];
+
+const javascriptBlocks = [
+  {
+    type: "var",
+    message0: "var %1 %2",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "x"
+      },
+      {
+        type: "input_value",
+        name: "assigned_value"
+      }
+    ],
+    previousStatement: "javascript",
+    nextStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl:
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
+  },
+  {
+    type: "assign",
+    message0: "%1 = %2",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "x"
+      },
+      {
+        type: "input_value",
+        name: "assigned_value"
+      }
+    ],
+    previousStatement: "javascript",
+    nextStatement: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
+  },
+  {
+    type: "assign_value",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_input",
+        name: "NAME",
+        text: "x"
+      }
+    ],
+    output: null,
+    colour: 230,
+    tooltip: "",
+    helpUrl: ""
   },
   {
     type: "function",
@@ -1036,6 +1077,7 @@ const blockDefinitions = [
   tableContentBlock,
   formsBlock,
   attributeBlock,
+  javascriptBlocks,
   domBlocks,
   otherBlock
 ].flat();
