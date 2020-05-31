@@ -10,13 +10,13 @@ if (projectId == null) {
   projectId = "demo";
 }
 
-let shikkuiDatabase = path => {
+let shikkuiDatabase = (path) => {
   return firebase.database().ref(`/projects/${projectId}/shikkui/${path}`);
 };
 
 // firebase auth
 const firebaseAuth = new Promise((resolve, reject) => {
-  firebase.auth().onAuthStateChanged(user => {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       resolve(user);
     }
@@ -24,15 +24,29 @@ const firebaseAuth = new Promise((resolve, reject) => {
   });
 });
 
-// XML setup
-const loadXml = url => {
-  return fetch(`/shikkui/${url}`)
-    .then(response => response.text())
-    .then(data => data)
-    .catch(error => console.error(error));
+const loadTemplate = () => {
+  return new Promise((resolve, reject) => {
+    let requestUrl = "toolbox.xml";
+    shikkuiDatabase(`/template`).once("value", (snapshot) => {
+      if (snapshot.val() != null) {
+        requestUrl = snapshot.val();
+      } else {
+        shikkuiDatabase(`/template`).set(requestUrl);
+      }
+      resolve(requestUrl);
+    });
+  });
 };
 
-const makeWorkspace = htmlToolbox => {
+// XML setup
+const loadXml = (url) => {
+  return fetch(`/shikkui/${url}`)
+    .then((response) => response.text())
+    .then((data) => data)
+    .catch((error) => console.error(error));
+};
+
+const makeWorkspace = (htmlToolbox) => {
   const htmlBlocklyArea = document.getElementById("blocklyArea");
 
   workspace = Blockly.inject(htmlBlocklyArea, makeOption(htmlToolbox));
@@ -67,7 +81,7 @@ const makeWorkspace = htmlToolbox => {
   workspace.addChangeListener(updateWorkspace);
 };
 
-const makeOption = toolbox => {
+const makeOption = (toolbox) => {
   return {
     toolbox: toolbox,
     collapse: true,
@@ -79,12 +93,12 @@ const makeOption = toolbox => {
     rtl: false,
     scrollbars: true,
     sounds: true,
-    oneBasedIndex: true
+    oneBasedIndex: true,
   };
 };
 
 // import Files
-const importBlockXml = e => {
+const importBlockXml = (e) => {
   const file = e.files[0];
   if (!file) {
     console.error("file was not found");
@@ -95,7 +109,7 @@ const importBlockXml = e => {
     return;
   }
   const reader = new FileReader();
-  reader.onload = e => {
+  reader.onload = (e) => {
     const xmlText = e.target.result;
     if (xmlText) {
       workspace.clear();
@@ -123,7 +137,7 @@ const exportBlockXml = () => {
 const exportHtml = () => {
   if (workspace) {
     const code = BlockGenerator.workspaceToCode(workspace);
-    downloadArchivedPage(code).then(function(response) {
+    downloadArchivedPage(code).then(function (response) {
       const blob = new Blob([response], { type: "application/zip" });
       const link = document.createElement("a");
       document.body.appendChild(link);
@@ -138,8 +152,8 @@ const exportHtml = () => {
   return false;
 };
 
-const downloadArchivedPage = code => {
-  return new Promise(function(resolve, reject) {
+const downloadArchivedPage = (code) => {
+  return new Promise(function (resolve, reject) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "https://kasgai-kura.herokuapp.com");
     xhr.setRequestHeader("Content-Type", "application/json");
@@ -151,8 +165,8 @@ const downloadArchivedPage = code => {
   });
 };
 
-const firebaseDataAccess = projectId => {
-  shikkuiDatabase(`/xml`).on("value", snapshot => {
+const firebaseDataAccess = (projectId) => {
+  shikkuiDatabase(`/xml`).on("value", (snapshot) => {
     if (snapshot.val() != null && !isHost) {
       workspace.clear();
       const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
@@ -161,16 +175,16 @@ const firebaseDataAccess = projectId => {
   });
 };
 
-const loadImageList = projectId =>
+const loadImageList = (projectId) =>
   new Promise((resolve, reject) => {
-    shikkuiDatabase(`/images`).on("value", snapshot => {
+    shikkuiDatabase(`/images`).on("value", (snapshot) => {
       if (snapshot.val() != null) {
         const imageList = snapshot.val();
         Promise.all(getStrageUrl(projectId, imageList))
-          .then(results => {
+          .then((results) => {
             return results.map((result, i) => [imageList[i], result]);
           })
-          .then(imageOptions => {
+          .then((imageOptions) => {
             updateSelectImageBlock(imageOptions);
             resolve();
           });
@@ -180,7 +194,7 @@ const loadImageList = projectId =>
     });
   });
 
-const updateSelectImageBlock = imageOptions => {
+const updateSelectImageBlock = (imageOptions) => {
   if (imageOptions == null || imageOptions.length === 0) {
     return;
   }
@@ -191,34 +205,34 @@ const updateSelectImageBlock = imageOptions => {
       {
         type: "field_dropdown",
         name: "source",
-        options: imageOptions
+        options: imageOptions,
       },
       {
         type: "field_input",
         name: "width",
-        text: ""
+        text: "",
       },
       {
         type: "field_input",
         name: "height",
-        text: ""
-      }
+        text: "",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   };
   Blockly.Blocks["select_image"] = {
-    init: function() {
+    init: function () {
       this.jsonInit(newSelectImageJson);
-    }
+    },
   };
 };
 
 const getStrageUrl = (projectId, contentNameList) => {
-  return contentNameList.map(name => {
+  return contentNameList.map((name) => {
     return new Promise((resolve, reject) => {
       const storageRef = firebase
         .storage()
@@ -226,8 +240,8 @@ const getStrageUrl = (projectId, contentNameList) => {
 
       storageRef
         .getDownloadURL()
-        .then(url => resolve(url))
-        .catch(error => reject(error));
+        .then((url) => resolve(url))
+        .catch((error) => reject(error));
     });
   });
 };
@@ -246,20 +260,25 @@ const toggleHost = () => {
     "uploadImage"
   ).href = `imageuploader.html?id=${projectId}`;
 
-  const requestUrl = "./toolbox.xml";
-  const toolbox = await loadXml(requestUrl);
-  makeWorkspace(toolbox);
-
   const result = await Promise.all([
     firebaseAuth,
-    loadImageList(projectId)
-  ]).catch(error => {
+    loadImageList(projectId),
+  ]).catch((error) => {
     console.error(error);
     return;
   });
 
-  if (result == null) return;
+  if (result == null) {
+    const requestUrl = "toolbox.xml";
+    const toolbox = await loadXml(requestUrl);
+    makeWorkspace(toolbox);
+    return;
+  }
 
   const userInfo = result[0];
-  firebaseDataAccess(userInfo);
+
+  loadTemplate()
+    .then((requestUrl) => loadXml(requestUrl))
+    .then((toolbox) => makeWorkspace(toolbox))
+    .then(() => firebaseDataAccess(userInfo));
 })();
