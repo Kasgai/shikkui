@@ -988,16 +988,10 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="E=[kgvW*d1zSX~E9,Xdc"></shadow>
-      <block type="type_other" id="-`C61,h0b;*6*s:aic4J">
-        <field name="TYPE">html</field>
-      </block>
+      <shadow type="type_null" id="WM1AVks.ZuI*_burIf+k"></shadow>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="v,MPdAtKhir;rdjKX`]|"></shadow>
-      <block type="type_other" id="Qx//O%78*{19J3Pb/,6_">
-        <field name="TYPE">html</field>
-      </block>
+      <shadow type="type_null" id="*h1mnt)r@5NVbvvBE#ms"></shadow>
     </value>
     <value name="COLOUR">
       <block type="colour_hue" id="[@5*@t_`=T(C(rX^c;%l">
