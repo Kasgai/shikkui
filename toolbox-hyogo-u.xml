@@ -60,6 +60,7 @@
         <block type="id"></block>
       </statement>
     </block>
+    <block type="id"></block>
     <block type="getelementbyid"></block>
     <block type="innerhtml"></block>
     <block type="dom_value"></block>
