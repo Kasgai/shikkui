@@ -22,13 +22,13 @@
         databaseURL: "https://kasgai.firebaseio.com",
         projectId: "kasgai",
         storageBucket: "kasgai.appspot.com",
-        messagingSenderId: "143262592214"
+        messagingSenderId: "143262592214",
       };
       firebase.initializeApp(config);
 
       // firebase auth
       const firebaseAuth = new Promise((resolve, reject) => {
-        firebase.auth().onAuthStateChanged(user => {
+        firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             resolve(user);
           }
@@ -38,7 +38,7 @@
 
       // main logic
       (async () => {
-        const result = await Promise.all([firebaseAuth]).catch(error => {
+        const result = await Promise.all([firebaseAuth]).catch((error) => {
           alert(error);
           return;
         });
@@ -82,12 +82,12 @@
     <div class="tile__grid" id="tile__image--root"></div>
     <script>
       const projectId = window.location.search.replace(/\?id=/, "");
-      let shikkuiDatabase = path => {
+      let shikkuiDatabase = (path) => {
         return firebase
           .database()
           .ref(`/projects/${projectId}/shikkui/${path}`);
       };
-      let shikkuiStorage = title => {
+      let shikkuiStorage = (title) => {
         return firebase.storage().ref(`/shikkui_images/${projectId}/${title}`);
       };
       let ImageList = [];
@@ -99,7 +99,7 @@
           return;
         }
 
-        shikkuiDatabase("images").on("value", snapshot => {
+        shikkuiDatabase("images").on("value", (snapshot) => {
           if (snapshot.val() != null) {
             // clear previous image element
             ImageList = snapshot.val();
@@ -108,15 +108,15 @@
               target.removeChild(target.firstChild);
             }
 
-            snapshot.val().forEach(imageTitle => {
+            snapshot.val().forEach((imageTitle) => {
               shikkuiStorage(imageTitle)
                 .getDownloadURL()
-                .then(url => {
+                .then((url) => {
                   document
                     .getElementById("tile__image--root")
                     .appendChild(createTileImage(url, imageTitle));
                 })
-                .catch(error => {
+                .catch((error) => {
                   console.error(error);
                 });
             });
@@ -145,7 +145,7 @@
         const button = document.createElement("button");
         button.textContent = "delete";
         button.onclick = () => {
-          const newImageList = ImageList.filter(v => v !== alt);
+          const newImageList = ImageList.filter((v) => v !== alt);
           shikkuiDatabase("images").set(newImageList);
           const target = document.getElementById("tile__image--root");
           while (target.firstChild) {
@@ -181,17 +181,17 @@
         // upload file
         shikkuiStorage(`${uploadFileName}`)
           .put(file)
-          .then(snapshot => {
+          .then((snapshot) => {
             // add filename list
             const imageDB = shikkuiDatabase("images");
-            imageDB.on("value", snapshot => {
+            imageDB.on("value", (snapshot) => {
               const beforeImages = snapshot.val() || [];
               if (!beforeImages.includes(uploadFileName)) {
                 imageDB.set([...beforeImages, uploadFileName]);
               }
             });
           })
-          .catch(error => {
+          .catch((error) => {
             alert(`error : ${error}`);
           });
       };
