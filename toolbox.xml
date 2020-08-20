@@ -397,8 +397,8 @@
       </block>
     </category>
     <category name="variables" colour="#A65C81">
-      <block type="var"></block>
       <block type="assign"></block>
+      <block type="assign_statement"></block>
       <block type="assign_value"></block>
     </category>
     <category name="function" colour="#9A5CA6">
@@ -412,6 +412,9 @@
           <block type="innerhtml"></block>
          </statement>
       </block>
+      <block type="getelementbyid"></block>
+      <block type="innerhtml"></block>
+      <block type="dom_value"></block>
     </category>
   </category>
 </xml>

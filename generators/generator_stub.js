@@ -337,7 +337,20 @@ BlockGenerator["getelementbyid"] = function (block) {
 
 BlockGenerator["innerhtml"] = function (block) {
   const text = block.getFieldValue("text");
-  const code = `.innerHTML = "${text.trim()}";`;
+  const code = `.innerHTML = "${text.trim()}";\n`;
+  return code;
+};
+
+BlockGenerator["dom_value"] = function (block) {
+  const assigned_value = Blockly.JavaScript.valueToCode(
+    block,
+    "assigned_value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  if (assigned_value === "") {
+    return `.value`;
+  }
+  const code = `.value = ${assigned_value};\n`;
   return code;
 };
 
@@ -361,7 +374,7 @@ BlockGenerator["var"] = function (block) {
   if (assigned_value === "") {
     return `var ${var_name};\n`;
   }
-  return `var ${var_name} = ${assigned_value};\n`;
+  return `var ${var_name} = ${assigned_value.trim()};\n`;
 };
 
 BlockGenerator["assign"] = function (block) {
@@ -371,12 +384,21 @@ BlockGenerator["assign"] = function (block) {
     "assigned_value",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  return `${var_name} = ${assigned_value};\n`;
+  return `${var_name} = ${assigned_value.trim()};\n`;
 };
 
 BlockGenerator["assign_value"] = function (block) {
   const var_name = block.getFieldValue("NAME");
-  return [var_name, BlockGenerator.ORDER_NONE];
+  return [var_name, BlockGenerator.ORDER_ATOMIC];
+};
+
+BlockGenerator["assign_statement"] = function (block) {
+  const statements = Blockly.JavaScript.statementToCode(
+    block,
+    "input_statement"
+  );
+  const code = `${statements}`;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 BlockGenerator["function"] = function (block) {

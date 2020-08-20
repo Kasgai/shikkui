@@ -59,11 +59,9 @@
         <block type="id"></block>
       </statement>
     </block>
-    <block type="getelementbyid">
-      <statement name="dom_code">
-        <block type="innerhtml"></block>
-       </statement>
-    </block>
+    <block type="getelementbyid"></block>
+    <block type="innerhtml"></block>
+    <block type="dom_value"></block>
   </category>
   <category name="logic" colour="#5C81A6">
     <block type="controls_if"></block>
@@ -98,6 +96,7 @@
   <category name="variables" colour="#A65C81">
     <block type="var"></block>
     <block type="assign"></block>
+    <block type="assign_statement"></block>
     <block type="assign_value"></block>
   </category>
   <category name="function" colour="#9A5CA6">

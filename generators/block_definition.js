@@ -922,6 +922,21 @@ const javascriptBlocks = [
     helpUrl: "",
   },
   {
+    type: "assign_statement",
+    message0: "%1",
+    args0: [
+      {
+        type: "input_statement",
+        name: "input_statement",
+        check: "javascript",
+      },
+    ],
+    output: "javascript",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+  },
+  {
     type: "function",
     message0: "function %1 %2 %3",
     args0: [
@@ -1018,6 +1033,20 @@ const domBlocks = [
         type: "field_input",
         name: "text",
         text: "Hello, World!",
+      },
+    ],
+    previousStatement: "dom",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+  },
+  {
+    type: "dom_value",
+    message0: "value %1",
+    args0: [
+      {
+        type: "input_value",
+        name: "assigned_value",
       },
     ],
     previousStatement: "dom",
