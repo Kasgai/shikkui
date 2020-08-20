@@ -2871,4 +2871,42 @@
         <field name="HUE">230</field>
       </block>
     </value>
+  </block><block type="factory_base" id="COV!}c4.1Dx|P8T79*BY" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">attribute_text</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="ycZfK6o+Y/Mm^J_Je!CQ">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_input" id="8_yc?J|e@R/h9`lT2wmA">
+            <field name="TEXT">attribute text</field>
+            <field name="FIELDNAME">value</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="`+fnF3#UzX$h2Q[y{:P/" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="i{{8Lp(]KZ$!*d5K($T:" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="eW:?k*Y0)_^ejAq-pJvU"></shadow>
+      <block type="type_other" id=";kXHr=28O4lNlmszr?L6">
+        <field name="TYPE">attribute</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="6IB.6dmmTenRHFk[UU{K">
+        <mutation colour="#a55b80"></mutation>
+        <field name="HUE">330</field>
+      </block>
+    </value>
   </block></xml>

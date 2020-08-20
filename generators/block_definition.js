@@ -6,18 +6,18 @@ const mainRootBlock = [
     message0: "html %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "document"
-      }
+        check: "document",
+      },
     ],
     colour: 0,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html",
+  },
 ];
 
 const documentMetadataBlock = [
@@ -26,19 +26,19 @@ const documentMetadataBlock = [
     message0: "head %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "head"
-      }
+        check: "head",
+      },
     ],
     previousStatement: "document",
     nextStatement: "document",
     colour: 0,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head",
   },
   {
     type: "title",
@@ -47,15 +47,15 @@ const documentMetadataBlock = [
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "head",
     nextStatement: "head",
     colour: 0,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title",
+  },
 ];
 
 const sectioningRootBlock = [
@@ -64,20 +64,20 @@ const sectioningRootBlock = [
     message0: "body %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "document",
     nextStatement: "document",
     colour: 0,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body",
+  },
 ];
 
 const contentSectioningBlock = [
@@ -94,22 +94,22 @@ const contentSectioningBlock = [
           ["3", "h2"],
           ["4", "h4"],
           ["5", "h5"],
-          ["6", "h6"]
-        ]
+          ["6", "h6"],
+        ],
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
     helpUrl:
-      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
-  }
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+  },
 ];
 
 const textContentBlock = [
@@ -118,19 +118,19 @@ const textContentBlock = [
     message0: "blockquote %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
-        name: "content"
-      }
+        name: "content",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
     helpUrl:
-      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote"
+      "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote",
   },
   {
     type: "div",
@@ -139,19 +139,19 @@ const textContentBlock = [
       {
         type: "input_value",
         name: "attribute",
-        check: "attribute"
+        check: "attribute",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
   },
   {
     type: "hr",
@@ -160,84 +160,84 @@ const textContentBlock = [
     nextStatement: "html",
     colour: 330,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr",
   },
   {
     type: "li",
     message0: "li %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li",
   },
   {
     type: "ol",
     message0: "ol %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 330,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol",
   },
   {
     type: "p",
     message0: "p %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p",
   },
   {
     type: "ul",
     message0: "ul %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 330,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul",
+  },
 ];
 
 const inlineTextSemanticsBlock = [
@@ -248,22 +248,22 @@ const inlineTextSemanticsBlock = [
       {
         type: "field_input",
         name: "target",
-        text: "target"
+        text: "target",
       },
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
   },
   {
     type: "br",
@@ -272,99 +272,99 @@ const inlineTextSemanticsBlock = [
     nextStatement: "html",
     colour: 330,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br",
   },
   {
     type: "code",
     message0: "code %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
-        name: "content"
-      }
+        name: "content",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code",
   },
   {
     type: "em",
     message0: "em %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em",
   },
   {
     type: "kbd",
     message0: "kbd %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
-        name: "content"
-      }
+        name: "content",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd",
   },
   {
     type: "q",
     message0: "q %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q",
   },
   {
     type: "samp",
     message0: "samp %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
-        name: "content"
-      }
+        name: "content",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp",
   },
   {
     type: "span",
@@ -373,77 +373,77 @@ const inlineTextSemanticsBlock = [
       {
         type: "input_value",
         name: "attribute",
-        check: "attribute"
+        check: "attribute",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/span",
   },
   {
     type: "strong",
     message0: "strong %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong",
   },
   {
     type: "sub",
     message0: "sub %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sub",
   },
   {
     type: "sup",
     message0: "sup %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/sup",
+  },
 ];
 
 const imageAndultimediaBlock = [
@@ -454,19 +454,19 @@ const imageAndultimediaBlock = [
       {
         type: "field_input",
         name: "source",
-        text: "URL"
+        text: "URL",
       },
       {
         type: "field_input",
         name: "alt",
-        text: "alternative text"
-      }
+        text: "alternative text",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
   },
   {
     type: "select_image",
@@ -475,25 +475,25 @@ const imageAndultimediaBlock = [
       {
         type: "field_dropdown",
         name: "source",
-        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]]
+        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]],
       },
       {
         type: "field_input",
         name: "width",
-        text: ""
+        text: "",
       },
       {
         type: "field_input",
         name: "height",
-        text: ""
-      }
+        text: "",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: ""
-  }
+    helpUrl: "",
+  },
 ];
 
 const scriptingBlock = [
@@ -502,20 +502,20 @@ const scriptingBlock = [
     message0: "script %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "code",
-        check: "javascript"
-      }
+        check: "javascript",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: ""
-  }
+    helpUrl: "",
+  },
 ];
 
 const demarcatingEditsBlock = [
@@ -524,39 +524,39 @@ const demarcatingEditsBlock = [
     message0: "del %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del",
   },
   {
     type: "ins",
     message0: "ins %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ins",
+  },
 ];
 
 const tableContentBlock = [
@@ -565,58 +565,58 @@ const tableContentBlock = [
     message0: "table %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "table"
-      }
+        check: "table",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 180,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
   },
   {
     type: "td",
     message0: "td %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "tablerow",
     nextStatement: "tablerow",
     colour: 180,
     tooltip: "",
-    helpUrl: "http://www.w3schools.com/tags/tag_html.asp"
+    helpUrl: "http://www.w3schools.com/tags/tag_html.asp",
   },
   {
     type: "tr",
     message0: "tr %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "tablerow"
-      }
+        check: "tablerow",
+      },
     ],
     previousStatement: "table",
     nextStatement: "table",
     colour: 180,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/tr",
+  },
 ];
 
 const formsBlock = [
@@ -626,37 +626,37 @@ const formsBlock = [
     args0: [
       {
         type: "input_value",
-        name: "attribute"
+        name: "attribute",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
   },
   {
     type: "form",
     message0: "form %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
-        name: "content"
-      }
+        name: "content",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
   },
   {
     type: "input",
@@ -687,25 +687,25 @@ const formsBlock = [
           ["telephone number", "tel"],
           ["time", "time"],
           ["url", "url"],
-          ["week", "week"]
-        ]
+          ["week", "week"],
+        ],
       },
       {
         type: "field_input",
         name: "value",
-        text: ""
+        text: "",
       },
       {
         type: "input_value",
-        name: "text"
-      }
+        name: "text",
+      },
     ],
     previousStatement: "html",
     nextStatement: "html",
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
+  },
 ];
 
 const attributeBlock = [
@@ -714,19 +714,19 @@ const attributeBlock = [
     message0: "style =  %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "style",
-        check: "css"
-      }
+        check: "css",
+      },
     ],
     inputsInline: true,
     output: "attribute",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "color",
@@ -735,14 +735,14 @@ const attributeBlock = [
       {
         type: "field_colour",
         name: "color",
-        colour: "#ff0000"
-      }
+        colour: "#ff0000",
+      },
     ],
     previousStatement: "css",
     nextStatement: "css",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "background_color",
@@ -751,14 +751,14 @@ const attributeBlock = [
       {
         type: "field_colour",
         name: "NAME",
-        colour: "#ff0000"
-      }
+        colour: "#ff0000",
+      },
     ],
     previousStatement: "css",
     nextStatement: "css",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "generic_style",
@@ -767,19 +767,19 @@ const attributeBlock = [
       {
         type: "field_input",
         name: "property",
-        text: "property"
+        text: "property",
       },
       {
         type: "field_input",
         name: "value",
-        text: "value"
-      }
+        text: "value",
+      },
     ],
     previousStatement: "css",
     nextStatement: "css",
     colour: 230,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference",
   },
   {
     type: "id",
@@ -788,33 +788,33 @@ const attributeBlock = [
       {
         type: "field_input",
         name: "id",
-        text: "app"
-      }
+        text: "app",
+      },
     ],
     inputsInline: true,
     output: "attribute",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "onclick",
     message0: "on click =  %1 %2",
     args0: [
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "code",
-        check: "javascript"
-      }
+        check: "javascript",
+      },
     ],
     inputsInline: true,
     output: "attribute",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "more_attributes",
@@ -823,23 +823,23 @@ const attributeBlock = [
       {
         type: "input_value",
         name: "NAME1",
-        check: "attribute"
+        check: "attribute",
       },
       {
         type: "input_value",
         name: "NAME2",
-        check: "attribute"
+        check: "attribute",
       },
       {
         type: "input_value",
         name: "NAME3",
-        check: "attribute"
-      }
+        check: "attribute",
+      },
     ],
     output: "attribute",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "generic_attribute",
@@ -848,20 +848,20 @@ const attributeBlock = [
       {
         type: "field_input",
         name: "attribute",
-        text: "attribute"
+        text: "attribute",
       },
       {
         type: "field_input",
         name: "value",
-        text: "value"
-      }
+        text: "value",
+      },
     ],
     inputsInline: true,
     output: "attribute",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
-  }
+    helpUrl: "",
+  },
 ];
 
 const javascriptBlocks = [
@@ -872,19 +872,19 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "NAME",
-        text: "x"
+        text: "x",
       },
       {
         type: "input_value",
-        name: "assigned_value"
-      }
+        name: "assigned_value",
+      },
     ],
     previousStatement: "javascript",
     nextStatement: "javascript",
     colour: 230,
     tooltip: "",
     helpUrl:
-      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var"
+      "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var",
   },
   {
     type: "assign",
@@ -893,18 +893,18 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "NAME",
-        text: "x"
+        text: "x",
       },
       {
         type: "input_value",
-        name: "assigned_value"
-      }
+        name: "assigned_value",
+      },
     ],
     previousStatement: "javascript",
     nextStatement: "javascript",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "assign_value",
@@ -913,13 +913,13 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "NAME",
-        text: "x"
-      }
+        text: "x",
+      },
     ],
     output: null,
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "function",
@@ -928,22 +928,22 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "NAME",
-        text: "myFunc"
+        text: "myFunc",
       },
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "STATEMENT",
-        check: "javascript"
-      }
+        check: "javascript",
+      },
     ],
     previousStatement: "javascript",
     nextStatement: "javascript",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "return",
@@ -951,13 +951,13 @@ const javascriptBlocks = [
     args0: [
       {
         type: "input_value",
-        name: "value"
-      }
+        name: "value",
+      },
     ],
     previousStatement: "javascript",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "call_function",
@@ -966,14 +966,14 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "FUNCTION_NAME",
-        text: "myFunc"
-      }
+        text: "myFunc",
+      },
     ],
     previousStatement: "javascript",
     nextStatement: "javascript",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "date",
@@ -981,8 +981,8 @@ const javascriptBlocks = [
     output: null,
     colour: 230,
     tooltip: "",
-    helpUrl: ""
-  }
+    helpUrl: "",
+  },
 ];
 
 const domBlocks = [
@@ -993,22 +993,22 @@ const domBlocks = [
       {
         type: "field_input",
         name: "id",
-        text: "app"
+        text: "app",
       },
       {
-        type: "input_dummy"
+        type: "input_dummy",
       },
       {
         type: "input_statement",
         name: "dom_code",
-        check: "dom"
-      }
+        check: "dom",
+      },
     ],
     previousStatement: "javascript",
     nextStatement: "javascript",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
   },
   {
     type: "innerhtml",
@@ -1017,14 +1017,14 @@ const domBlocks = [
       {
         type: "field_input",
         name: "text",
-        text: "Hello, World!"
-      }
+        text: "Hello, World!",
+      },
     ],
     previousStatement: "dom",
     colour: 230,
     tooltip: "",
-    helpUrl: ""
-  }
+    helpUrl: "",
+  },
 ];
 
 const otherBlock = [
@@ -1035,14 +1035,29 @@ const otherBlock = [
       {
         type: "field_input",
         name: "content",
-        text: ""
-      }
+        text: "",
+      },
     ],
     previousStatement: null,
     nextStatement: null,
     colour: 330,
     tooltip: "",
-    helpUrl: ""
+    helpUrl: "",
+  },
+  {
+    type: "attribute_text",
+    message0: "%1",
+    args0: [
+      {
+        type: "field_input",
+        name: "value",
+        text: "attribute text",
+      },
+    ],
+    output: "attribute",
+    colour: 330,
+    tooltip: "",
+    helpUrl: "",
   },
   {
     type: "generic_tag",
@@ -1051,25 +1066,25 @@ const otherBlock = [
       {
         type: "field_input",
         name: "NAME",
-        text: "tag"
+        text: "tag",
       },
       {
         type: "input_value",
         name: "NAME",
-        check: "attribute"
+        check: "attribute",
       },
       {
         type: "input_statement",
         name: "content",
-        check: "html"
-      }
+        check: "html",
+      },
     ],
     previousStatement: null,
     nextStatement: null,
     colour: 90,
     tooltip: "",
-    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference"
-  }
+    helpUrl: "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference",
+  },
 ];
 
 const blockDefinitions = [
@@ -1087,14 +1102,14 @@ const blockDefinitions = [
   attributeBlock,
   javascriptBlocks,
   domBlocks,
-  otherBlock
+  otherBlock,
 ].flat();
 
 for (let i = 0; i < blockDefinitions.length; i++) {
   const blockJson = blockDefinitions[i];
   Blockly.Blocks[blockJson.type] = {
-    init: function() {
+    init: function () {
       this.jsonInit(blockJson);
-    }
+    },
   };
 }

@@ -78,6 +78,7 @@
       <block type="sub"></block>
       <block type="sup"></block>
       <block type="plaintext"></block>
+      <block type="attribute_text"></block>
     </category>
     <category name="Image and multimedia">
       <block type="img"></block>

@@ -26,6 +26,7 @@
     </block>
     <block type="generic_tag"></block>
     <block type="plaintext"></block>
+    <block type="attribute_text"></block>
     <block type="input"></block>
     <block type="p"></block>
     <block type="div"></block>

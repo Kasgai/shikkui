@@ -10,26 +10,26 @@ const generateTag = (tagName, content, isIndented = true) => {
   return `<${tagName}>${content.trim()}</${tagName}>\n`;
 };
 
-BlockGenerator["html"] = function(block) {
+BlockGenerator["html"] = function (block) {
   const statements_content = BlockGenerator.statementToCode(block, "content");
   const code = "<!DOCTYPE HTML>\n<html>\n" + statements_content + "</html>\n";
   return code;
 };
 
-BlockGenerator["body"] = function(block) {
+BlockGenerator["body"] = function (block) {
   const statements_content = BlockGenerator.statementToCode(block, "content");
   const code = "<body>\n" + statements_content + "</body>\n";
   return code;
 };
 
-BlockGenerator["head"] = function(block) {
+BlockGenerator["head"] = function (block) {
   const statements_content = BlockGenerator.statementToCode(block, "content");
   const code =
     '<head>\n  <meta charset="utf-8">\n' + statements_content + "</head>\n";
   return code;
 };
 
-BlockGenerator["title"] = function(block) {
+BlockGenerator["title"] = function (block) {
   const statements_content = BlockGenerator.statementToCode(block, "content");
 
   if (statements_content != "")
@@ -40,18 +40,24 @@ BlockGenerator["title"] = function(block) {
   return code;
 };
 
-BlockGenerator["p"] = function(block) {
+BlockGenerator["p"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("p", content);
 };
 
-BlockGenerator["plaintext"] = function(block) {
+BlockGenerator["plaintext"] = function (block) {
   const content = block.getFieldValue("content");
   const code = content + "\n";
   return code;
 };
 
-BlockGenerator["div"] = function(block) {
+BlockGenerator["attribute_text"] = function (block) {
+  const value = block.getFieldValue("value");
+  const code = ` ${value}`;
+  return [code, BlockGenerator.ORDER_NONE];
+};
+
+BlockGenerator["div"] = function (block) {
   const attribute = BlockGenerator.valueToCode(
     block,
     "attribute",
@@ -62,32 +68,32 @@ BlockGenerator["div"] = function(block) {
   return code;
 };
 
-BlockGenerator["style"] = function(block) {
+BlockGenerator["style"] = function (block) {
   const style = BlockGenerator.statementToCode(block, "style");
   const code = ' style="' + style.trim() + '"';
   return [code, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["color"] = function(block) {
+BlockGenerator["color"] = function (block) {
   const color = block.getFieldValue("color");
   const code = "color: " + color + ";";
   return code;
 };
 
-BlockGenerator["background_color"] = function(block) {
+BlockGenerator["background_color"] = function (block) {
   const colour_name = block.getFieldValue("NAME");
   const code = "background-color: " + colour_name + ";";
   return code;
 };
 
-BlockGenerator["generic_style"] = function(block) {
+BlockGenerator["generic_style"] = function (block) {
   const text_property = block.getFieldValue("property");
   const text_value = block.getFieldValue("value");
   const code = text_property + ": " + text_value + ";";
   return code;
 };
 
-BlockGenerator["generictag"] = function(block) {
+BlockGenerator["generictag"] = function (block) {
   const text_name = block.getFieldValue("NAME");
   const value_name = BlockGenerator.valueToCode(
     block,
@@ -107,7 +113,7 @@ BlockGenerator["generictag"] = function(block) {
   return code;
 };
 
-BlockGenerator["more_attributes"] = function(block) {
+BlockGenerator["more_attributes"] = function (block) {
   const value_name1 = BlockGenerator.valueToCode(
     block,
     "NAME1",
@@ -127,21 +133,21 @@ BlockGenerator["more_attributes"] = function(block) {
   return [code, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["generic_attribute"] = function(block) {
+BlockGenerator["generic_attribute"] = function (block) {
   const text_attribute = block.getFieldValue("attribute");
   const text_value = block.getFieldValue("value");
   const code = " " + text_attribute + '="' + text_value + '"';
   return [code, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["a_href"] = function(block) {
+BlockGenerator["a_href"] = function (block) {
   const target = block.getFieldValue("target");
   const content = BlockGenerator.statementToCode(block, "content");
   const code = `<a href="${target}">${content.trim()}</a>\n`;
   return code;
 };
 
-BlockGenerator["span"] = function(block) {
+BlockGenerator["span"] = function (block) {
   const attribute = BlockGenerator.valueToCode(
     block,
     "attribute",
@@ -152,128 +158,128 @@ BlockGenerator["span"] = function(block) {
   return code;
 };
 
-BlockGenerator["img"] = function(block) {
+BlockGenerator["img"] = function (block) {
   const source = block.getFieldValue("source");
   const alt = block.getFieldValue("alt");
   const code = `<img src="${source}" alt="${alt}">\n`;
   return code;
 };
 
-BlockGenerator["em"] = function(block) {
+BlockGenerator["em"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("em", content, false);
 };
 
-BlockGenerator["strong"] = function(block) {
+BlockGenerator["strong"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("strong", content, false);
 };
 
-BlockGenerator["h"] = function(block) {
+BlockGenerator["h"] = function (block) {
   const level = block.getFieldValue("level");
   const content = BlockGenerator.statementToCode(block, "content");
   const code = `<${level}>${content.trim()}</${level}>\n`;
   return code;
 };
 
-BlockGenerator["br"] = function(block) {
+BlockGenerator["br"] = function (block) {
   const code = "<br>\n";
   return code;
 };
 
-BlockGenerator["hr"] = function(block) {
+BlockGenerator["hr"] = function (block) {
   const code = "<hr>\n";
   return code;
 };
 
-BlockGenerator["ul"] = function(block) {
+BlockGenerator["ul"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("ul", content, false);
 };
 
-BlockGenerator["ol"] = function(block) {
+BlockGenerator["ol"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("ol", content, false);
 };
 
-BlockGenerator["li"] = function(block) {
+BlockGenerator["li"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("li", content, false);
 };
 
-BlockGenerator["ins"] = function(block) {
+BlockGenerator["ins"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("ins", content, false);
 };
 
-BlockGenerator["del"] = function(block) {
+BlockGenerator["del"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("del", content, false);
 };
 
-BlockGenerator["sup"] = function(block) {
+BlockGenerator["sup"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("sup", content, false);
 };
 
-BlockGenerator["sub"] = function(block) {
+BlockGenerator["sub"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("sub", content, false);
 };
 
-BlockGenerator["code"] = function(block) {
+BlockGenerator["code"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("code", content);
 };
 
-BlockGenerator["q"] = function(block) {
+BlockGenerator["q"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("q", content, false);
 };
 
-BlockGenerator["blockquote"] = function(block) {
+BlockGenerator["blockquote"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("blockquote", content);
 };
 
-BlockGenerator["samp"] = function(block) {
+BlockGenerator["samp"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("samp", content);
 };
 
-BlockGenerator["kbd"] = function(block) {
+BlockGenerator["kbd"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("kbd", content);
 };
 
-BlockGenerator["form"] = function(block) {
+BlockGenerator["form"] = function (block) {
   const statements_content = BlockGenerator.statementToCode(block, "content");
   const code = "<form>\n" + statements_content + "</form>\n";
   return code;
 };
 
-BlockGenerator["table"] = function(block) {
+BlockGenerator["table"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("table", content);
 };
 
-BlockGenerator["tr"] = function(block) {
+BlockGenerator["tr"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("tr", content);
 };
 
-BlockGenerator["td"] = function(block) {
+BlockGenerator["td"] = function (block) {
   const content = BlockGenerator.statementToCode(block, "content");
   return generateTag("td", content, false);
 };
 
-BlockGenerator["input_text"] = function(block) {
+BlockGenerator["input_text"] = function (block) {
   const text_default = block.getFieldValue("default");
   const code = '<input value="' + text_default + '">\n';
   return code;
 };
 
-BlockGenerator["button"] = function(block) {
+BlockGenerator["button"] = function (block) {
   const attribute = BlockGenerator.valueToCode(
     block,
     "attribute",
@@ -284,7 +290,7 @@ BlockGenerator["button"] = function(block) {
   return code;
 };
 
-BlockGenerator["input"] = function(block) {
+BlockGenerator["input"] = function (block) {
   const dropdown_type = block.getFieldValue("type");
   const text_value = block.getFieldValue("value");
   const value_text = BlockGenerator.valueToCode(
@@ -303,18 +309,18 @@ BlockGenerator["input"] = function(block) {
   return code;
 };
 
-BlockGenerator["script"] = function(block) {
+BlockGenerator["script"] = function (block) {
   const code = Blockly.JavaScript.statementToCode(block, "code");
   return generateTag("script", code);
 };
 
-BlockGenerator["onclick"] = function(block) {
+BlockGenerator["onclick"] = function (block) {
   const code = Blockly.JavaScript.statementToCode(block, "code");
   const output = ` onclick='${code.trim()}'`;
   return [output, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["id"] = function(block) {
+BlockGenerator["id"] = function (block) {
   const statements_name = block.getFieldValue("id");
   const code = ` id="${statements_name}"`;
   return [code, BlockGenerator.ORDER_NONE];
@@ -322,20 +328,20 @@ BlockGenerator["id"] = function(block) {
 
 // Node control scripts
 
-BlockGenerator["getelementbyid"] = function(block) {
+BlockGenerator["getelementbyid"] = function (block) {
   const id = block.getFieldValue("id");
   const domCode = Blockly.JavaScript.statementToCode(block, "dom_code");
   const code = `document.getElementById("${id}")${domCode.trim()}\n`;
   return code;
 };
 
-BlockGenerator["innerhtml"] = function(block) {
+BlockGenerator["innerhtml"] = function (block) {
   const text = block.getFieldValue("text");
   const code = `.innerHTML = "${text.trim()}";`;
   return code;
 };
 
-BlockGenerator["select_image"] = function(block) {
+BlockGenerator["select_image"] = function (block) {
   const source = block.getFieldValue("source");
   const width = block.getFieldValue("width");
   const height = block.getFieldValue("height");
@@ -345,7 +351,7 @@ BlockGenerator["select_image"] = function(block) {
 
 // JavaScript
 
-BlockGenerator["var"] = function(block) {
+BlockGenerator["var"] = function (block) {
   const var_name = block.getFieldValue("NAME");
   const assigned_value = Blockly.JavaScript.valueToCode(
     block,
@@ -358,7 +364,7 @@ BlockGenerator["var"] = function(block) {
   return `var ${var_name} = ${assigned_value};\n`;
 };
 
-BlockGenerator["assign"] = function(block) {
+BlockGenerator["assign"] = function (block) {
   const var_name = block.getFieldValue("NAME");
   const assigned_value = Blockly.JavaScript.valueToCode(
     block,
@@ -368,12 +374,12 @@ BlockGenerator["assign"] = function(block) {
   return `${var_name} = ${assigned_value};\n`;
 };
 
-BlockGenerator["assign_value"] = function(block) {
+BlockGenerator["assign_value"] = function (block) {
   const var_name = block.getFieldValue("NAME");
   return [var_name, BlockGenerator.ORDER_NONE];
 };
 
-BlockGenerator["function"] = function(block) {
+BlockGenerator["function"] = function (block) {
   const text_name = block.getFieldValue("NAME");
   const statements_statement = Blockly.JavaScript.statementToCode(
     block,
@@ -385,7 +391,7 @@ ${statements_statement}
   return code;
 };
 
-BlockGenerator["return"] = function(block) {
+BlockGenerator["return"] = function (block) {
   const value_name = Blockly.JavaScript.valueToCode(
     block,
     "NAME",
@@ -395,13 +401,13 @@ BlockGenerator["return"] = function(block) {
   return code;
 };
 
-BlockGenerator["call_function"] = function(block) {
+BlockGenerator["call_function"] = function (block) {
   const text_function_name = block.getFieldValue("FUNCTION_NAME");
   const code = `${text_function_name}()`;
   return code;
 };
 
-BlockGenerator["date"] = function(block) {
+BlockGenerator["date"] = function (block) {
   const code = "new Date()";
   return [code, BlockGenerator.ORDER_NONE];
 };
