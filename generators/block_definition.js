@@ -976,12 +976,17 @@ const javascriptBlocks = [
   },
   {
     type: "call_function",
-    message0: "%1 ()",
+    message0: "%1 ( %2 )",
     args0: [
       {
         type: "field_input",
         name: "FUNCTION_NAME",
         text: "myFunc",
+      },
+      {
+        type: "field_input",
+        name: "FUNCTION_ARGUMENT",
+        text: "x",
       },
     ],
     previousStatement: "javascript",

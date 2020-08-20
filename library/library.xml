@@ -2714,7 +2714,18 @@
             <field name="FIELDNAME">FUNCTION_NAME</field>
             <next>
               <block type="field_static" id="BHMy5%}f|9r=%EEuTJ!M">
-                <field name="TEXT">()</field>
+                <field name="TEXT">(</field>
+                <next>
+                  <block type="field_input" id="DC=}f@fpFc2KdH^VO*=?">
+                    <field name="TEXT">x</field>
+                    <field name="FIELDNAME">FUNCTION_ARGUMENT</field>
+                    <next>
+                      <block type="field_static" id="IjhsiA?.cAfu%?ys|Q]F">
+                        <field name="TEXT">)</field>
+                      </block>
+                    </next>
+                  </block>
+                </next>
               </block>
             </next>
           </block>
@@ -2732,13 +2743,13 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="t(/.JE:FJ-de=cq5$(z@"></shadow>
+      <shadow type="type_null" id="Jjnf/mvE,gl.[OXOYG$^"></shadow>
       <block type="type_other" id="n6yrw2l3]!3}a*)$gdjj">
         <field name="TYPE">javascript</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
-      <shadow type="type_null" id="W1i/8?oXOiP#-aiEGBy^"></shadow>
+      <shadow type="type_null" id="uNG,TQ-JtEUTg2)nYE8%"></shadow>
       <block type="type_other" id="GYJe]@~bS,j/J:?mXLs(">
         <field name="TYPE">javascript</field>
       </block>
