@@ -2,7 +2,7 @@
 
 let workspace = null;
 let userInfo = null;
-let isHost = false;
+let isHost = true;
 
 // project database for shikkui
 const projectId = window.location.search.replace(/\?id=/, "");
