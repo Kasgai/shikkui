@@ -336,8 +336,17 @@ BlockGenerator["getelementbyid"] = function (block) {
 };
 
 BlockGenerator["innerhtml"] = function (block) {
-  const text = block.getFieldValue("text");
-  const code = `.innerHTML = "${text.trim()}";\n`;
+  const assigned_value = Blockly.JavaScript.valueToCode(
+    block,
+    "assigned_value",
+    Blockly.JavaScript.ORDER_ATOMIC
+  );
+  if (assigned_value === "") {
+    return `.innerHTML`;
+  }
+  // for inline code
+  const escape_code = assigned_value.replace(/(^\'|\'$)/g, '"');
+  const code = `.innerHTML = ${escape_code};\n`;
   return code;
 };
 
@@ -350,7 +359,7 @@ BlockGenerator["dom_value"] = function (block) {
   if (assigned_value === "") {
     return `.value`;
   }
-  const code = `.value = ${assigned_value};\n`;
+  const code = `.value = ${assigned_value}\n`;
   return code;
 };
 

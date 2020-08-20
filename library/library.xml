@@ -1164,19 +1164,17 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">TOP</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="Bu-z#Oae2$A)K[.tK!$n">
+      <block type="input_value" id="SVUU]9O7)48|ZMB)56j}">
+        <field name="INPUTNAME">assigned_value</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="OwMX4e).?=Z$pKR%uT2C">
             <field name="TEXT">innerHTML</field>
-            <next>
-              <block type="field_input" id="x6^xF21N9cn[di=(i:;p">
-                <field name="TEXT">Hello, World!</field>
-                <field name="FIELDNAME">text</field>
-              </block>
-            </next>
           </block>
         </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="xrBGg$p=J7W(B4a67`:Y"></shadow>
+        </value>
       </block>
     </statement>
     <value name="TOOLTIP">
@@ -1190,7 +1188,7 @@
       </block>
     </value>
     <value name="TOPTYPE">
-      <shadow type="type_null" id="U|F#S79`-x(j3Xw6ILA?"></shadow>
+      <shadow type="type_null" id="kjy$wdoD{ODH5(HV)ax$"></shadow>
       <block type="type_other" id="^ViiCnS#Y]g)van*8`=]">
         <field name="TYPE">dom</field>
       </block>

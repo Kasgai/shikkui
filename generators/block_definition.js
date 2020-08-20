@@ -1035,9 +1035,8 @@ const domBlocks = [
     message0: "innerHTML %1",
     args0: [
       {
-        type: "field_input",
-        name: "text",
-        text: "Hello, World!",
+        type: "input_value",
+        name: "assigned_value",
       },
     ],
     previousStatement: "dom",
