@@ -29,6 +29,7 @@
     <block type="attribute_text"></block>
     <block type="input"></block>
     <block type="p"></block>
+    <block type="br"></block>
     <block type="div"></block>
     <block type="img"></block>
     <block type="select_image"></block>
