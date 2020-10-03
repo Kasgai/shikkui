@@ -937,6 +937,21 @@ const javascriptBlocks = [
     helpUrl: "",
   },
   {
+    type: "html_string",
+    message0: "html %1",
+    args0: [
+      {
+        type: "input_statement",
+        name: "input_statement",
+        check: "html",
+      },
+    ],
+    output: "javascript",
+    colour: 90,
+    tooltip: "",
+    helpUrl: "",
+  },
+  {
     type: "function",
     message0: "function %1 ( %2 ) %3 %4",
     args0: [

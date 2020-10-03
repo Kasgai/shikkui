@@ -410,6 +410,15 @@ BlockGenerator["assign_statement"] = function (block) {
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
+BlockGenerator["html_string"] = function (block) {
+  const statements = Blockly.JavaScript.statementToCode(
+    block,
+    "input_statement"
+  );
+  const code = `'${statements.trim()}'`;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
+};
+
 BlockGenerator["function"] = function (block) {
   const function_name = block.getFieldValue("FUNCTION_NAME");
   const function_argument = block.getFieldValue("FUNCTION_ARGUMENT");

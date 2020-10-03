@@ -2980,7 +2980,7 @@
         <field name="ALIGN">LEFT</field>
         <value name="TYPE">
           <shadow type="type_null" id="eH,A+Cti*U{{Uxx?2f50"></shadow>
-          <block type="type_other" id="gN_k-.}P0elnnKLF_z5G">
+          <block type="type_other" id="}E%WNNJ2`jdd:G82[}9~">
             <field name="TYPE">javascript</field>
           </block>
         </value>
@@ -3006,6 +3006,50 @@
       <block type="colour_hue" id="YxSJs!fKt/QhS,xchr5_">
         <mutation colour="#5b67a5"></mutation>
         <field name="HUE">230</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="sYq)!+R3|#N@nH~PC[h|" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">html_string</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_statement" id="lU.vS.m077RBR1]OVy9G">
+        <field name="INPUTNAME">input_statement</field>
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="8FFKm%kcESoF)3M.DuX.">
+            <field name="TEXT">html</field>
+          </block>
+        </statement>
+        <value name="TYPE">
+          <shadow type="type_null"></shadow>
+          <block type="type_other" id="7EC!nq=ioG*Kg~Au,LT5">
+            <field name="TYPE">html</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="4F)$TO108c+lZThqh*{K" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="t+)v?n64m-uG%R_hh71`" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="bVrZ.NF4GVNc=C-0H);G"></shadow>
+      <block type="type_other" id="~-N%0BCC6(A:rA.j=33S">
+        <field name="TYPE">javascript</field>
+      </block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="R**dYust[Jp~9oE2sTty">
+        <mutation colour="#80a55b"></mutation>
+        <field name="HUE">90</field>
       </block>
     </value>
   </block></xml>
