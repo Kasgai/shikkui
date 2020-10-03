@@ -411,12 +411,13 @@ BlockGenerator["assign_statement"] = function (block) {
 };
 
 BlockGenerator["function"] = function (block) {
-  const text_name = block.getFieldValue("NAME");
+  const function_name = block.getFieldValue("FUNCTION_NAME");
+  const function_argument = block.getFieldValue("FUNCTION_ARGUMENT");
   const statements_statement = Blockly.JavaScript.statementToCode(
     block,
     "STATEMENT"
   );
-  const code = `function ${text_name}() {
+  const code = `function ${function_name}(${function_argument}) {
 ${statements_statement}
 }\n`;
   return code;

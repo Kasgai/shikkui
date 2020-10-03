@@ -2604,7 +2604,23 @@
             <next>
               <block type="field_input" id="oD0{_[{-`EfuMD+Ka3;?">
                 <field name="TEXT">myFunc</field>
-                <field name="FIELDNAME">NAME</field>
+                <field name="FIELDNAME">FUNCTION_NAME</field>
+                <next>
+                  <block type="field_static" id="1(MqTi!ob6Ak|]kwrwCC">
+                    <field name="TEXT">(</field>
+                    <next>
+                      <block type="field_input" id="}3[P;*{q2YxvUR]lE9Q0">
+                        <field name="TEXT">x</field>
+                        <field name="FIELDNAME">FUNCTION_ARGUMENT</field>
+                        <next>
+                          <block type="field_static" id="v$oAf8^2i4Bv7zwa7ZN=">
+                            <field name="TEXT">)</field>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
               </block>
             </next>
           </block>
@@ -2616,7 +2632,7 @@
             <value name="TYPE">
               <shadow type="type_null" id="eW6kPPhG3-||;{Pr|,DP"></shadow>
               <block type="type_other" id="UX1bOD+ZydA[Siq+[.Ie">
-                <field name="TYPE">javascirpt</field>
+                <field name="TYPE">javascript</field>
               </block>
             </value>
           </block>
@@ -2636,13 +2652,13 @@
     <value name="TOPTYPE">
       <shadow type="type_null" id="J6[*y#a`aXS,U0]F?2{C"></shadow>
       <block type="type_other" id="JQ-x5!4{J)-R~W^KscwH">
-        <field name="TYPE">javascirpt</field>
+        <field name="TYPE">javascript</field>
       </block>
     </value>
     <value name="BOTTOMTYPE">
       <shadow type="type_null" id="ZP8+[3Rc]7}Loo),ifuT"></shadow>
       <block type="type_other" id="MOJrfIk2y03ohc.7ly(d">
-        <field name="TYPE">javascirpt</field>
+        <field name="TYPE">javascript</field>
       </block>
     </value>
     <value name="COLOUR">
