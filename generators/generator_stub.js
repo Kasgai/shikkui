@@ -17,8 +17,13 @@ BlockGenerator["html"] = function (block) {
 };
 
 BlockGenerator["body"] = function (block) {
+  const attribute = BlockGenerator.valueToCode(
+    block,
+    "attribute",
+    BlockGenerator.ORDER_NONE
+  );
   const statements_content = BlockGenerator.statementToCode(block, "content");
-  const code = "<body>\n" + statements_content + "</body>\n";
+  const code = `<body${attribute}>\n${statements_content}</body>\n`;
   return code;
 };
 
@@ -310,8 +315,14 @@ BlockGenerator["input"] = function (block) {
 };
 
 BlockGenerator["script"] = function (block) {
-  const code = Blockly.JavaScript.statementToCode(block, "code");
-  return generateTag("script", code);
+  const attribute = BlockGenerator.valueToCode(
+    block,
+    "attribute",
+    BlockGenerator.ORDER_NONE
+  );
+  const javascript_code = Blockly.JavaScript.statementToCode(block, "code");
+  const code = `<script${attribute}>\n${javascript_code}</script>\n`;
+  return code;
 };
 
 BlockGenerator["onclick"] = function (block) {

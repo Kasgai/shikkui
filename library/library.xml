@@ -47,13 +47,20 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="ElDR[PC#SFEhd1rxu4(u">
+      <block type="input_value" id="7q)XQR[d[1O.6cZT!uqW">
+        <field name="INPUTNAME">attribute</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
             <field name="TEXT">body</field>
           </block>
         </statement>
+        <value name="TYPE">
+          <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null"></shadow>
+          <block type="type_other" id="FU,F#F_v,D1SWa$cim%2">
+            <field name="TYPE">attribute</field>
+          </block>
+        </value>
         <next>
           <block type="input_statement" id="G=XG;fCLl3!c6GM17`Yt">
             <field name="INPUTNAME">content</field>
@@ -956,13 +963,20 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="Eq}+)S=1.~7)d%2u;U:(">
+      <block type="input_value" id="E|a{(1(2@/L|MvqJi-4[">
+        <field name="INPUTNAME">attribute</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
             <field name="TEXT">script</field>
           </block>
         </statement>
+        <value name="TYPE">
+          <shadow xmlns="http://www.w3.org/1999/xhtml" type="type_null"></shadow>
+          <block type="type_other" id="+V0J:/7u4[B8X}k;r/L(">
+            <field name="TYPE">attribute</field>
+          </block>
+        </value>
         <next>
           <block type="input_statement" id="G=XG;fCLl3!c6GM17`Yt">
             <field name="INPUTNAME">code</field>

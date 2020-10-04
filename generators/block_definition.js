@@ -64,7 +64,9 @@ const sectioningRootBlock = [
     message0: "body %1 %2",
     args0: [
       {
-        type: "input_dummy",
+        type: "input_value",
+        name: "attribute",
+        check: "attribute",
       },
       {
         type: "input_statement",
@@ -502,7 +504,9 @@ const scriptingBlock = [
     message0: "script %1 %2",
     args0: [
       {
-        type: "input_dummy",
+        type: "input_value",
+        name: "attribute",
+        check: "attribute",
       },
       {
         type: "input_statement",
