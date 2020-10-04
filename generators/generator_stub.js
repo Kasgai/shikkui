@@ -465,7 +465,7 @@ BlockGenerator["return"] = function (block) {
 BlockGenerator["call_function"] = function (block) {
   const text_function_name = block.getFieldValue("FUNCTION_NAME");
   const text_function_argument = block.getFieldValue("FUNCTION_ARGUMENT");
-  const code = `${text_function_name}(${text_function_argument})`;
+  const code = `${text_function_name}(${text_function_argument});\n`;
   return code;
 };
 
