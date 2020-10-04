@@ -496,6 +496,21 @@ const imageAndultimediaBlock = [
     tooltip: "",
     helpUrl: "",
   },
+  {
+    type: "select_image_url",
+    message0: "image url %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "source",
+        options: [["Kasgai", "https://kasgai.com/asset/icon.jpg"]],
+      },
+    ],
+    output: "String",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+  },
 ];
 
 const scriptingBlock = [

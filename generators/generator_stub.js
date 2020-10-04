@@ -382,6 +382,12 @@ BlockGenerator["select_image"] = function (block) {
   return code;
 };
 
+BlockGenerator["select_image_url"] = function (block) {
+  const source = block.getFieldValue("source");
+  const code = `"${source}"`;
+  return [code, BlockGenerator.ORDER_ATOMIC];
+};
+
 // JavaScript
 
 BlockGenerator["var"] = function (block) {
@@ -449,7 +455,7 @@ ${statements_statement}
 BlockGenerator["return"] = function (block) {
   const value_name = Blockly.JavaScript.valueToCode(
     block,
-    "NAME",
+    "value",
     Blockly.JavaScript.ORDER_ATOMIC
   );
   const code = `return ${value_name};`;

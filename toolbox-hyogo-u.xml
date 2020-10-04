@@ -175,6 +175,7 @@
   </category>
   <category name="text" colour="#5CA68D">
     <block type="text"></block>
+    <block type="select_image_url"></block>
     <block type="text_length">
       <value name="VALUE">
         <shadow type="text"></shadow>

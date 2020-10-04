@@ -3073,4 +3073,47 @@
         <field name="HUE">90</field>
       </block>
     </value>
+  </block><block type="factory_base" id="Stf?[,6,R@Y;:L}BAvW5" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">select_image_url</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id=")N`#/#k)pJ8O,@zrTX{p">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="GA%n;a4t`|5lKv@wI0bJ">
+            <field name="TEXT">image url</field>
+            <next>
+              <block type="field_dropdown" id="ut.Nv[-oyc-.w=tI^Ll%">
+                <mutation options="[&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">source</field>
+                <field name="USER0">Kasgai</field>
+                <field name="CPU0">https://kasgai.com/asset/icon.jpg</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="9fFk2yZ~SIqjBO89zyu|" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="Go9_`T5DV-Mf5coc8J9q" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="YyfVe*8Q9+/u+]DW5f5%"></shadow>
+      <block type="type_string" id="m;y9[h6Ti2%E?Z*3uwLJ"></block>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="WV/2`+qS:]7-*{{]fzLP">
+        <mutation colour="#5b67a5"></mutation>
+        <field name="HUE">230</field>
+      </block>
+    </value>
   </block></xml>

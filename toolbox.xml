@@ -401,6 +401,7 @@
       <block type="assign_statement"></block>
       <block type="assign_value"></block>
       <block type="html_string"></block>
+      <block type="select_image_url"></block>
     </category>
     <category name="function" colour="#9A5CA6">
       <block type="function"></block>

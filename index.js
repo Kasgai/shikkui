@@ -186,6 +186,7 @@ const loadImageList = (projectId) =>
           })
           .then((imageOptions) => {
             updateSelectImageBlock(imageOptions);
+            updateSelectImageURLBlock(imageOptions);
             resolve();
           });
       } else {
@@ -227,6 +228,32 @@ const updateSelectImageBlock = (imageOptions) => {
   Blockly.Blocks["select_image"] = {
     init: function () {
       this.jsonInit(newSelectImageJson);
+    },
+  };
+};
+
+const updateSelectImageURLBlock = (imageOptions) => {
+  if (imageOptions == null || imageOptions.length === 0) {
+    return;
+  }
+  const newSelectImageURLJson = {
+    type: "select_image_url",
+    message0: "image url %1",
+    args0: [
+      {
+        type: "field_dropdown",
+        name: "source",
+        options: imageOptions,
+      },
+    ],
+    output: "String",
+    colour: 230,
+    tooltip: "",
+    helpUrl: "",
+  };
+  Blockly.Blocks["select_image_url"] = {
+    init: function () {
+      this.jsonInit(newSelectImageURLJson);
     },
   };
 };
