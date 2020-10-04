@@ -66,6 +66,7 @@
       <block type="plaintext"></block>
     </category>
     <category name="Inline text semantics">
+      <block type="attribute_text"></block>
       <block type="a_href"></block>
       <block type="br"></block>
       <block type="code"></block>
@@ -78,7 +79,6 @@
       <block type="sub"></block>
       <block type="sup"></block>
       <block type="plaintext"></block>
-      <block type="attribute_text"></block>
     </category>
     <category name="Image and multimedia">
       <block type="img"></block>
