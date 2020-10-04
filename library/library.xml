@@ -1805,7 +1805,7 @@
                 <field name="USER1">2</field>
                 <field name="CPU1">h2</field>
                 <field name="USER2">3</field>
-                <field name="CPU2">h2</field>
+                <field name="CPU2">h3</field>
                 <field name="USER3">4</field>
                 <field name="CPU3">h4</field>
                 <field name="USER4">5</field>
