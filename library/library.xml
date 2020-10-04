@@ -2782,8 +2782,15 @@
             <field name="TEXT">x</field>
             <field name="FIELDNAME">NAME</field>
             <next>
-              <block type="field_static" id="Dy$.iH1sfw}OHolCMgMQ">
-                <field name="TEXT">=</field>
+              <block type="field_dropdown" id="qWVe4|bU2Q$tHOLwtS!f">
+                <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
+                <field name="FIELDNAME">ASSIGNMENT_OPERATOR</field>
+                <field name="USER0">=</field>
+                <field name="CPU0">=</field>
+                <field name="USER1">+=</field>
+                <field name="CPU1">+=</field>
+                <field name="USER2">-=</field>
+                <field name="CPU2">-=</field>
               </block>
             </next>
           </block>

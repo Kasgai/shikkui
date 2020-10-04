@@ -888,12 +888,21 @@ const javascriptBlocks = [
   },
   {
     type: "assign",
-    message0: "%1 = %2",
+    message0: "%1 %2 %3",
     args0: [
       {
         type: "field_input",
         name: "NAME",
         text: "x",
+      },
+      {
+        type: "field_dropdown",
+        name: "ASSIGNMENT_OPERATOR",
+        options: [
+          ["=", "="],
+          ["+=", "+="],
+          ["-=", "-="],
+        ],
       },
       {
         type: "input_value",

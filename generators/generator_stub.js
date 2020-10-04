@@ -388,12 +388,15 @@ BlockGenerator["var"] = function (block) {
 
 BlockGenerator["assign"] = function (block) {
   const var_name = block.getFieldValue("NAME");
+  const dropdown_assignment_operator = block.getFieldValue(
+    "ASSIGNMENT_OPERATOR"
+  );
   const assigned_value = Blockly.JavaScript.valueToCode(
     block,
     "assigned_value",
     Blockly.JavaScript.ORDER_ATOMIC
   );
-  return `${var_name} = ${assigned_value.trim()};\n`;
+  return `${var_name} ${dropdown_assignment_operator} ${assigned_value.trim()};\n`;
 };
 
 BlockGenerator["assign_value"] = function (block) {
