@@ -98,7 +98,7 @@ BlockGenerator["generic_style"] = function (block) {
   return code;
 };
 
-BlockGenerator["generictag"] = function (block) {
+BlockGenerator["generic_tag"] = function (block) {
   const text_name = block.getFieldValue("NAME");
   const value_name = BlockGenerator.valueToCode(
     block,
