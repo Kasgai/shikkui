@@ -42,6 +42,36 @@
     <block type="a_href"></block>
     <block type="generic_tag"></block>
   </category>
+  <category name="Table content" colour="#5ba5a5">
+    <block type="table">
+      <statement name="content">
+        <block type="tr">
+          <statement name="content">
+            <block type="td">
+              <next>
+                <block type="td"></block>
+              </next>
+            </block>
+          </statement>
+          <next>
+            <block type="tr">
+              <statement name="content">
+                <block type="td">
+                  <next>
+                    <block type="td"></block>
+                  </next>
+                </block>
+              </statement>
+            </block>
+          </next>
+        </block>
+      </statement>
+    </block>
+    <block type="table"></block>
+    <block type="td"></block>
+    <block type="tr"></block>
+    <block type="plaintext"></block>
+  </category>
   <category name="Scripting" colour="#a5a55b">
     <block type="script"></block>
     <block type="button">
