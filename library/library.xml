@@ -2624,7 +2624,7 @@
                     <field name="TEXT">(</field>
                     <next>
                       <block type="field_input" id="}3[P;*{q2YxvUR]lE9Q0">
-                        <field name="TEXT">x</field>
+                        <field name="TEXT"></field>
                         <field name="FIELDNAME">FUNCTION_ARGUMENT</field>
                         <next>
                           <block type="field_static" id="v$oAf8^2i4Bv7zwa7ZN=">
@@ -2739,7 +2739,7 @@
                 <field name="TEXT">(</field>
                 <next>
                   <block type="field_input" id="DC=}f@fpFc2KdH^VO*=?">
-                    <field name="TEXT">x</field>
+                    <field name="TEXT"></field>
                     <field name="FIELDNAME">FUNCTION_ARGUMENT</field>
                     <next>
                       <block type="field_static" id="IjhsiA?.cAfu%?ys|Q]F">

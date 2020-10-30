@@ -991,7 +991,7 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "FUNCTION_ARGUMENT",
-        text: "x",
+        text: "",
       },
       {
         type: "input_dummy",
@@ -1034,7 +1034,7 @@ const javascriptBlocks = [
       {
         type: "field_input",
         name: "FUNCTION_ARGUMENT",
-        text: "x",
+        text: "",
       },
     ],
     previousStatement: "javascript",
