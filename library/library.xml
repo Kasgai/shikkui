@@ -2559,13 +2559,17 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="Eq}+)S=1.~7)d%2u;U:(">
+      <block type="input_value" id="oH3/^Qke`5KM97AF{l,?">
+        <field name="INPUTNAME">attribute</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
             <field name="TEXT">td</field>
           </block>
         </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id="Ri]!a_.n*Ac!Hah[NtZO"></shadow>
+        </value>
         <next>
           <block type="input_statement" id="G=XG;fCLl3!c6GM17`Yt">
             <field name="INPUTNAME">content</field>

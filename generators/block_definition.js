@@ -604,7 +604,8 @@ const tableContentBlock = [
     message0: "td %1 %2",
     args0: [
       {
-        type: "input_dummy",
+        type: "input_value",
+        name: "attribute",
       },
       {
         type: "input_statement",

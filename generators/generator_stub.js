@@ -280,8 +280,14 @@ BlockGenerator["tr"] = function (block) {
 };
 
 BlockGenerator["td"] = function (block) {
+  const attribute = BlockGenerator.valueToCode(
+    block,
+    "attribute",
+    BlockGenerator.ORDER_NONE
+  );
   const content = BlockGenerator.statementToCode(block, "content");
-  return generateTag("td", content, false);
+
+  return `<td ${attribute}>${content.trim()}</td>\n`;
 };
 
 BlockGenerator["input_text"] = function (block) {
