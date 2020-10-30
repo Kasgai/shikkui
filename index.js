@@ -39,7 +39,7 @@ const loadTemplate = () => {
 };
 
 // XML setup
-const loadXml = (url) => {
+const loadXml = async (url) => {
   return fetch(`/shikkui/${url}`)
     .then((response) => response.text())
     .then((data) => data)
@@ -50,15 +50,6 @@ const makeWorkspace = (htmlToolbox) => {
   const htmlBlocklyArea = document.getElementById("blocklyArea");
 
   workspace = Blockly.inject(htmlBlocklyArea, makeOption(htmlToolbox));
-
-  if (isHost) {
-    const htmlBlockXmlCode = localStorage.getItem("blockly-html-code");
-    if (htmlBlockXmlCode) {
-      workspace.clear();
-      const xml = Blockly.Xml.textToDom(htmlBlockXmlCode);
-      Blockly.Xml.domToWorkspace(xml, workspace);
-    }
-  }
 
   Blockly.svgResize(workspace);
 
@@ -165,7 +156,14 @@ const downloadArchivedPage = (code) => {
   });
 };
 
-const firebaseDataAccess = (projectId) => {
+const firebaseDataAccess = () => {
+  shikkuiDatabase(`/xml`).once("value", (snapshot) => {
+    if (snapshot.val() != null) {
+      workspace.clear();
+      const xml = Blockly.Xml.textToDom(snapshot.val().xmlCode);
+      Blockly.Xml.domToWorkspace(xml, workspace);
+    }
+  });
   shikkuiDatabase(`/xml`).on("value", (snapshot) => {
     if (snapshot.val() != null && !isHost) {
       workspace.clear();
@@ -307,5 +305,5 @@ const toggleHost = () => {
   loadTemplate()
     .then((requestUrl) => loadXml(requestUrl))
     .then((toolbox) => makeWorkspace(toolbox))
-    .then(() => firebaseDataAccess(userInfo));
+    .then(() => firebaseDataAccess());
 })();
