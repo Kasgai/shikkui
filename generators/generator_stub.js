@@ -264,8 +264,14 @@ BlockGenerator["form"] = function (block) {
 };
 
 BlockGenerator["table"] = function (block) {
+  const attribute = BlockGenerator.valueToCode(
+    block,
+    "attribute",
+    BlockGenerator.ORDER_NONE
+  );
   const content = BlockGenerator.statementToCode(block, "content");
-  return generateTag("table", content);
+
+  return `<table ${attribute}>\n${content}</table>\n`;
 };
 
 BlockGenerator["tr"] = function (block) {

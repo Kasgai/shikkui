@@ -746,13 +746,17 @@
     <field name="INLINE">AUTO</field>
     <field name="CONNECTIONS">BOTH</field>
     <statement name="INPUTS">
-      <block type="input_dummy" id="Eq}+)S=1.~7)d%2u;U:(">
+      <block type="input_value" id="9tM-9-(^ua}?Dm_pS(DM">
+        <field name="INPUTNAME">attribute</field>
         <field name="ALIGN">LEFT</field>
         <statement name="FIELDS">
           <block type="field_static" id="$Nvjd`dOOOW8RdFT]/7/">
             <field name="TEXT">table</field>
           </block>
         </statement>
+        <value name="TYPE">
+          <shadow type="type_null" id=".xuaEj#Dd2?4^X1{;msE"></shadow>
+        </value>
         <next>
           <block type="input_statement" id="G=XG;fCLl3!c6GM17`Yt">
             <field name="INPUTNAME">content</field>
