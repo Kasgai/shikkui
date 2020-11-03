@@ -42,6 +42,16 @@
     <block type="a_href"></block>
     <block type="generic_tag"></block>
   </category>
+  <category name="Style" colour="#5b67a5">
+    <block type="style">
+      <statement name="style">
+        <block type="color"></block>
+      </statement>
+    </block>
+    <block type="color"></block>
+    <block type="background_color"></block>
+    <block type="generic_style"></block>
+  </category>
   <category name="Table content" colour="#5ba5a5">
     <block type="table">
       <statement name="content">
